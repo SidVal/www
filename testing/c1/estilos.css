@@ -1,0 +1,9 @@
+input {
+    margin: 10px;
+    font-size: 10px;
+}
+
+/* Ejemplo de clases */
+.primer {font-weight: bold;}
+.terminado {text-decoration: line-through;}
+
