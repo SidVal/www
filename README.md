@@ -2,7 +2,7 @@
 
 Un repositorio más, para codificar, practicar y aprender más
 
-## Ver código
+## Ver código en GitHub
 
 * [`/curso/`](https://github.com/SidVal/www/tree/master/curso)
 * [`/testing/`](https://github.com/SidVal/www/tree/master/testing)
