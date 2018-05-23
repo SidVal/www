@@ -21,9 +21,9 @@ El repositorio `/www/` está en línea y el código de cada clase puede consulta
 * Clase 1: no se vió código propiamente dicho a nivel página, ver [contenido visto en la clase 1](https://sidval.github.io/dev.web/#/).
 * [Clase 2](https://sidval.github.io/www/curso/c2)
 * [Clase 3](https://sidval.github.io/www/curso/c3)
+* [Clase 4](https://sidval.github.io/www/curso/c4)
 
 <!--//
-* [Clase 4](https://sidval.github.io/www/curso/c4)
 * [Clase 5](https://sidval.github.io/www/curso/c5)
 * [Clase 6](https://sidval.github.io/www/curso/c6)
 * [Clase 7](https://sidval.github.io/www/curso/c7)
