@@ -18,7 +18,7 @@ Y para practicar, ver en línea y romper está el apartado de [`/www/testing`](h
 
 El repositorio `/www/` está en línea y el código de cada clase puede consultarse desde aquí mismo:
 
-* Clase 1: no se vió código propiamente dicho a nivel página, ver [contenido visto en la clase 1](https://sidval.github.io/dev.web/#/).
+* Clase 1: no se vió código propiamente dicho a nivel página, ver [contenido visto en la clase 1](https://sidval.github.io/dev.web/#/curso/clase1).
 * [Clase 2](https://sidval.github.io/www/curso/c2)
 * [Clase 3](https://sidval.github.io/www/curso/c3)
 * [Clase 4](https://sidval.github.io/www/curso/c4)
