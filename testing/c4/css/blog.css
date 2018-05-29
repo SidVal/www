@@ -199,10 +199,11 @@ aside h2 {color: darkolivegreen;}
 
 /* FOOTER */
 
-footer {
+.footer {
     background: url('../../c3/images/top.png') no-repeat top center, url('../../c3/images/line.png') repeat-x top, url('../../c3/images/shadow.png') repeat-x top;
     margin-top: 25px;
 }
+
 
 #my-pictures {
     display: inline-block;
@@ -213,8 +214,4 @@ footer {
 #my-pictures img {
     border: 1px solid #181818;
     margin-right: 2px;
-}
-
-footer h2 {
-    font-size: 1.3em;
 }

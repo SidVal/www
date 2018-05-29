@@ -6,7 +6,7 @@
 
 Para ampliar los conocimientos, [leer documentación aquí](https://sidval.github.io/dev.web/#/).
 
-La documentación se actualiza en este repo: https://github.com/SidVal/dev.web/tree/master/docs/curso
+La documentación se actualiza en este [repo de github: curso](https://github.com/SidVal/dev.web/tree/master/docs/curso).
 
 ## Códigos
 
