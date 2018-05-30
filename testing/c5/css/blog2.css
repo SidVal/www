@@ -164,7 +164,7 @@ aside {
     color: white;
     font-size: 0.9em;
 }
-*/
+
 
 aside h2 {color: darkolivegreen;}
 
@@ -173,11 +173,13 @@ aside h2 {color: darkolivegreen;}
     left: -22px;
     vertical-align: middle;
 }
+*/
 
 .cat-icon {
     vertical-align: middle;
     margin-right: 8px;
 }
+
 
 #zozor-picture {
     text-align: center;
