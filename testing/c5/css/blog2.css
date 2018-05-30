@@ -21,6 +21,7 @@
 body {
     background: url('../../c3/images/yellow_background.png');
     width: 980px;
+    margin: 25px auto;
     /* font-family: 'Trebuchet MS', Arial, sans-serif;
     color: #181818; */
 }
