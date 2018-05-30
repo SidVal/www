@@ -84,7 +84,7 @@ nav li {
 nav a {
     font-size: 1.3em;
     color: #181818;
-    text-decoration: none;
+    text-transform: uppercase;
     padding-bottom: 3px;
 }
 
