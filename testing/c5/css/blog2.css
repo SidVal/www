@@ -27,7 +27,7 @@ body {
 }
 
 
-nav a,
+/* nav a, */
 footer h1 {
     font-family: Dayrom, serif;
     font-weight: normal;
@@ -69,6 +69,7 @@ nav {
     display: inline-block;
     /* width: 75%; */
     text-align: right;
+    text-shadow: 1px -1px 8px black;
 }
 
 nav ul {
