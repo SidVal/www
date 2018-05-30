@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+
+    <!-- <link rel="stylesheet" href="Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css"> -->
+    <!--Pongo Bootstrap 4 desde la web-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!-- <script src="js/JQuery/jquery-3.2.1.js"></script> -->
+
+    <title>Mi blog recardado con Bootstrap</title>
+    <link rel="stylesheet" href="css/blog.css" />
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <header>
+            <div>
+                <img src="../c3/images/zozor_logo.png" id="logo" alt="logo de zorrote" title="Zorrote Site">
+                <h1>Blog del Zorrote</h1>
+            </div>
+            <h2>Blog site</h2>
+            <nav class="navbar navbar-toggle navbar-expand-lg">
+                <ul>
+                    <li class="navbar-brand"><a href="#">Zorrote</a></li>
+                    <li><a href="#">Album Fotográfico</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+<div id="banner-image">
+    <!-- <div id="banner-description">
+                Mis recuerdos de mis ultimas vacaciones en EEUU...
+                <a href="#" class="red-button"><span>Leer artículo </span><img src="../c3/images/small_arrow.png" class="img-fluid"></a>
+            </div> -->
+    <div class="alert alert-dark" role="alert">
+        Mis recuerdos de mis ultimas vacaciones en EEUU...
+        <a href="#" class="alert-link">
+            Leer artículo
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+            <!-- <img src="../c3/images/small_arrow.png" class="img-fluid"> -->
+        </a>
+    </div>
+</div>
+        <section>
+            <article>
+                <h1><img src="../c3/images/pin.png" class="cat-icon">Soy un gran viajante...</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+                    sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                    <div class="alert alert-success" role="alert">Ningún <strong>animal</strong> fue herido durante la redacción de éstos contenidos.</div>
+                </p>
+                <p class="text-primary text-justify">
+                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
+                    eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                </p>
+                <p class="text-justify bg-info">
+                    Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero,
+                    sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
+                </p>
+            </article>
+            <aside>
+                <h2>Acerca del autor...</h2>
+                <img src="../c3/images/arrow.png" id="arrow">
+                <p id="zozor-picture"><img src="../c3/images/zozor.png"></p>
+                <p class="text-justify">
+                    Me presento: Mi nombre es <i>Zorrote</i> y me gusta viajar, naci en <abbr title="Buenos Aires">Bs. As.</abbr> y vivo en la ciudad de <abbr title="Córdoba">CBA</abbr>, me especializo en la caza nocturna y al ser una actividad muy demandante aprovecho los tiempos de vacaciones para visitar otros gallineros.
+                </p>
+                <p>Veremos muchas fotos de mis vacaciones...</p>
+                <p class="redes">
+                    <a href="http://www.facebook.com/zorrote"><img src="../c3/images/facebook.png "></a>
+                    <img src="../c3/images/twitter.png ">
+                    <img src="../c3/images/vimeo.png ">
+                    <img src="../c3/images/flickr.png ">
+                    <img src="../c3/images/rss.png ">
+                </p>
+            </aside>
+        </section>
+        <footer>
+            <div class="footer">
+                <h2>Mis imagenes...</h2>
+                    <div id="thumbnail my-pictures">
+                <img src="../c3/images/pic1.jpg" class="img-thumbnail">
+                <img src="../c3/images/pic2.jpg" class="img-thumbnail">
+                <img src="../c3/images/pic3.jpg" class="img-thumbnail">
+                <img src="../c3/images/pic4.jpg" class="img-thumbnail">
+            </div>
+        </div>
+        </footer>
+    </div>
+</body>
+
+</html>

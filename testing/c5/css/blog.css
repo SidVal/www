@@ -1,0 +1,211 @@
+/*Custom Fonts*/
+
+@font-face {
+    font-family: 'BallparkFont';
+    /* src: url('../fonts/ballpark.woff') format('woff'); */
+    src: url(../../c3/fonts/ballpark.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dayrom';
+    src: url('../../c3/fonts/dayrom.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*Main elements*/
+
+body {
+    background: url('../../c3/images/yellow_background.png');
+    /* font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #181818; */
+}
+
+
+nav a,
+footer h1 {
+    font-family: Dayrom, serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+header {
+    background: url('../../c3/images/line.png') repeat-x bottom;
+}
+
+header h1 {
+    font-family: 'BallparkFont';
+    font-weight: normal;
+    font-size: 4.5em;
+}
+
+header h2 {
+    font-family: 'Dayrom', serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 0px;
+    margin-left: 24px;
+}
+
+#logo,
+header h1 {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+#logo {
+    width: 112px;
+}
+
+
+/*Navegacion*/
+
+nav {
+    display: inline-block;
+    width: 75%;
+    text-align: right;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav a {
+    font-size: 1.3em;
+    color: #181818;
+    text-decoration: none;
+    padding-bottom: 3px;
+}
+
+/* nav a:hover,
+nav a:focus {
+    color: #760000;
+    border-bottom: 3px solid #760000;
+} */
+
+
+/* BANNER */
+
+#banner-image {
+    margin-top: 15px;
+    height: 215px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 25px;
+    background: url('../../c3/images/sanfrancisco.jpg') no-repeat;
+    box-shadow: 10px 10px 50px #181818;
+    width: 950px;
+    max-width: 100%;
+}
+
+#banner-description {
+    position: absolute;
+    bottom: 0px;
+    display: inline-block;
+    background-color: rgba(24, 24, 24, 0.6);
+    color: white;
+    border-radius: 0px 0px 5px 5px;
+    /* font-size: 0.8em; */
+    width: 100%;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.red-button {
+    display: inline-block;
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    bottom: 8px;
+    background: url('../../c3/images/red_background.png');
+    border: 1px solid #760000;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    color: white !important;
+    text-decoration: none;
+    padding: 3px 8px 0px 8px;
+}
+
+
+/* CUERPO */
+
+article {
+    display: inline-block;
+    vertical-align: top;
+}
+
+aside {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+article {
+    width: 65%;
+    margin-right: 15px;
+}
+
+aside {
+    width: 30%;
+    background: linear-gradient(#3afb5b78, #000800);
+    box-shadow: 0px 2px 5px #181818;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+}
+
+aside h2 {color: darkolivegreen;}
+
+#arrow {
+    position: relative;
+    left: -22px;
+    vertical-align: middle;
+}
+
+.cat-icon {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+#zozor-picture {
+    text-align: center;
+}
+
+.redes {
+    text-align: center;
+}
+
+.redes img {
+    height: 32px;
+}
+
+
+/* FOOTER */
+
+.footer {
+    background: url('../../c3/images/top.png') no-repeat top center, url('../../c3/images/line.png') repeat-x top, url('../../c3/images/shadow.png') repeat-x top;
+    margin-top: 25px;
+}
+
+
+#my-pictures {
+    display: inline-block;
+    vertical-align: top;
+    width: 35%;
+}
+
+#my-pictures img {
+    border: 1px solid #181818;
+    margin-right: 2px;
+}
