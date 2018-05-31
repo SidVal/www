@@ -34,6 +34,10 @@ footer h1 {
     text-transform: uppercase;
 }
 
+footer h2 {
+    padding-top: 20px;
+}
+
 header {
     background: url('../../c3/images/line.png') repeat-x bottom;
 }
@@ -42,6 +46,11 @@ header h1 {
     font-family: 'BallparkFont';
     font-weight: normal;
     font-size: 4.5em;
+    vertical-align: middle;
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available; /* https://stackoverflow.com/questions/26275982/putting-moz-available-and-webkit-fill-available-in-one-width */
 }
 
 header h2 {
@@ -168,15 +177,17 @@ aside {
     font-size: 0.9em;
 }
 
-
-aside h2 {color: darkolivegreen;}
-
 #arrow {
     position: relative;
     left: -22px;
     vertical-align: middle;
 }
 */
+
+aside h2 {
+    font-size: 1.60em;
+    color: darkolivegreen;
+}
 
 .cat-icon {
     vertical-align: middle;
@@ -194,6 +205,7 @@ aside h2 {color: darkolivegreen;}
 
 .redes img {
     height: 32px;
+    box-shadow: 3px 4px 6px 0px #a99868;
 }
 
 
