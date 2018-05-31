@@ -47,10 +47,6 @@ header h1 {
     font-weight: normal;
     font-size: 4.5em;
     vertical-align: middle;
-    width: 100%;
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    width: fill-available; /* https://stackoverflow.com/questions/26275982/putting-moz-available-and-webkit-fill-available-in-one-width */
 }
 
 header h2 {
@@ -79,6 +75,11 @@ nav {
     /* width: 75%; */
     text-align: right;
     text-shadow: 1px -1px 8px black;
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available; /* https://stackoverflow.com/questions/26275982/putting-moz-available-and-webkit-fill-available-in-one-width */
+
 }
 
 nav ul {
