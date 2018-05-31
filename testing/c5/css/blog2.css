@@ -212,7 +212,7 @@ aside h2 {
 
 /* FOOTER */
 
-.footer {
+footer {
     background: url('../../c3/images/top.png') no-repeat top center, url('../../c3/images/line.png') repeat-x top, url('../../c3/images/shadow.png') repeat-x top;
     margin-top: 25px;
 }
