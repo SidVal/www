@@ -22,9 +22,11 @@ El repositorio `/www/` está en línea y el código de cada clase puede consulta
 * [Clase 2](https://sidval.github.io/www/curso/c2)
 * [Clase 3](https://sidval.github.io/www/curso/c3)
 * [Clase 4](https://sidval.github.io/www/curso/c4)
+* Clase 5
+  * [clase5.html](https://sidval.github.io/www/curso/c5/clase5.html)
+  * [clase5grillas.html](https://sidval.github.io/www/curso/c5/clase5.html)
 
 <!--//
-* [Clase 5](https://sidval.github.io/www/curso/c5)
 * [Clase 6](https://sidval.github.io/www/curso/c6)
 * [Clase 7](https://sidval.github.io/www/curso/c7)
 * [Clase 8](https://sidval.github.io/www/curso/c8)

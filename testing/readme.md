@@ -9,7 +9,8 @@ Repositorio para alojar los archivos para depurar y practicar lo aprendido.
 * [`www/testing/c5`](https://sidval.github.io/www/testing/c5)
   * [Vimos grillas](https://sidval.github.io/www/testing/c5/clase5-grillas.html)
   * [Editamos el Blog en clase 5, para tarea](https://sidval.github.io/www/testing/c5/blog.html)
-  * [Blog v2](https://sidval.github.io/www/testing/c5/blog2.html)
+  * [Blog v10.5 para el TP1](https://sidval.github.io/www/testing/c5/blog2.html)
+  * [Grillas-b4: Grillas con Bootstrap 4](https://sidval.github.io/www/testing/c5/grillas-b4.html)
 
 <!--//
 * [`www/testing/c6`](https://sidval.github.io/www/testing/c6)
