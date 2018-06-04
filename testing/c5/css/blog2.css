@@ -15,7 +15,6 @@
     font-style: normal;
 }
 
-
 /*Main elements*/
 
 body {
@@ -26,8 +25,8 @@ body {
     color: #181818; */
 }
 
-
 /* nav a, */
+
 footer h1 {
     font-family: Dayrom, serif;
     font-weight: normal;
@@ -67,7 +66,6 @@ header h1 {
     width: 112px;
 }
 
-
 /* Navegacion */
 
 nav {
@@ -76,10 +74,12 @@ nav {
     text-align: right;
     text-shadow: 1px -1px 8px black;
     width: 100%;
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    width: fill-available; /* https://stackoverflow.com/questions/26275982/putting-moz-available-and-webkit-fill-available-in-one-width */
-
+    width: -moz-available;
+    /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;
+    /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+    /* https://stackoverflow.com/questions/26275982/putting-moz-available-and-webkit-fill-available-in-one-width */
 }
 
 nav ul {
@@ -103,7 +103,6 @@ nav a:focus {
     color: #760000;
     border-bottom: 3px solid #760000;
 } */
-
 
 /* BANNER */
 
@@ -149,20 +148,26 @@ nav a:focus {
     padding: 3px 8px 0px 8px;
 }
 
-
 /* CUERPO */
-/*
+
 article {
-    display: inline-block;
-    vertical-align: top;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border: 1px dotted #3129965e;
+    border-right: none;
+    border-top: none;
+    border-left: none;
 }
 
 aside {
-    display: inline-block;
-    vertical-align: top;
+    border-radius: 5px;
+    border: 1px dotted #3129965e;
+    border-left: none;
+    border-top: none;
 }
 
-
+/*
 article {
     width: 65%;
     margin-right: 15px;
@@ -186,8 +191,9 @@ aside {
 */
 
 aside h2 {
-    font-size: 1.60em;
+    font-size: 1.05rem;
     color: darkolivegreen;
+    margin-top: 5px;
 }
 
 .cat-icon {
@@ -195,13 +201,12 @@ aside h2 {
     margin-right: 8px;
 }
 
-
 #zozor-picture {
     text-align: center;
 }
 
 .redes {
-    text-align: center;
+    margin-bottom: 10px;
 }
 
 .redes img {
@@ -209,22 +214,92 @@ aside h2 {
     box-shadow: 3px 4px 6px 0px #a99868;
 }
 
-
 /* FOOTER */
 
 footer {
     background: url('../../c3/images/top.png') no-repeat top center, url('../../c3/images/line.png') repeat-x top, url('../../c3/images/shadow.png') repeat-x top;
     margin-top: 25px;
+    width: 100%;
 }
-
 
 #my-pictures {
     display: inline-block;
     vertical-align: top;
-    /* width: 35%; */ 
+    /* width: 35%; */
 }
 
 #my-pictures img {
     border: 1px solid #181818;
     margin-right: 2px;
 }
+
+/* Personalización de Bootstrap */
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: rgb(255, 244, 214);
+    border-color: rgba(0, 123, 255, .25) rgba(0, 123, 255, .25) #81818200;
+}
+
+.float-left {
+    float: left!important;
+    margin-right: 5px;
+}
+
+
+/* Agregados */ 
+
+.tab-pane div.articulos {
+    margin-top: 5px;
+}
+
+.alert-banner {
+    position: absolute;
+    bottom: 0px;
+    padding: .75rem 1.25rem;
+    border-radius: .25rem;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 576px) {
+    body {
+        background: url('../../c3/images/yellow_background.png');
+        width: 500px;
+        margin: 25px auto;
+    }
+ }
+
+@media (min-width: 576px) {
+    body {
+        background: url('../../c3/images/yellow_background.png');
+        width: 576px;
+        margin: 25px auto;
+    }
+ }
+
+@media (min-width: 768px) { 
+    body {
+        background: url('../../c3/images/yellow_background.png');
+        width: 768px;
+        margin: 25px auto;
+    }
+ }
+
+@media (min-width: 992px) { 
+    body {
+        background: url('../../c3/images/yellow_background.png');
+        width: 920px;
+        margin: 25px auto;
+    }
+ }
+
+@media (min-width: 1200px) { 
+    body {
+        background: url('../../c3/images/yellow_background.png');
+        width: 920px;
+        margin: 25px auto;
+    }
+ }

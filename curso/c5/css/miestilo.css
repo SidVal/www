@@ -1,0 +1,11 @@
+body {
+    margin-bottom: 150px;
+}
+
+tr.success {
+    background-color: brown !important;
+}
+
+.img-rounded {
+    border-radius: 15px;
+}
