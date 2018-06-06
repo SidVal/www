@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Comaptible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Pagina de Bootstrap</title>
+    <!--BOOTSTRAP CSS-->
+    <link rel=" stylesheet " href="./bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css " />
+    <!--JQUERY + BOOTSTRAP JS-->
+    <script src="./js/JQuery/jquery-3.2.1.js "></script>
+    <script src="./bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js "></script>
+    <!--Mi Estilo-->
+    <link rel="stylesheet" href="./css/miestilo.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <form role="form">
+            <fieldset>
+                <div class="row form-group input-group has-error">
+                    <span class="input-group-addon">
+                        Email
+                    </span>
+                    <!-- <label class="control-label col-xs-2 col-md-2 col-sm-2 col-lg-2" for="email1">Email</label> -->
+                    <div class="col-xs-8 col-md-8 col-sm-8 col-lg-8">
+                        <input type="email" class="form-control input-lg" id="email1" name="email1" placeholder="Introduce tu email...">
+                        <span class="help-block">El email debe contener minimo de 3 caracteres seguidos de un @ y luego el dominio que debe estar compuesto por el nombre del sitio mas el punto y la extension ej com.</span>
+                    </div>
+                </div>
+                <div class="row form-group has-warning">
+                    <label class="control-label col-xs-2 col-md-2 col-sm-2 col-lg-2" for="usuario1">Usuario</label>
+                    <div class="col-xs-8 col-md-8 col-sm-8 col-lg-8">
+                        <input ng-model="var1" type="text" class="form-control" id="usuario1" name="usuario1" placeholder="Introduce tu usuario...">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="control-label col-xs-2 col-md-2 col-sm-2 col-lg-2" for="password1">Password</label>
+                    <div class="col-xs-8 col-md-8 col-sm-8 col-lg-8">
+                        <input type="password" class="form-control input-sm" id="password1" name="password1" placeholder="Introduce tu password...">
+                    </div>
+                </div>
+                <div class="row form-group has-success">
+                    <label class="control-label col-xs-2 col-md-2 col-sm-2 col-lg-2" for="texto1">Texto</label>
+                    <div class="col-xs-8 col-md-8 col-sm-8 col-lg-8">
+                        <textarea type="text" class="form-control " id="usuario1" name="usuario1" placeholder="Introduce un texto..." rows="20" cols="500"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Activar...
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                        <input type="radio" name="opciones" id="opcion1" value="op1">Opción 1
+                </label>
+                <label>
+                        <input type="radio" name="opciones" id="opcion2" value="op2">Opción 2
+                </label>
+                <label>
+                        <input type="radio" name="opciones" id="opcion3" value="op3">Opción 3
+                </label>
+            </div>
+            <div class="row form-group has-error">
+                <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                    <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                <button type="button" class="btn btn-info btn-sm" onclick="leerdatos();">Small info</button>
+                <button type="button" class="btn btn-warning btn-xs">Warning</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-link">Un boton con forma de link</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-block active">Activo</button>
+                <button type="button" class="btn btn-block">No Activo</button>
+                <button type="button" class="btn btn-warning btn-block">Warning</button>
+                <button type="button" class="btn btn-danger btn-block">Danger</button>
+                <button type="button" class="btn btn-primary btn-block">Primary</button>
+                <button type="button" class="btn btn-primary btn-block disabled">Desctivado</button>
+                <button type="button" class="btn btn-link btn-block">Un boton con forma de link</button>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary" role="button">Anchor</a>
+                <button class="btn btn-primary" type="button">Button</button>
+                <input class="btn btn-primary" type="button" value="Input">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-align-left"></span>
+                </button>
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-align-center"></span>
+                </button>
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                </button>
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-align-right"></span>
+                </button>
+                <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-star">Star</span>
+                    </button>
+            </div>
+            <div class="form-group">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        Menu desplegable <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" class="dropdown-header">Titulo</li>
+                        <li role="presentation" class="disabled">
+                            <a role="menuitem" tabindex="-1" href="#">Accion 1</a>
+                        </li>
+                        <li role="presentation">
+                            <button class="btn btn-default" role="menuitem" tabindex="-1">
+                                    <span class="glyphicon glyphicon-star">Star</span>
+                                </button>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">Accion 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="btn-group">
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-align-left"></span>
+                    </button>
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-align-center"></span>
+                    </button>
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-align-justify"></span>
+                    </button>
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-align-right"></span>
+                    </button>
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-star">Star</span>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success">Enviar</button>
+                        <button type="button" class="btn btn-info" onclick="leerdatos();">Small info</button>
+                        <button type="button" class="btn btn-warning">Warning</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger">Danger</button>
+                        <button type="button" class="btn btn-primary">Primary</button>
+                        <button type="button" class="btn btn-default">Un boton con forma de link</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon">.00</span>
+                </div>
+
+            </div>
+    </div>
+    </form>
+    </div>
+</body>
+
+</html>
