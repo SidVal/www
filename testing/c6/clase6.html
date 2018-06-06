@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clase 6 con Bootstrap 3</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../c6/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <!-- JQUERY + Bootstrap JS -->
+    <script src="../c6/js/JQuery/jquery-3.2.1.js"></script>
+    <script src="../c6/Bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+    <!--Aplico mi estilo para que tenga más jerarquía, lo aplico al último-->
+    <link rel="stylesheet" href="css/miestilo3.css">
+    
+</head>
+<body>
+<div class="container">
+<form role="form">
+    <div class="form-inline">
+        <label for="email1">Email</label>
+        <input type="email" class="form-control" id="email1" name="email1" placeholder="Tu correo">
+        <label for="usuario1">Usuario</label>
+        <input type="text" class="form-control" id="usuario1" name="usuario1" placeholder="Tu username">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">Activar
+            </label>
+        </div>
+        <button type="submit" class="btn-success">Enviar</button>
+    </div>
+    <br>
+    <button type="submit" class="btn-success btn-lg">Enviar 2</button>
+    <button type="submit" class="btn-primary">Enviar 3</button>
+</form>
+
+<br>
+<hr>
+<br>
+<h3>Ponemos class row con class cols 2 y 8</h3>
+<form role="form">
+    <div class="row form-group has-error">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <label for="email1">Email</label>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <input type="email" class="form-control" id="email1" name="email1" placeholder="Tu correo">
+        </div>
+    </div>
+    <div class="row form-group has-warning">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <label for="usuario1">Usuario</label></div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <input type="text" class="form-control col-xs-8 col-sm-8 col-md-8 col-lg-8" id="usuario1" name="usuario1" placeholder="Tu username"></div>
+    </div>
+    <div class="row form-group">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <label for="texto1">Texto</label>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <textarea name="text1" id="text1" cols="30" rows="10"></textarea></div>
+    </div>
+    <button type="submit" class="btn-success">Enviar</button>
+    </div>
+</form>
+
+<br><hr><br>
+
+<div class="form-group">
+    <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="drop1" data-toggle="dropdown">
+            Menú desplegable
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                <li role="presentation">
+                    <a role="menuitem" tabindex="1" href="#">accion1</a>
+                </li>
+            </ul>
+        
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>
