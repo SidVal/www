@@ -1,0 +1,42 @@
+.tituloPrincial {
+    font-family: courier, courier new, serif;
+    font-size: 3em;
+    padding-top: 50px;
+}
+
+.cuerpoTexto {
+    font-size: 0.9em;
+}
+
+footer {
+    background: url(../images/line.png) repeat-x top, url(../images/shadow.png) repeat-x top;
+}
+
+body,
+p {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.bulbinner,
+img {
+    margin: 0px auto;
+    width: 182px;
+}
+
+body {
+    background-color: #000;
+}
+
+h1 {
+    text-align: center;
+    background-color: #333;
+    color: #ddd;
+    width: 100%;
+}
+
+.bulb {
+    background-image: url("../images/bulbbackground.png");
+    width: 100%;
+}

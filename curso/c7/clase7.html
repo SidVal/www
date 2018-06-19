@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Comaptible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Pagina de Bootstrap</title>
+    <!--BOOTSTRAP CSS-->
+    <link rel=" stylesheet " href="./bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css " />
+    <!--JQUERY + BOOTSTRAP JS-->
+    <script src="./js/JQuery/jquery-3.2.1.js "></script>
+    <script src="./bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js "></script>
+    <!--Mi Estilo-->
+    <link rel="stylesheet" href="./css/miestilo.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Titulo del boton <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="http://www.google.com">Accion #1</a></li>
+                <li><a href="#">Accion #2</a></li>
+                <li><a href="#">Accion #3</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger">Titulo del boton</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li><a href="http://www.google.com">Accion #1</a></li>
+                <li><a href="#">Accion #2</a></li>
+                <li><a href="#">Accion #3</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Buscar</button>
+                    </span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Buscar</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Titulo del boton <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://www.google.com">Accion #1</a></li>
+                        <li><a href="#">Accion #2</a></li>
+                        <li><a href="#">Accion #3</a></li>
+                    </ul>
+                    </span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Inicio</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Mensajes</a></li>
+        </ul>
+        <div class="">Contenido 1</div>
+        <div class="hidden">Contenido 2</div>
+        <div class="hidden">Contenido 3</div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li><a href="#">Inicio</a></li>
+            <li class="active"><a href="#">Perfil</a></li>
+            <li><a href="#">Mensajes</a></li>
+        </ul>
+        <div class="hidden">Contenido 1</div>
+        <div class="">Contenido 2</div>
+        <div class="hidden">Contenido 3</div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="#">Inicio</a></li>
+            <li class="active"><a href="#">Perfil</a></li>
+            <li><a href="#">Mensajes</a></li>
+        </ul>
+        <div class="hidden">Contenido 1</div>
+        <div class="">Contenido 2</div>
+        <div class="hidden">Contenido 3</div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-tab nav-justified">
+            <li><a href="#">Inicio <span class="badge">42</span></a></li>
+            <li class="active"><a href="#">Perfil</a></li>
+            <li><a href="#">Mensajes</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Menu desplegable <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://www.google.com">Accion #1</a></li>
+                    <li><a href="#">Accion #2</a></li>
+                    <li><a href="#">Accion #3</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="hidden">Contenido 1</div>
+        <div class="">Contenido 2</div>
+        <div class="hidden">Contenido 3</div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logotipo</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Enlace 1</a></li>
+                <li><a href="#">Enlace 2</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Menu 1 <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://www.google.com">Accion #1</a></li>
+                        <li><a href="#">Accion #2</a></li>
+                        <li><a href="#">Accion #3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="#Inicio">Inicio</a></li>
+                <li><a href="#Inicio">Pagina 1</a></li>
+                <li class="active"><a href="#Inicio">Pagina 2</a></li>
+            </ol>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+        <ul class="pagination pagination-lg">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+        <ul class="pagination pagination-sm">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+        <ul class="pager">
+            <li class="previous disabled"><a href="#">&larr; Anterior</a></li>
+            <li class="next"><a href="#">Siguiente &rarr;</a></li>
+        </ul>
+    </div>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Listado de novedades de nuestro sitio</h1>
+            <p>Tenemos la mas amplia gama de productos de las mejores marcas del mercado...</p>
+            <p><a class="btn btn-xs btn-primary" href="#">Leer mas</a></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <a href="#" class="alert-link">Error! siga este enlace para mas informacion</a>
+        </div>
+        <div class="alert alert-warning">
+            <a href="#" class="alert-link">Atencion! siga este enlace para mas informacion</a>
+        </div>
+        <div class="alert alert-info">
+            <a href="#" class="alert-link">Info! siga este enlace para mas informacion</a>
+        </div>
+        <div class="alert alert-success">
+            <a href="#" class="alert-link">Exitos! siga este enlace para mas informacion</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuenow="60" aria-valuemax="100" aria-valuetext="60% completado" style="width:60%">
+                <span>60% completado</span>
+            </div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuenow="60" aria-valuemax="100" aria-valuetext="60% completado" style="width:60%">
+                <span>60% completado</span>
+            </div>
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuemin="0" aria-valuenow="20" aria-valuemax="100" aria-valuetext="20% completado" style="width:20%">
+                <span>20% completado</span>
+            </div>
+            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuenow="10" aria-valuemax="100" aria-valuetext="10% completado" style="width:10%">
+                <span>10% completado</span>
+            </div>
+        </div>
+        <div class="progress progress-striped active">
+            <div class="progress-bar progress-bar-success " role="progressbar" aria-valuemin="0" aria-valuenow="60" aria-valuemax="100" aria-valuetext="60% completado" style="width:60%">
+                <span>60% completado</span>
+            </div>
+        </div>
+        <div class="progress active">
+            <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuenow="60" aria-valuemax="100" aria-valuetext="60% completado" style="width:60%">
+                <span>60% completado</span>
+            </div>
+        </div>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Título del panel con estilo h3</h3>
+            </div>
+            <div class="panel-body">
+                Contenido del panel
+            </div>
+            <div class="panel-footer">Pie del panel</div>
+        </div>
+
+    </div>
+</body>
+
+</html>

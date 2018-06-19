@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Comaptible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Pagina de JAVASCRIPT</title>
+    <!--BOOTSTRAP CSS-->
+    <link rel=" stylesheet " href="./bootstrap/css/bootstrap.css " />
+    <!--JQUERY + BOOTSTRAP JS-->
+    <script src="./js/jquery-3.2.0/jquery-3.2.0.js "></script>
+    <script src="./bootstrap/js/bootstrap.js "></script>
+    <!--Mi Estilo-->
+    <link rel="stylesheet" href="./css/misestilos.css" />
+
+    <script>
+        var bulb = null;
+    function toogleBulb() {
+        // tomamos el elemento id bulb
+        // var bulb = document.getElementById("bulb");
+
+        var title1 = document.getElementsByTagName("h1")[0]; //devuelve un array con todos los h1 que haya por eso se especifica cuál elemento del array es el que nos interesa [0] (el primer elemento que aparezca).
+        var fondo = document.getElementsByClassName("bulb")[0];
+
+        // acción si está encendido o apagado?
+        if (bulb.src.match("bulboff")) {
+            bulb.src = "./images/bulbon.png";
+            title1.innerHTML = "Apague la lámpara!";
+            fondo.style.backgroundImage = "url('./images/bulbbackground2.png')";
+        } else {
+            bulb.src = "./images/bulboff.png";
+            title1.innerHTML = "Encienda la lámpara";
+            fondo.style.backgroundImage = "url('./images/bulbbackground.png')";
+        }
+
+    }
+
+    function afterLoadPage() {
+        bulb = document.getElementById("bulb");
+        var boton = document.getElementsByClassName("btn-success")[0]; //tomo el primer botón success que encuentra
+
+        boton.addEventListener("click", function(){toogleBulb();})
+
+        toogleBulb();
+
+        //ejecuta función cada 1000 milisegundos
+        var timeStart = undefined;
+        setInterval(function(){
+            //quiero que atrape el timeup
+            var timeUp = document.getElementById("timeUp");
+            if (bulb.src.match("bulbon")) {
+            // timeUp.value = new Date().toTimeString();
+            timeStart = timeStart || new Date();
+            timeUp.value = (new Date() - timeStart);
+            } else {
+                timeUp.value = "";
+                timeStart = null;
+            }
+        },1000);
+    
+    }
+    </script>
+
+    </head>
+
+    <body class="container-fluid" onload="afterLoadPage();">
+<h1>Encienda la lampara...</h1>
+<div>
+<div class="bulb">
+<div class="bulbinner">
+    <!-- <img id="bulb" src="./images/bulboff.png"> -->
+    <img id="bulb" src="./images/bulboff.png" onmouseover="toogleBulb();" onmouseout="toogleBulb();">
+</div>
+<button class="btn btn-primary btn-lg btn-block" id="btnToogle" type="button" onclick="toogleBulb();">Encender y Apagar</button> 
+<button class="btn btn-success btn-lg btn-block" type="button">Encender la lámpara (con event.listener)</button>
+<!--para este, necesito un evento onload en el body para que se ejcute cuando termino de cargar todos los elementos que están en la página. -->
+<input type="text" id="timeUp" class="form-control">
+</div>
+</div>
+    </body>
+
+    </html>

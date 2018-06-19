@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Comaptible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Pagina de JAVASCRIPT</title>
+    <!--BOOTSTRAP CSS-->
+    <link rel=" stylesheet " href="./bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css " />
+    <!--JQUERY + BOOTSTRAP JS-->
+    <script src="./js/JQuery/jquery-3.2.1.js "></script>
+    <script src="./bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js "></script>
+    <!--Mi Estilo-->
+    <link rel="stylesheet" href="./css/miestilo.css" />
+    <!-- <script src="./js/mijavascript.js"></script> -->
+    <script type="text/javascript">
+        //alert("Bienvenido a Javascript");
+        function submitform() {
+            var form = document.getElementById("formulario1");
+            var forms = document.getElementsByTagName("form");
+            var controles = document.getElementsByClassName("form-control");
+            var input = document.getElementsByName("input1");
+            if (confirm("Esta seguro de enviar el formulario?") == true) {
+                form.submit();
+            }
+        }
+
+        function confirm() {
+            var modalform = document.getElementById("mostrarmodal");
+            modalform.modal("show");
+            //$("#mostrarmodal").modal("show");
+        }
+
+        function bienvenidoClick(param1) {
+            alert('Bienvenido ' + param1);
+        }
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <p>Bienvenido</p>
+        <p>La pagina que estas viendo requiere para su funcionamiento el uso de Javascript, por favor activarlo en el browser.</p>
+    </noscript>
+    <div class="container">
+        <form id="formulario1" novalidate>
+            <div class="form-group">
+                <label for="input1" class="control-label">Nombre: </label>
+                <input type="text" class="form-control" name="input1">
+                <label for="input2" class="control-label">Apellido: </label>
+                <input type="text" class="form-control" name="input2">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="confirm();">Submit</button>
+        </form>
+    </div>
+
+    <div class="modal fade" id="mostrarmodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button id="submitbutton" type="button" data-dismiss="modal" class="btn btn-danger" onclick="submitform();">Enviar</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
