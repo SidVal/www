@@ -17,12 +17,12 @@ Repositorio para alojar los archivos para depurar y practicar lo aprendido.
 * [`www/testing/c8`](https://sidval.github.io/www/testing/c8/clase8.html)
 
 <!--//
-* [`www/testing/c8`](https://sidval.github.io/www/testing/c9)
-* [`www/testing/c8`](https://sidval.github.io/www/testing/c10)
-* [`www/testing/c8`](https://sidval.github.io/www/testing/c11)
-* [`www/testing/c8`](https://sidval.github.io/www/testing/c12)
-* [`www/testing/c8`](https://sidval.github.io/www/testing/c13)
-* [`www/testing/c8`](https://sidval.github.io/www/testing/c14)
-* [`www/testing/c8`](https://sidval.github.io/www/testing/c15)
-* [`www/testing/c8`](https://sidval.github.io/www/testing/c16)
+* [`www/testing/c9`](https://sidval.github.io/www/testing/c9)
+* [`www/testing/c10`](https://sidval.github.io/www/testing/c10)
+* [`www/testing/c11`](https://sidval.github.io/www/testing/c11)
+* [`www/testing/c12`](https://sidval.github.io/www/testing/c12)
+* [`www/testing/c13`](https://sidval.github.io/www/testing/c13)
+* [`www/testing/c14`](https://sidval.github.io/www/testing/c14)
+* [`www/testing/c15`](https://sidval.github.io/www/testing/c15)
+* [`www/testing/c16`](https://sidval.github.io/www/testing/c16)
 //-->
