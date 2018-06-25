@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Comaptible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Pagina de JAVASCRIPT</title>
+    <!--BOOTSTRAP CSS-->
+    <link rel=" stylesheet " href="./bootstrap/css/bootstrap.css " />
+    <!--JQUERY + BOOTSTRAP JS-->
+    <script src="./js/JQuery-3.2.0/jquery-3.2.0.js "></script>
+    <script src="./bootstrap/js/bootstrap.js "></script>
+    <!--Mi Estilo-->
+    <link rel="stylesheet" href="./css/misestilos.css" />
+    <script>
+        var bulb = null;
+
+        function toggleBulb() {
+            var titles = document.getElementsByTagName("h1");
+            var fondo = document.getElementsByClassName("bulb")[0];
+            var title = null;
+            for (var i = 0; i < titles.length; i++) {
+                if (titles[i].innerText.match("lampara")) {
+                    title = titles[i];
+                }
+            }
+
+            var titleJQ = $("h1:contains('lampara')");
+
+            if (bulb.src.match("bulboff")) {
+                bulb.src = "./images/bulbon.png";
+                textoNuevo = "Apague la lampara... (segun Macri!)";
+                fondo.style.backgroundImage = "url(./images/bulbbackground2.png)";
+            } else {
+                bulb.src = "./images/bulboff.png";
+                textoNuevo = "Encienda la lampara...";
+                fondo.style.backgroundImage = "url(./images/bulbbackground.png)";
+            }
+
+            if (title != null) {
+                title.innerText = textoNuevo;
+            }
+        }
+
+        function afterLoadPage() {
+            bulb = document.getElementById("bulb");
+            var boton = document.getElementsByClassName("btn-success")[0];
+            boton.addEventListener("click", function() {
+                toggleBulb();
+            });
+            toggleBulb();
+            var timeStart = undefined;
+            setInterval(function() {
+                var timeup = document.getElementById("timeup");
+                if (bulb.src.match("bulbon")) {
+                    timeStart = timeStart || new Date();
+                    timeup.value = (new Date() - timeStart);
+                } else {
+                    timeup.value = "";
+                    timeStart = null;
+                }
+            }, 1000);
+        }
+
+        $(document).ready(function() {
+            afterLoadPageJQuery();
+        });
+
+        function afterLoadPageJQuery() {
+            bulb = $("#bulb")[0];
+            $(".btn-success").click(function() {
+                toggleBulb();
+            });
+            toggleBulb();
+        }
+    </script>
+</head>
+
+<!-- <body class="container-fluid" onload="afterLoadPage();"> -->
+
+<body>
+    <h1>Viendo JAVASCRIPT</h1>
+    <h1 name="lampara">Encienda la lampara...</h1>
+    <div>
+        <div class="bulb">
+            <div class="bulbinner">
+                <img id="bulb" src="./images/bulboff.png" onmouseover="toggleBulb()" onmouseout="toggleBulb();">
+            </div>
+            <button class="btn btn-primary btn-lg btn-block" type="button" id="btnToggle" onclick="toggleBulb();">Encender y Apagar</button>
+            <button class="btn btn-success btn-lg btn-block" type="button">Encender la lampara... (con eventListener)</button>
+            <input type="text" id="timeup" class="form-control">
+        </div>
+    </div>
+</body>
