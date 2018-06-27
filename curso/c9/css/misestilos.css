@@ -3,3 +3,11 @@ body {
     font-size: 14px;
     line-height: 21px;
 }
+
+.cuadrado {
+    background-color: #cccccc;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+}
