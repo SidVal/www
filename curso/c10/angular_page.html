@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- JQUERY and Bootstrap components -->
+    <script src="./jquery-3.2.0/jquery-3.2.0.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <!-- ANGULAR -->
+    <script src="./angular-1.6.6/angular.js"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="./css/misestilos.css">
+
+    <!-- Javascript -->
+    <script src="./js/controller.js"></script>
+
+    <title>Clase 10</title>
+</head>
+
+<body ng-app="app">
+    <div class="form-group container" ng-controller="appCtrl">
+        <input class="form-control" type="text" placeholder="Ingrese nombre" ng-model="persona.nombre" ng-change="alertar();">
+        <label class=" form-label " for="casado ">Es casado?</label>
+        <input class=" " name="casado " type="checkbox " ng-model="persona.casado">
+        <p>Es usuario esta casado? {{ persona.casado }}</p>
+        <button ng-click="cambios(); ">Cambio</button>
+        <pre>{{ persona | json }}</pre>
+        <pre>{{ 2 + 2}} </pre>
+    </div>
+    <div ng-controller="appCtrl2">
+        <input class="form-control" type="text" ng-model="animal.nombre">
+        <p>
+            Nombre del animal: {{ animal.nombre }}
+        </p>
+    </div>
+</body>
+
+</html>
