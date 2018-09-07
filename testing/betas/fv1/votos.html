@@ -97,7 +97,7 @@ function validar() {
   var gen = document.getElementById('genero');
   var v = document.getElementById("votar");
   
-  if (nom.checkValidity() && ape.checkValidity() && doc.checkValidity() && gen.checkValidity()) { v.disabled = false }
+  if (nom.checkValidity() && ape.checkValidity() && doc.checkValidity() && gen.checkValidity()) { v.disabled = false } else { v.disabled = true }
   
 }
 	
