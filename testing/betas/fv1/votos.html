@@ -66,7 +66,7 @@
         <div class="form-row">
             <div class="form-group col-md-4 mb-3">
                 <label for="documentoPersona">Número de Documento:</label>
-                <input type="number" name="documentoPersona" placeholder="Tu número de documento" class="form-control" id="documento" required>
+                <input type="number" name="documentoPersona" placeholder="Tu número de documento" class="form-control" id="documento" min="100000" max="99000000" required>
             </div>
             <div class="form-group col-md-4 mb-3">
                 <label for="sexoPersona">Género:</label>
@@ -82,21 +82,26 @@
     </div>
 </div>
 </main>
-<!--//    
 <script type='text/javascript'>
-$( document ).click(function() {
-//validación del formulario
-var nom = document.getElementById('nombre');
-var ape = document.getElementById('apellido');
-var doc = document.getElementById('documento');
-var gen = document.getElementById('genero');
+document.getElementById("nombre").onchange = function() {validar()};
+document.getElementById("apellido").onchange = function() {validar()};
+document.getElementById("documento").onchange = function() {validar()};
+document.getElementById("genero").onchange = function() {validar()};
 
-if ( nom.value.length >= 1 ) {
-document.getElementById(votar).disabled = false; }
-})
 
+
+function validar() {
+  var nom = document.getElementById('nombre');
+  var ape = document.getElementById('apellido');
+  var doc = document.getElementById('documento');
+  var gen = document.getElementById('genero');
+  var v = document.getElementById("votar");
+  
+  if (nom.checkValidity() && ape.checkValidity() && doc.checkValidity() && gen.checkValidity()) { v.disabled = false }
+  
+}
+	
 </script>
-//-->
 <footer class="container">
     <p class="float-right"><a href="#">Ir arriba</a></p>
     <p>© 2018 Elecciones: Tu voto, suma! · <span data-toggle="modal" data-target="#ayuda">¿Necesitas ayuda?</span> · <span data-toggle="modal" data-target="#exampleModalLong">Términos y Condiciones</span></p>
