@@ -97,8 +97,31 @@ function validar() {
   var gen = document.getElementById('genero');
   var v = document.getElementById("votar");
   
-  if (nom.checkValidity() && ape.checkValidity() && doc.checkValidity() && gen.checkValidity()) { v.disabled = false } else { v.disabled = true }
+// control de nombre
+	if (nom.value.length <= 0) { 
+  nom.classList.add("invalid") 
+  } else { nom.classList.remove("invalid") }
+
+// control de apellido
+	if (ape.value.length <= 0) {
+  ape.classList.add("invalid")
+  } else { ape.classList.remove("invalid") }
+
+// control de documento, como tiene mínimo y máximo, controlo validity
+	if ((doc.value.length <= 0) || (!doc.checkValidity())) {
+  doc.classList.add("invalid")  
+  } else { doc.classList.remove("invalid") } 
   
+// control de género
+	if (gen.value.length <= 0) {
+  gen.classList.add("invalid")
+  } else { gen.classList.remove("invalid") }
+
+// finalmente habilito el botón si todo es válido
+  if (nom.checkValidity() && ape.checkValidity() && doc.checkValidity() && gen.checkValidity()) { 
+  v.disabled = false 
+  } else { v.disabled = true }
+
 }
 	
 </script>
