@@ -1,23 +1,12 @@
 # Notas varias
 
-## Cookies
+## Ajax
 
-Leer [tutorialspoint.com: nodejs_express_framework](https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm). La última parte está buena:
+- [analizar](https://www.w3schools.com/js/tryit.asp?filename=tryjs_ajax_database)
 
-```js
-var express      = require('express')
-var cookieParser = require('cookie-parser')
+## API
 
-var app = express()
-app.use(cookieParser())
-
-app.get('/', function(req, res) {
-   console.log("Cookies: ", req.cookies)
-})
-app.listen(8081)
-```
-
-Leer: [Node.js - RESTful API](https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm). Puedo sacar ideas de cómo interpretar la `data` que trae el API:
+- Leer: [Node.js - RESTful API](https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm). Puedo sacar ideas de cómo interpretar la `data` que trae el API:
 
 ```js
 app.post('/addUser', function (req, res) {
@@ -64,3 +53,20 @@ app.get('/:id', function (req, res) {
 
 - [Express Tutorial Part 3: Using a Database (with Mongoose)](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose)
 - https://mongoosejs.com/docs/guide.html#query-helpers
+
+## Cookies
+
+Leer [tutorialspoint.com: nodejs_express_framework](https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm). La última parte está buena:
+
+```js
+var express      = require('express')
+var cookieParser = require('cookie-parser')
+
+var app = express()
+app.use(cookieParser())
+
+app.get('/', function(req, res) {
+   console.log("Cookies: ", req.cookies)
+})
+app.listen(8081)
+```
