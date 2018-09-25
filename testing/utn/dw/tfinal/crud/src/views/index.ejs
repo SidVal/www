@@ -1,0 +1,58 @@
+<!-- Sintaxis de EJS para importar el partial header -->
+<% include partials/_header %>
+
+<!-- <%= tasks %> -->
+
+    <div class="container-fluid">
+    <h1>Hola Mundo</h1>
+
+    <div class="row">
+        <!-- FORMULARIO -->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="class card-body">
+                    <form action="/agregar" method="POST">
+                        <div class="class form-group">
+                            <input type="text" name="titulo" placeholder="Inserte un título" class="form-control">
+                        </div>
+                        <div class="class form-group">
+                                <textarea name="descripcion" cols="80" class="form-control" placeholder="Inserta una descripcion"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- LISTA -->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>N.</th>
+                        <th>Título</th>
+                        <th>Descripcion</th>
+                        <th>Operaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < tasks.length; i++) { %>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><%= tasks[i].titulo %></td>
+                            <td><%= tasks[i].descripcion %></td>
+                            <td>
+                                <a href="/turn/<%= tasks[i]._id %>" class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark' %>">Hecho</a>
+                                <a href="/borrar/<%= tasks[i]._id %>" class="btn btn-danger">Borrar</a>
+                                <a href="/editar/<%= tasks[i]._id %>" class="btn btn-info">Editar</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        
+    </div>
+
+<!-- Sintaxis de EJS para importar el partial footer -->
+<% include partials/_footer %>

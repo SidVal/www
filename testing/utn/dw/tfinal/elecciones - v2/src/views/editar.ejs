@@ -1,0 +1,21 @@
+<% include partials/_header %>
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-5 offset-md-3">
+                    <div class="card">
+                        <div class="class card-body">
+                            <form action="/editar/<%= task._id %>" method="POST">
+                                <div class="class form-group">
+                                    <input type="text" name="titulo" placeholder="Inserte un título" class="form-control" value="<%= task.titulo%>">
+                                </div>
+                                <div class="class form-group">
+                                        <textarea name="descripcion" cols="80" class="form-control" placeholder="Inserta una descripcion"><%- task.descripcion %></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-block">Editar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+    <% include partials/_footer %>

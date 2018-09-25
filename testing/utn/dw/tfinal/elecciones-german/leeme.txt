@@ -1,0 +1,4 @@
+Descomprimí esta carpeta, y para correrla, primero sin el node_modules,
+pone: npm install
+Para que node lea qué requeris, e instale lo necesario.
+Para desarrollar correctamente, una vez que ejecutas la base de datos, pone: npm run dev

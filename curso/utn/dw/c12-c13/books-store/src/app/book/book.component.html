@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Libros
+        <a [routerLink]="['/book-create']" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </h1>
+    <table class="table">
+        <thead>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Edicion</th>
+            <th>Accion</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.published_year }}</td>
+                <td>Detalles</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

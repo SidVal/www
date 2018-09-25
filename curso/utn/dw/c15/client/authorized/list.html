@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Listado de peliculas.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utg=f-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/JavaScript" src="/listscript.js"></script>
+    <link rel="stylesheet" href="/css/listscript.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h1>Listado de peliculas</h1>
+                <div class="form-group">
+                    <a href="/addmovie" class="btn btn-lg btn-default">Agregar</a>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-search" onclick="filterData();"></span>
+                    <input type="text" id="filter" class="form-control">
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <table class="table table-compact table-striped">
+                        <thead>
+                            <tr class="header">
+                                <th onclick="setOrder('title', this);">Pelicula</th>
+                                <th onclick="setOrder('genre', this);">Genero</th>
+                                <th onclick="setOrder('year', this);">Año</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody class="movieList">
+                        </tbody>
+                    </table>
+                    <div class="">
+                        <div class="floatleft">
+                            <select class="btn btn-default" id="pageCount" onchange="pageCountChange();">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                        </select>
+                        </div>
+                        <div>
+                            <ul class="pagination">
+                                <li class="disabled">
+                                    <a href="#">&laquo;</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">1</a>
+                                </li>
+                                <li>
+                                    <a href="#">&raquo;</a>
+                                </li>
+                            </ul>
+                            <div class="floatright">
+                                <span id="itemscount" class="form-control"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

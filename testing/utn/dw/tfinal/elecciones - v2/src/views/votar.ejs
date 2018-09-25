@@ -1,0 +1,198 @@
+<!-- Sintaxis de EJS para importar el partial header -->
+<% include partials/_header %>
+
+<main role="main" class="bd-content container">
+
+    
+    <h1>Tu voto suma</h1>
+
+<div class="card">
+    <div class="card-body row">
+        <!-- FORMULARIO -->
+        <div class="col-md-5">
+            <form action="/sumar" method="POST" id="form">
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="nombrePersona">Nombre:</label>
+                <input type="text" name="nombrePersona" placeholder="Tu nombre" class="form-control" id="nombre" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="apellidoPersona">Apellido:</label>
+                <input type="text" name="apellidoPersona" placeholder="Tu apellido" class="form-control" id="apellido" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="documentoPersona">DNI:</label>
+                <input type="number" name="documentoPersona" placeholder="Tu número de documento" class="form-control" id="documento" min="100000" max="99000000" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="sexoPersona">Género:</label>
+                <select name="sexoPersona" class="form-control" id="genero" required>
+                <option value="" selected></option>                    
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+                </select>
+            <!--id del partido es invisible, pero es el dato que requiere el votante para entrar a la BD-->
+            <input type="text" id="numeroPartido" name="numeroPartido" hidden>
+            <!--Número id de partido fin -->
+            </div>
+        </div>
+            <!-- <button type="submit" class="btn btn-primary btn-block col-md-12 mb-3" id="votar" disabled>VALIDAR</button> -->
+            <a class="btn btn-primary btn-block col-md-12 mb-3 active disabled" id="votar" onclick="getVotante()">VALIDAR</a>
+        </form>
+        </div>
+    
+<!--LISTA OCULTA hasta que valide DNI -->
+        <div class="col-md-6 d-none" id="listaCandidatos"> <!-- poner d-none para ocultar la lista antes de validar-->
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <!-- No deberían tener orden, sería bueno un botón que liste aleatorios -->
+                            <th>Imagen</th>
+                            <th>Partido</th>
+                            <th>Candidato</th>
+                            <th>Operación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < partidos.length; i++) { %>
+                            <tr id="<%= partidos[i].numeroPartido %>">
+                                <td><img src='..<%= partidos[i].imagenPartido %>' alt='<%= partidos[i].nombreCandidato %>' title='<%= partidos[i].nombreCandidato %>' class="img-thumbnail"></td>
+                                <td><%= partidos[i].nombrePartido %></td>
+                                <td><%= partidos[i].nombreCandidato %></td>
+                                <td>
+                                    <a href="#" data-toggle="modal" data-target="#modalVotar" class="btn btn-success">SELECCIONAR</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Votar -->
+<div class="modal fade" id="modalVotar" tabindex="-1" role="dialog" aria-labelledby="modalVotar" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalVotar">¿Listo para votar?</h5>
+        </div>
+        <div class="modal-body">
+            <p>Debes aceptar que sabes lo que haces, y realmente quieres votar a este candidato. Aceptas que tu selección no se hace al azar, sabes a quién has elegido, no te han obligado, y aceptas que es por tu propia voluntar votar.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No acepto, quiero otra selección</button>
+            <button type="button" class="btn btn-primary" onclick="submit()">Acepto</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- fin modal -->
+
+
+</main>  
+<script type='text/javascript'>
+//Funciones JS
+    document.getElementById("nombre").onchange = function() {validar()};
+    document.getElementById("apellido").onchange = function() {validar()};
+    document.getElementById("documento").onchange = function() {validar()};
+    document.getElementById("genero").onchange = function() {validar()};
+    
+    
+    
+function validar() {
+      var nom = document.getElementById('nombre');
+      var ape = document.getElementById('apellido');
+      var doc = document.getElementById('documento');
+      var gen = document.getElementById('genero');
+      var v = document.getElementById("votar");
+      
+    // control de nombre
+        if (nom.value.length <= 0) { 
+      nom.classList.add("invalid") 
+      } else { nom.classList.remove("invalid") }
+    
+    // control de apellido
+        if (ape.value.length <= 0) {
+      ape.classList.add("invalid")
+      } else { ape.classList.remove("invalid") }
+    
+    // control de documento, como tiene mínimo y máximo, controlo validity
+        if ((doc.value.length <= 0) || (!doc.checkValidity())) {
+      doc.classList.add("invalid")  
+      } else { doc.classList.remove("invalid") } 
+      
+    // control de género
+        if (gen.value.length <= 0) {
+      gen.classList.add("invalid")
+      } else { gen.classList.remove("invalid") }
+    
+    // finalmente habilito el botón si todo es válido
+      if (nom.checkValidity() && ape.checkValidity() && doc.checkValidity() && gen.checkValidity()) { 
+      v.classList.remove('disabled')
+      } else { v.classList.add('disabled') }
+}    
+
+    function submit() {
+    document.getElementById("form").submit();
+    }
+
+// function apiValidar() {
+// var doc = document.getElementById('documento').value;
+// var gen = document.getElementById('genero').value;
+// var Init = { method: 'GET' };
+// //               mode: 'cors' };
+// var myRequest = new Request('/api/validar/' + doc + '&' + gen,Init);
+// fetch(myRequest)
+// .catch(error => console.error('Error:', error))
+// .then(function(response) { return response.json(); })
+// .then(function(data) {
+//     //console.log(data);
+//     if(data.length >0){alert('Todo ok')} else {alert('SIN DATOS')}
+//     //for (var i = 0; i < data.topic_list.topics.length; i++) {
+//     //}
+//     });
+// }
+
+//Funciones JQuery
+$(document).ready(function() { 
+
+    $('tr').click(function (event) {
+        $(this).addClass("selected").siblings().removeClass("selected");
+        $('#numeroPartido').val($(this).attr('id'));          
+    });
+
+});
+
+    function getVotante() {
+        var doc = document.getElementById('documento').value;
+        var gen = document.getElementById('genero').value;
+            $.ajax({
+                url: '/api/validar/' + doc + '&' + gen,
+                method: "GET",
+                type: "JSON",
+                success: function(resp) {
+                    //alert('Su documento ya registra un voto. ¡Que pase el próximo ciudadano!');
+                    console.log(resp);
+                    if (resp.length != 0) {
+                        alert('Su documento ya registra un voto. ¡Que pase el próximo ciudadano!');
+                        document.location.reload();
+                    } else {
+                            alert('Por favor, seleccione su candidato a continuación');
+                            $('#listaCandidatos').removeClass('d-none');
+                            $('.form-inline').removeClass('d-none');
+                        };
+                },
+                error: function(jqXHR, status, error) {
+                    alert('Hubo un error: ' + jqXHR + '-' + error);
+                    //$('#listaCandidatos').removeClass('d-none');
+                    console.log("Error: " + error); }
+                });
+        }
+
+    </script>
+
+<!-- Sintaxis de EJS para importar el partial footer -->
+<% include partials/_footer %>

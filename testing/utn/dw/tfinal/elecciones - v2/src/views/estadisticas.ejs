@@ -1,0 +1,78 @@
+<!-- Sintaxis de EJS para importar el partial header -->
+<% include partials/_header %>
+
+<style>
+.progress {border: 1px dashed #343a40 !important;}
+</style>
+
+<main role="main" class="bd-content container">
+    <h1>Estadísticas</h1>
+
+<div class="col-md-6" id="listaCandidatos"> <!-- poner d-none para ocultar la lista antes de validar-->
+    <table class="table thead-light table-hover">
+        <thead>
+            <tr>
+                <!-- No deberían tener orden, sería bueno un botón que liste aleatorios -->
+                <th>Imagen</th>
+                <th>Partido</th>
+                <th>Candidato</th>
+                <th>Votos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < partidos.length; i++) { %>
+                <tr>
+                    <td><img src='..<%= partidos[i].imagenPartido %>' alt='<%= partidos[i].nombreCandidato %>' title='<%= partidos[i].nombreCandidato %>' class="img-thumbnail"></td>
+                    <td><%= partidos[i].nombrePartido %></td>
+                    <td><%= partidos[i].nombreCandidato %></td>
+                    <td width=150>
+                        <input class="numeroPartido" value="<%= partidos[i].numeroPartido %>" hidden>
+                        <div class="progress" id="<%= partidos[i].numeroPartido %>">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"></div>
+                          </div>
+                        </div>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+</main>
+
+<!-- Funciones JS & jQuery -->
+<script>
+$( document ).ready(function() {
+$('.form-inline').removeClass('d-none');
+});
+//función para hacer aparecer el buscador de candidatos que está en el header con class d-none para que no se vea (suponiendo que sea una lista muy grande)
+//$('#listaCandidatos').removeClass('d-none'); (incompleto)
+
+// Función para cargar resultados en progress-bar
+function progressBar2() {
+    $.ajax({
+            url: '/api/porcentajes',
+            method: "GET",
+            type: "JSONP", 
+            success: function(data) { 
+                const porc = JSON.parse(data);
+                console.log(porc);
+                //$(".progress > .progress-bar").css("width", resp + "%").text(resp + " %");
+                $.each(porc, function (index, value) {
+                $('.progress-bar').eq(index).css("width", value + "%").text(value + " %");
+                });
+                },
+            error: function(jqXHR, status, error) {
+                alert('Hubo un error: ' + jqXHR + '-' + error);
+                //$('#listaCandidatos').removeClass('d-none');
+                console.log("Error: " + error); }
+            });
+
+}
+
+progressBar2();
+
+</script>
+
+<!-- Sintaxis de EJS para importar el partial footer -->
+<% include partials/_footer %>

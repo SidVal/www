@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Editar Pelicula</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utg=f-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/editmovie.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h1>Editar Pelicula</h1>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="">
+                        <form action="/api/movie/edit" method="POST">
+                            <input class="hidden" name="_id">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="title" placeholder="Titulo" required="true">
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" type="text" name="genre" placeholder="Genero" required="true">
+                                <option value="Drama">Drama</option>
+                                <option value="Fantasy">Fantasia</option>
+                                <option value="Sci-Fi">Ciencia Ficción</option>
+                                <option value="Thriller">Suspenso</option>
+                                <option value="Comedy">Comedia</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="year" placeholder="Año" required="true">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="country" placeholder="Pais" required="true">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="seasons" placeholder="Temporada" required="true">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" type="text" name="summary" placeholder="Descripción" required="true"></textarea>
+                            </div>
+
+                            <div class="form-group input-group">
+                                <label class="input-group-btn">
+                                    <span class="btn btn-primary">
+                                        Browse <input type="file" onchange="onFileselected(event);" class="hidden">
+                                    </span>
+                                </label>
+                                <input class="form-control" type="text" name="posterFile" placeholder="Poster filename" required="true" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input class="hidden" type="text" id="poster" name="poster">
+                            </div>
+                            <div class="">
+                                <input class="btn btn-success btn-lg" type="submit" value="MODIFICAR">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

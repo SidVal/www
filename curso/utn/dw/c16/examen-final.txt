@@ -1,0 +1,30 @@
+Lineamientos para el examen
+
+Hacer app, cliente servidor, voto electrónico ver captura.
+
+1) Nombre, dni, sexo en combo
+Votar como botón, que se habilite cuando los tres campos estén llenos.
+
+2) Al hacer clic en votar, ir a la base de datos a través de un ruteo, y buscar si ese DNI ya registró voto, si ha registrado, que salga un error que ya votó y lo deja en esa misma pantalla 1).
+
+Si no existe el votante, que pase a la siguiente pantalla:
+
+Lista de nombre de partido, con fotito, y nombre del candidato para las elecciones. La lista también debe venir de la base de datos, debe estar precargada., podemos ir cargando los datos ahora a la base de datos.
+
+numeroPartido
+nombrePartido
+nombreCandidato
+imagenPartido
+
+Cuando seleccionamos el nombre del partido, en cualquier parte de la "card", se genera un voto en la base de datos.
+Ej:
+Partido 1, DNI xxxxxx, voto +1
+
+En una tercer página se puede hacer un botón de ver estadísticas (recupera de la BD las estadísticas), o que al terminar de votar se vaya a la página de estadísticas, donde muestre el partido ordenado de mayor a menor del que más cantidad de votos tenga.
+
+Hay que sacar el porcentaje de votos que tenga.
+Se debe usar una barra de progreso para que muestre en la barra de progreso qué porcentaje va teniendo a medida que van votando.
+
+Tres semanas para hacer la primer entrega; sería el 18 de septiembre es la primer entrega.
+
+Y el 25 de septiembre es la fecha límite que tenemos para entregar. Sería la fecha de entrega final. 

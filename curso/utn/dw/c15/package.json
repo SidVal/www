@@ -1,0 +1,20 @@
+{
+    "name": "movieappdemo",
+    "version": "1.0.0",
+    "main": "app.js",
+    "author": "MDG",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "bcrypt": "^3.0.0",
+        "bluebird": "^3.5.1",
+        "body-parser": "^1.18.3",
+        "connect-mongo": "^2.0.1",
+        "express": "^4.16.3",
+        "express-session": "^1.15.6",
+        "mongoose": "^5.2.8",
+        "nodemon": "^1.18.3"
+    },
+    "devDependencies": {}
+}

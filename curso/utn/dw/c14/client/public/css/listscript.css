@@ -1,0 +1,39 @@
+.floatleft {
+    float: left;
+    margin: 20px;
+}
+
+.floatright {
+    float: right;
+    margin: 20px;
+}
+
+
+/*Clases para que el header se dibuje un icono...*/
+
+tr.header th {
+    position: relative;
+}
+
+tr.header th:hover {
+    cursor: pointer;
+    background-color: #eee;
+    font-weight: bold;
+}
+
+tr.header th.active:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 7.5px 0 7.5px;
+    border-color: #003333 transparent transparent transparent;
+    position: absolute;
+    right: 10px;
+    top: 33%;
+}
+
+tr.reverse th.active:after {
+    transform: rotate(180deg);
+}

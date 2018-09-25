@@ -1,0 +1,171 @@
+12345123&M
+
+db.autores.find()
+//SELECT * FROM AUTORES
+
+db.autores.find({ administrador: true});
+//SELECT * FROM AUTORES WHERE administrador = 1
+
+db.autores.find({ administrador: true, genero: 'M'});
+//SELECT * FROM AUTORES WHERE administrador = 1 AND genero = 'M'
+
+db.autores.find({
+	$or: [
+		{administrador: true},
+		{genero: 'F'}
+	]
+});
+//SELECT * FROM AUTORES WHERE administrador = true or genero = 'F'
+
+db.autores.find({
+	$or: [
+		{administrador: true, genero: 'F'},
+		{genero: 'M'}
+	]
+});
+//SELECT * FROM AUTORES WHERE (administrador = true and genero = 'F') or genero = 'M'
+
+db.autores.find().limit(3)
+//SELECT TOP 3 * FROM AUTORES
+
+db.autores.find().skip(1).limit(3);
+//SELECT TOP 3 * FROM AUTORES WHERE ROWNUM() >1
+
+db.autores.find({apellido: 'Moreno'}).sort({apellido: 1, nombre: -1});
+//SELECT * FROM AUTORES WHERE apellido = 'Moreno' ORDER BY apellido, nombre DESC
+
+db.autores.find({apellido: /M.*/});
+//SELECT * FROM AUTORES WHERE apellido LIKE 'M%' 
+
+db.autores.find({apellido: /M.*/}).count();
+//SELECT COUNT(*) FROM AUTORES WHERE apellido LIKE 'M%'
+
+db.autores.find({cantidad: { $eq: 1 }});
+//SELECT * FROM AUTORES WHERE cantidad = 1
+
+db.autores.find({cantidad: { $gt: 1 }});
+//SELECT * FROM AUTORES WHERE cantidad > 1
+
+db.autores.find({cantidad: { $gte: 10 }});
+//SELECT * FROM AUTORES WHERE cantidad >= 10
+
+db.autores.find({cantidad: { $lt: 10 }});
+//SELECT * FROM AUTORES WHERE cantidad < 10
+
+db.autores.find({cantidad: { $lte: 10 }});
+//SELECT * FROM AUTORES WHERE cantidad <= 10
+
+db.autores.find({cantidad: { $ne: 10 }});
+//SELECT * FROM AUTORES WHERE cantidad <> 10
+
+db.autores.find({cantidad: { $in: [1,2,3] }});
+//SELECT * FROM AUTORES WHERE cantidad in (1,2,3)
+
+db.autores.find({ $or [
+		{cantidad: 1},
+		{cantidad: 2}
+	]
+});
+//SELECT * FROM AUTORES WHERE cantidad in (1,2)
+
+db.autores.find({cantidad: { $nin: [1,2] }});
+//SELECT * FROM AUTORES WHERE NOT cantidad in (1, 2)
+
+db.autores.find({cantidad: { $not: { $lt: 2 }}});
+//SELECT * FROM AUTORES WHERE NOT cantidad < 2
+
+
+db.autores.find({administrador: { $exists: true }});
+//SELECT * FROM AUTORES WHERE NOT administrador IS NULL 
+
+db.autores.remove({nombre: 'Ariel'});
+db.autores.remove();
+db.autores.drop();
+
+db.autores.aggregate([
+	{
+		$group: {
+			_id : {},
+			suma: { $sum: '$cantidad'},
+			count: { $sum: 1 }
+		}
+	}
+]);
+
+db.autores.aggregate(
+    [
+        { "$match": { "genero": { $in: ["M","F"]} } },
+        { "$sort": { "apellido": 1 } },
+        { "$group": { 
+            "_id": "$genero",
+            "genero": { "$first": "$genero" },
+            "suma": { $sum: '$cantidad' },
+           "cant": { $sum: 1 } 
+        }}
+    ]);
+
+db.autores.update(
+	{ administrador: { $exists: false } },
+	{ $set: { administrador: false } }
+);
+
+db.autores.updateMany(
+	{ cantidad: 10 },
+	{ $set: { cantidad: 11 }}
+);
+
+db.autores.updateMany(
+	{ cantidad: 11 },
+	{ $inc: { cantidad: 1 }}
+);
+
+db.autores.updateMany(
+	{},
+	{ $rename: { 'apellido': 'lastname' } }
+);
+
+db.autores.updateMany(
+	{ nombre: 'Mariano' },
+	{ $push: { secciones: 'Java'}}
+);
+
+db.autores.updateMany(
+	{ nombre: 'Mariano' },
+	{ $pop: { secciones: 1}}
+);
+
+db.autores.updateMany(
+	{ nombre: 'Mariano' },
+	{ $pull: { secciones: 'Desarrollo Web'}}
+);
+
+db.autores.updateMany(
+	{ nombre: 'Mariano' },
+	{ $push: { secciones: { $each: ['Desarollor Web','JQuery']}}}
+);
+
+//FUNCIONES EXTRAS....
+db.autores.find({}).count();
+//SELECT COUNT(*) FROM Autores
+
+db.autores.find({}).limit(10);
+//SELECT * FROM Autores LIMIT 10;
+
+db.autores.find({}).sort({ apellido: 1, nombre: -1});
+//SELECT * FROM Autores ORDER BY apellido ASC, nombre DESC
+
+db.autores.find({}).skip(3).limit(5);
+//PARA PAGINADOS... SALTEA 3 Y TOMA 5..
+
+
+//
+
+db.votos.aggregate(
+[{ $group:
+ { _id: '$numeroPartido',
+    votos: { $sum: 1 } }
+},
+{ $sort:
+    { "votos": 1 }
+}
+ ])
