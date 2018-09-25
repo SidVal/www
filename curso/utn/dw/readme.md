@@ -27,7 +27,7 @@ El repositorio `/www/` está en línea y el código de cada clase puede consulta
   * [clase5grillas.html](https://sidval.github.io/www/curso/utn/dw/c5/clase5.html)
 * [Clase 6](https://sidval.github.io/www/curso/utn/dw/c6/clase6.html)
 * [Clase 7](https://sidval.github.io/www/curso/utn/dw/c7/clase7.html)
-  * * [Clase7js](https://sidval.github.io/www/curso/utn/dw/c7/clase7JS.html)
+  * [Clase7js](https://sidval.github.io/www/curso/utn/dw/c7/clase7JS.html)
 * [Clase 8](https://sidval.github.io/www/curso/utn/dw/c8)
 * [Clase 9](https://sidval.github.io/www/curso/utn/dw/c9)
 * [Clase 10](https://sidval.github.io/www/curso/utn/dw/c10)
