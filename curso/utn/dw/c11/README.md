@@ -1,4 +1,8 @@
-# MyProyectoAngular
+# Clase 11
+
+Borré la carpeta de "my-project-angular", no corría en github., y no tiene sentido exponerlo. Dejo el texto del readme automático que dejó generado.
+
+## MyProyectoAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
