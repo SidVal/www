@@ -14,4 +14,4 @@ Y para practicar, ver en línea y romper está el apartado de [`github:/www/test
 
 ### Cursos
 
-- [UTN: Diplomatura Web](/curso/utn/dw/)
+- [UTN: Diplomatura Web](/www/curso/utn/dw/)
