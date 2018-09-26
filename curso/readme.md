@@ -4,4 +4,4 @@
 
 ## UTN
 
-Por el momento, sólo he cursado en la [UTN](/curso/utn/).
+Por el momento, sólo he cursado en la [UTN](/www/curso/utn/).
