@@ -1,6 +1,6 @@
 testing/betas/
 node_modules/
-
+testing/jekyll
 
 ## Visual Studio Code Ignore
 .vscode/*
