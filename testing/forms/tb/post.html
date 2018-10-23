@@ -66,13 +66,19 @@
         <div class="col-md-5">
             <form action="#" method="POST" id="form">
         <div class="form-row">
-            <div class="form-group col-md-6 mb-3">
+            <div class="form-group col-md-12 mb-6">
                 <label for="tituloPost">Título:</label>
                 <input type="text" name="tituloPost" placeholder="Título post" class="form-control" id="titulo" required>
             </div>
+        </div>
+        <div class="form-row">
             <div class="form-group col-md-6 mb-3">
-                <label for="urlPost">URL:</label>
+                <label for="urlPost">URL Topic:</label>
                 <input type="url" name="urlPost" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="url" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="urlImg">URL Imagen:</label>
+                <input type="url" name="urlImg" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="urlImg" required>
             </div>
         </div>
         <div class="form-row">
@@ -84,9 +90,9 @@
                 <label for="section">Trending Topic:</label>
                 <select name="section" class="form-control" id="section" required>
                 <option value="" selected></option>                    
-                <option value="feedly">Feedly</option>
-                <option value="twitter">Twitter</option>
-                <option value="facebook">Facebook</option>
+                <option value="Feedly Trending Topic:">Feedly</option>
+                <option value="Twitter Trending Topic:">Twitter</option>
+                <option value="Facebook Trending Topic:">Facebook</option>
                 </select>
             <!--id del partido es invisible, pero es el dato que requiere el votante para entrar a la BD-->
             <!-- <input type="text" id="numeroPartido" name="numeroPartido" hidden> -->
@@ -96,7 +102,6 @@
         <div class="form-row">
             <div class="form-group col-md-12 mb-6">
                 <label for="textPost">Textos:</label>
-                <!--<input type="textarea" name="textPost" placeholder="Mensaje de Texto" class="form-control" id="texto" required>-->
                 <textarea class="form-control" id="texto" rows="3"></textarea>
             </div>
         </div>                
@@ -109,7 +114,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12 mb-6">
                     <label for="toPost">To Post:</label>
-                    <textarea class="form-control" id="toPost" rows="15"></textarea>
+                    <textarea class="form-control" name="toPost" id="toPost" rows="15"></textarea>
                 </div>
             </div>                 
         </div>
@@ -189,6 +194,7 @@ $("#buscar").keyup(function () {
 //Funciones JS
     document.getElementById("titulo").onchange = function() {validar()};
     document.getElementById("url").onchange = function() {validar()};
+    document.getElementById("urlImg").onchange = function() {validar()};
     document.getElementById("texto").onchange = function() {validar()};
     document.getElementById("tags").onchange = function() {validar()};
     document.getElementById("section").onchange = function() {validar()};
@@ -196,32 +202,38 @@ $("#buscar").keyup(function () {
     
     
 function validar() {
-      var nom = document.getElementById('titulo');
-      var ape = document.getElementById('url');
-      var doc = document.getElementById('tags');
-      var gen = document.getElementById('section');
+      var tit = document.getElementById('titulo');
+      var url1 = document.getElementById('url');
+      var img = document.getElementById('urlImg');
+      var tags = document.getElementById('tags');
+      var sect = document.getElementById('section');
       var txts = document.getElementById('texto');
       var v = document.getElementById("post");
       
     // control de titulo
-        if (nom.value.length <= 0) { 
-      nom.classList.add("invalid") 
-      } else { nom.classList.remove("invalid") }
+        if (tit.value.length <= 0) { 
+      tit.classList.add("invalid") 
+      } else { tit.classList.remove("invalid") }
     
     // control de url
-        if ((ape.value.length <= 0) || (!ape.checkValidity())) {
-      ape.classList.add("invalid")
-      } else { ape.classList.remove("invalid") }
+        if (!url1.checkValidity()) {
+      url1.classList.add("invalid")
+      } else { url1.classList.remove("invalid") }
     
+    // control de urlImg
+    if (!img.checkValidity()) {
+        img.classList.add("invalid")
+    } else { img.classList.remove("invalid")}
+
     // control de tags
-        if (doc.value.length <= 0) {
-      doc.classList.add("invalid")  
-      } else { doc.classList.remove("invalid") } 
+        if (tags.value.length <= 0) {
+      tags.classList.add("invalid")  
+      } else { tags.classList.remove("invalid") } 
       
     // control de section
-        if (gen.value.length <= 0) {
-      gen.classList.add("invalid")
-      } else { gen.classList.remove("invalid") }
+        if (sect.value.length <= 0) {
+      sect.classList.add("invalid")
+      } else { sect.classList.remove("invalid") }
 
     // control de text
         if (txts.value.length <= 0) {
@@ -229,35 +241,26 @@ function validar() {
       } else { txts.classList.remove("invalid") }
 
     // finalmente habilito el botón si todo es válido
-      if (nom.checkValidity() && ape.checkValidity() && doc.checkValidity() && gen.checkValidity() && txts.checkValidity()) { 
-      v.classList.remove('disabled')
+      if (tit.checkValidity() && url1.checkValidity() && img.checkValidity() && tags.checkValidity() && sect.checkValidity() && txts.checkValidity()) { 
+      v.classList.remove('disabled');
+        $("textarea[name='toPost']").val(tags.value + '\n\n' + "<img alt='Trending Topic " + tit.value + "' title='Trending Topic " + tit.value + "' src='" + img.value + "'/>" + '\n\n' + tit.value + '\n' + sect.value + " " + "<a href='" + url1.value +"' title='"+ tit.value +"' target='_blank'>"+ tit.value +"</a>" + '\n' + txts.value);
+      //cuando sea todo válido, pase los datos al textarea
       } else { v.classList.add('disabled') }
+      //
 }    
 
     function submit() {
     document.getElementById("form").submit();
     }
 
-//Funciones JQuery
-$(document).ready(function() { 
-
-    $('tr').click(function (event) {
-        $(this).addClass("selected").siblings().removeClass("selected");
-        $('#numeroPartido').val($(this).attr('id'));          
-    });
-
-});
 
 function getVotante() {
-    var nom = document.getElementById('titulo');
-    var ape = document.getElementById('url');
-    var doc = document.getElementById('tags');
-    var gen = document.getElementById('section');
-    var txts = document.getElementById('texto');
-    alert('Copia y pega para publicar');
+    // var tit = document.getElementById('titulo');
+    // var url1 = document.getElementById('url');
+    // var tags = document.getElementById('tags');
+    // var sect = document.getElementById('section');
+    // var txts = document.getElementById('texto');
     $('#to-post').removeClass('d-none');
-    //$('.form-inline').removeClass('d-none');
-    $('#to-post').value = "Título: "+ nom + "&#13;&#10; URL: "+ ape;
 }
 
     </script>
