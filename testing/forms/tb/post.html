@@ -248,11 +248,17 @@ $(document).ready(function() {
 
 });
 
-    function getVotante() {
-            alert('Copia y pega para publicar');
-            $('#to-post').removeClass('d-none');
-            //$('.form-inline').removeClass('d-none');
-        }
+function getVotante() {
+    var nom = document.getElementById('titulo');
+    var ape = document.getElementById('url');
+    var doc = document.getElementById('tags');
+    var gen = document.getElementById('section');
+    var txts = document.getElementById('texto');
+    alert('Copia y pega para publicar');
+    $('#to-post').removeClass('d-none');
+    //$('.form-inline').removeClass('d-none');
+    $('#to-post').value = "Título: "+ nom + "&#13;&#10; URL: "+ ape;
+}
 
     </script>
 <!-- fin scripts propios -->    
