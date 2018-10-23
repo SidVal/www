@@ -42,19 +42,97 @@
     </header>
 
 <main role="main" class="bd-content container">
-  <div class="jumbotron">
-    <h1 class="display-3">Formulario To Post!</h1>
+  <!--hero ini-->
+    <div class="jumbotron">
+        <h1 class="display-3">Formulario To Post!</h1>
+        <!--//
+        <p class="lead">Bla bla bla <span class="badge badge-success">¡BLA!</span></p>
+        <p class="lead">
+          <a class="btn btn-success" href="#" role="button">Enlace BLA</a>
+        </p>
+        <hr class="my-4">
+        <p>Bla bla bla bla y más bla.<br><br>Si necesitas <span class="badge badge-info">ayuda</span>, en la parte inferior de la página encontrarás un enlace para tal fin.</p>
+        //-->
+        <hr class="my-4">
+        <p><span class="badge badge-pill badge-light"><u>Nota:</u></span> quería aclarar que este código es de prueba.
+        </p>
+    </div>
     
-    <p class="lead">Bla bla bla <span class="badge badge-success">¡BLA!</span></p>
-    <p class="lead">
-      <a class="btn btn-success" href="#" role="button">Enlace BLA</a>
-    </p>
-    <hr class="my-4">
-    <p>Bla bla bla bla y más bla.<br><br>Si necesitas <span class="badge badge-info">ayuda</span>, en la parte inferior de la página encontrarás un enlace para tal fin.</p>
-    <hr class="my-4">
-    <p><span class="badge badge-pill badge-light"><u>Nota:</u></span> quería aclarar que este código es de prueba.
-    </p>
-  </div>
+    <!--hero fin-->
+    <!-- form -->
+    <div class="card">
+    <div class="card-body row">
+        <!-- FORMULARIO -->
+        <div class="col-md-5">
+            <form action="#" method="POST" id="form">
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="tituloPost">Título:</label>
+                <input type="text" name="tituloPost" placeholder="Título post" class="form-control" id="titulo" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="urlPost">URL:</label>
+                <input type="url" name="urlPost" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="url" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="tagsPost">Tags:</label>
+                <input type="text" name="tagsPost" placeholder="Etiquetas" class="form-control" id="tags" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="section">Trending Topic:</label>
+                <select name="section" class="form-control" id="section" required>
+                <option value="" selected></option>                    
+                <option value="feedly">Feedly</option>
+                <option value="twitter">Twitter</option>
+                <option value="facebook">Facebook</option>
+                </select>
+            <!--id del partido es invisible, pero es el dato que requiere el votante para entrar a la BD-->
+            <!-- <input type="text" id="numeroPartido" name="numeroPartido" hidden> -->
+            <!--Número id de partido fin -->
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="textPost">Textos:</label>
+                <input type="text" name="textPost" placeholder="Mensaje de Texto" class="form-control" id="texto" required>
+            </div>
+        </div>                
+            <a class="btn btn-primary btn-block col-md-12 mb-3 active disabled" id="post" onclick="getVotante()">POST</a>
+        </form>
+        </div>
+    
+<!--LISTA OCULTA hasta que valide form -->
+        <div class="col-md-6 d-none" id="to-post"> <!-- poner d-none para ocultar la lista antes de validar-->
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <!-- No deberían tener orden, sería bueno un botón que liste aleatorios -->
+                            <th>Imagen</th>
+                            <th>Partido</th>
+                            <th>Candidato</th>
+                            <th>Operación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < partidos.length; i++) { %>
+                            <tr id="<%= partidos[i].numeroPartido %>">
+                                <td><img src='..<%= partidos[i].imagenPartido %>' alt='<%= partidos[i].nombreCandidato %>' title='<%= partidos[i].nombreCandidato %>' class="img-thumbnail"></td>
+                                <td><%= partidos[i].nombrePartido %></td>
+                                <td><%= partidos[i].nombreCandidato %></td>
+                                <td>
+                                    <a href="#" data-toggle="modal" data-target="#modalVotar" class="btn btn-success">SELECCIONAR</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+
+    <!-- form fin-->    
 </main>
 
     
@@ -122,5 +200,77 @@ $("#buscar").keyup(function () {
 });
 });
 </script>
+
+<script type='text/javascript'>
+//Funciones JS
+    document.getElementById("titulo").onchange = function() {validar()};
+    document.getElementById("url").onchange = function() {validar()};
+    document.getElementById("text").onchange = function() {validar()};
+    document.getElementById("tags").onchange = function() {validar()};
+    document.getElementById("section").onchange = function() {validar()};
+    
+    
+    
+function validar() {
+      var nom = document.getElementById('titulo');
+      var ape = document.getElementById('url');
+      var doc = document.getElementById('tags');
+      var gen = document.getElementById('section');
+      var txts = document.getElementById('text');
+      var v = document.getElementById("post");
+      
+    // control de titulo
+        if (nom.value.length <= 0) { 
+      nom.classList.add("invalid") 
+      } else { nom.classList.remove("invalid") }
+    
+    // control de url
+        if (ape.value.length <= 0) {
+      ape.classList.add("invalid")
+      } else { ape.classList.remove("invalid") }
+    
+    // control de tags
+        if (doc.value.length <= 0) {
+      doc.classList.add("invalid")  
+      } else { doc.classList.remove("invalid") } 
+      
+    // control de section
+        if (gen.value.length <= 0) {
+      gen.classList.add("invalid")
+      } else { gen.classList.remove("invalid") }
+
+    // control de text
+        if (txts.value.length <= 0) {
+      txts.classList.add("invalid")
+      } else { txts.classList.remove("invalid") }
+
+    // finalmente habilito el botón si todo es válido
+      if (nom.checkValidity() && ape.checkValidity() && doc.checkValidity() && gen.checkValidity() && txts.checkValidity()) { 
+      v.classList.remove('disabled')
+      } else { v.classList.add('disabled') }
+}    
+
+    function submit() {
+    document.getElementById("form").submit();
+    }
+
+//Funciones JQuery
+$(document).ready(function() { 
+
+    $('tr').click(function (event) {
+        $(this).addClass("selected").siblings().removeClass("selected");
+        $('#numeroPartido').val($(this).attr('id'));          
+    });
+
+});
+
+    function getVotante() {
+            alert('Copia y pega para publicar');
+            $('#to-post').removeClass('d-none');
+            //$('.form-inline').removeClass('d-none');
+        }
+
+    </script>
+<!-- fin scripts propios -->    
 </body>
 </html>
