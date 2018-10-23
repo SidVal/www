@@ -94,9 +94,10 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6 mb-3">
+            <div class="form-group col-md-12 mb-6">
                 <label for="textPost">Textos:</label>
-                <input type="text" name="textPost" placeholder="Mensaje de Texto" class="form-control" id="texto" required>
+                <!--<input type="textarea" name="textPost" placeholder="Mensaje de Texto" class="form-control" id="texto" required>-->
+                <textarea class="form-control" id="texto" rows="3"></textarea>
             </div>
         </div>                
             <a class="btn btn-primary btn-block col-md-12 mb-3 active disabled" id="post" onclick="getVotante()">POST</a>
@@ -105,29 +106,12 @@
     
 <!--LISTA OCULTA hasta que valide form -->
         <div class="col-md-6 d-none" id="to-post"> <!-- poner d-none para ocultar la lista antes de validar-->
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <!-- No deberían tener orden, sería bueno un botón que liste aleatorios -->
-                            <th>Imagen</th>
-                            <th>Partido</th>
-                            <th>Candidato</th>
-                            <th>Operación</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for(var i = 0; i < partidos.length; i++) { %>
-                            <tr id="<%= partidos[i].numeroPartido %>">
-                                <td><img src='..<%= partidos[i].imagenPartido %>' alt='<%= partidos[i].nombreCandidato %>' title='<%= partidos[i].nombreCandidato %>' class="img-thumbnail"></td>
-                                <td><%= partidos[i].nombrePartido %></td>
-                                <td><%= partidos[i].nombreCandidato %></td>
-                                <td>
-                                    <a href="#" data-toggle="modal" data-target="#modalVotar" class="btn btn-success">SELECCIONAR</a>
-                                </td>
-                            </tr>
-                        <% } %>
-                    </tbody>
-                </table>
+            <div class="form-row">
+                <div class="form-group col-md-12 mb-6">
+                    <label for="toPost">To Post:</label>
+                    <textarea class="form-control" id="toPost" rows="50"></textarea>
+                </div>
+            </div>                 
         </div>
     </div>
 </div>
@@ -225,7 +209,7 @@ function validar() {
       } else { nom.classList.remove("invalid") }
     
     // control de url
-        if (ape.value.length <= 0) {
+        if ((ape.value.length <= 0) || (!ape.checkValidity()) {
       ape.classList.add("invalid")
       } else { ape.classList.remove("invalid") }
     
