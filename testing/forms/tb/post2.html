@@ -60,6 +60,12 @@
                 <input type="text" name="tituloPost" placeholder="Título post" class="form-control" id="titulo" required>
             </div>
         </div>
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-6">
+                <label for="urlImg">URL Imagen:</label>
+                <input type="url" name="urlImg" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="urlImg" required>
+            </div>
+        </div>
     <div class="card"><!--abro card del trending topic -->           
         <div class="form-row card-body">
             <div class="form-group col-md-6 mb-3">
@@ -71,15 +77,14 @@
                 <option value="Facebook Trending Topic:">Facebook</option>
                 </select>
             </div>
+            <div class="form-group col-md-6 mb-3">
+                <span name="agregar" class="btn btn-outline-secondary" role="button"> + Agregar nuevo</span>
+            </div>
         </div>
         <div class="form-row card-body">
-            <div class="form-group col-md-6 mb-3">
+            <div class="form-group col-md-12 mb-6">
                 <label for="urlPost">URL Topic:</label>
                 <input type="url" name="urlPost" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="url" required>
-            </div>
-            <div class="form-group col-md-6 mb-3">
-                <label for="urlImg">URL Imagen:</label>
-                <input type="url" name="urlImg" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="urlImg" required>
             </div>
         </div>
     </div><!--cierro card del trending topic -->
