@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beta Form</title>
+    <link rel="icon" type="image/png" href="https://sidval.github.io/www/testing/forms/tb/favicon.ico">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        body > .container {
+        padding: 50px 15px 0;
+        }
+        .invalid {	
+        border: 1px dotted red;
+        border-bottom-style: double;
+        border-bottom-width: 2px;
+        }
+        tr:hover, tr.selected {
+        background-color: #87e454bf
+        }
+    </style>
+</head>
+<body>
+    <header class="mb-4">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-4">
+            <a href="https://sidval.github.io/www/testing/forms/tb/post.html" title="Formulario To Post" class="navbar-brand">Formulario</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a href="https://github.com/SidVal/www/tree/master/testing/forms/tb#readme" class="nav-link disabled">¿Qué es esto?</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+<main role="main" class="bd-content container">
+    <!--hero ini-->
+    <h1>Formulario To Post!</h1>
+    <!--hero fin-->
+    <!-- form -->
+    <div class="card">
+    <div class="card-body row">
+        <!-- FORMULARIO -->
+        <div class="col-md-5">
+            <form action="#" method="POST" id="form">
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-6">
+                <label for="tituloPost">Título:</label>
+                <input type="text" name="tituloPost" placeholder="Título post" class="form-control" id="titulo" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="urlPost">URL Topic:</label>
+                <input type="url" name="urlPost" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="url" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="urlImg">URL Imagen:</label>
+                <input type="url" name="urlImg" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="urlImg" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="tagsPost">Tags:</label>
+                <input type="text" name="tagsPost" placeholder="Etiquetas" class="form-control" id="tags" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="section">Trending Topic:</label>
+                <select name="section" class="form-control" id="section" required>
+                <option value="" selected></option>                    
+                <option value="Feedly Trending Topic:">Feedly</option>
+                <option value="Twitter Trending Topic:">Twitter</option>
+                <option value="Facebook Trending Topic:">Facebook</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-6">
+                <label for="textPost">Textos:</label>
+                <textarea class="form-control" id="texto" rows="3"></textarea>
+            </div>
+        </div>                
+            <a class="btn btn-primary btn-block col-md-12 mb-3 active disabled" id="post" onclick="getVotante()">POST</a>
+        </form>
+        </div>
+    
+<!--LISTA OCULTA hasta que valide form -->
+        <div class="col-md-6 d-none" id="to-post">
+            <div class="form-row">
+                <div class="form-group col-md-12 mb-6">
+                    <label for="toPost">To Post:</label>
+                    <textarea class="form-control" name="toPost" id="toPost" rows="15"></textarea>
+                </div>
+            </div>                 
+        </div>
+    </div>
+</div>
+
+    <!-- form fin-->    
+</main>
+
+    
+    <!--footer-->
+    <footer class="container">
+    <p class="float-right"><a href="#">Ir arriba</a></p>
+    <p>© 2018 Form: To Post! · <span data-toggle="modal" data-target="#ayuda">¿Necesitas ayuda?</span> · <span data-toggle="modal" data-target="#exampleModalLong">Términos y Condiciones</span></p>
+</footer>
+
+<!-- Modal #ayuda -->
+<div class="modal fade" id="ayuda" tabindex="-1" role="dialog" aria-labelledby="ayuda" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ayuda">Estamos para ayudarte</h5>
+      </div>
+      <div class="modal-body">
+        <p>El formulario es bastante intuitivo.</p>
+          <p>Si necesitas ayuda realmente, <a href="https://github.com/SidVal/www/issues/new?template=reporte-de-error.md" target="_new">contame tus ideas y/o problemas aquí</a>.</p>
+          <p>Si eres usuario de <strong>Github</strong>, por favor <a href="https://github.com/SidVal/www">danos una estrella</a> ;)</p>
+      </div>
+      <div class="modal-footer">
+          <!--<button type="button" class="btn btn-secondary" onclick="location.href='https://wa.me/00000000009'">Contactar a una persona</button>-->
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Entendí todo, gracias!</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<!-- Modal TOS -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Políticas de privacidad; términos y condiciones</h5>
+      </div>
+      <div class="modal-body">
+        <p>Aquí irían términos y condiciones, que realmente no es necesario aquí.</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="location.href='https://www.google.com'">No acepto</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Acepto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Btstrap js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- Scripts propios -->    
+<script>
+$( document ).ready(function() {
+$("#buscar").keyup(function () {
+    var value = this.value.toLowerCase().trim();
+    $("table tr").each(function (index) {
+        if (!index) return;
+        $(this).find("td").each(function () {
+            var id = $(this).text().toLowerCase().trim();
+            var not_found = (id.indexOf(value) == -1);
+            $(this).closest('tr').toggle(!not_found);
+            return not_found;
+        });
+    });
+});
+});
+</script>
+
+<script type='text/javascript'>
+//Funciones JS
+    document.getElementById("titulo").onchange = function() {validar()};
+    document.getElementById("url").onchange = function() {validar()};
+    document.getElementById("urlImg").onchange = function() {validar()};
+    document.getElementById("texto").onchange = function() {validar()};
+    document.getElementById("tags").onchange = function() {validar()};
+    document.getElementById("section").onchange = function() {validar()};
+    
+    
+    
+function validar() {
+      var tit = document.getElementById('titulo');
+      var url1 = document.getElementById('url');
+      var img = document.getElementById('urlImg');
+      var tags = document.getElementById('tags');
+      var sect = document.getElementById('section');
+      var txts = document.getElementById('texto');
+      var v = document.getElementById("post");
+      
+    // control de titulo
+        if (tit.value.length <= 0) { 
+      tit.classList.add("invalid") 
+      } else { tit.classList.remove("invalid") }
+    
+    // control de url
+        if (!url1.checkValidity()) {
+      url1.classList.add("invalid")
+      } else { url1.classList.remove("invalid") }
+    
+    // control de urlImg
+    if (!img.checkValidity()) {
+        img.classList.add("invalid")
+    } else { img.classList.remove("invalid")}
+
+    // control de tags
+        if (tags.value.length <= 0) {
+      tags.classList.add("invalid")  
+      } else { tags.classList.remove("invalid") } 
+      
+    // control de section
+        if (sect.value.length <= 0) {
+      sect.classList.add("invalid")
+      } else { sect.classList.remove("invalid") }
+
+    // control de text
+        if (txts.value.length <= 0) {
+      txts.classList.add("invalid")
+      } else { txts.classList.remove("invalid") }
+
+    // finalmente habilito el botón si todo es válido
+      if (tit.checkValidity() && url1.checkValidity() && img.checkValidity() && tags.checkValidity() && sect.checkValidity() && txts.checkValidity()) { 
+      v.classList.remove('disabled');
+        $("textarea[name='toPost']").val(tags.value + '\n\n' + "<img alt='Trending Topic " + tit.value + "' title='Trending Topic " + tit.value + "' src='" + img.value + "'/>" + '\n\n' + tit.value + '\n' + sect.value + " " + "<a href='" + url1.value +"' title='"+ tit.value +"' target='_blank'>"+ tit.value +"</a>" + '\n' + txts.value);
+      //cuando sea todo válido, pase los datos al textarea
+      } else { v.classList.add('disabled') }
+      //
+}    
+
+    function submit() {
+    document.getElementById("form").submit();
+    }
+
+
+function getVotante() {
+    // var tit = document.getElementById('titulo');
+    // var url1 = document.getElementById('url');
+    // var tags = document.getElementById('tags');
+    // var sect = document.getElementById('section');
+    // var txts = document.getElementById('texto');
+    $('#to-post').removeClass('d-none');
+}
+
+    </script>
+<!-- fin scripts propios -->    
+</body>
+</html>
