@@ -83,7 +83,15 @@
                 <label for="textPost">Textos:</label>
                 <textarea class="form-control" id="texto" rows="3"></textarea>
             </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-6">
+                <label for="contador">Descripción Máx 160 caracteres:</label>
+                <textarea class="form-control" id="contador" name="contador" rows="3" onpaste="contarcaracteres();" onkeyup="contarcaracteres();"></textarea>
+                <div id="res" class="font-weight-light text-monospace text-secondary">0 caracter/es</div>
+            </div>
         </div>                
+
             <a class="btn btn-primary col-md-6 mb-3 active disabled" id="post" onclick="getVotante()">POST</a>
             <div class="alert alert-light float-right" role="alert"><a class="alert-link" onclick="reset()">Reset</a></div>
         </form>
@@ -177,6 +185,7 @@ $("#buscar").keyup(function () {
     document.getElementById("url").onchange = function() {validar()};
     document.getElementById("urlImg").onchange = function() {validar()};
     document.getElementById("texto").onchange = function() {validar()};
+    document.getElementById("contador").onchange = function() {validar()};
     document.getElementById("tags").onchange = function() {validar()};
     document.getElementById("section").onchange = function() {validar()};
     
@@ -189,6 +198,7 @@ function validar() {
       var tags = document.getElementById('tags');
       var sect = document.getElementById('section');
       var txts = document.getElementById('texto');
+      var conta = document.getElementById('contador');
       var v = document.getElementById("post");
       
     // control de titulo
@@ -221,10 +231,15 @@ function validar() {
       txts.classList.add("invalid")
       } else { txts.classList.remove("invalid") }
 
+    // control de contador
+    if (conta.value.length <= 0) {
+    conta.classList.add("invalid")
+    } else { conta.classList.remove("invalid") }
+    
     // finalmente habilito el botón si todo es válido
-      if (tit.checkValidity() && url1.checkValidity() && img.checkValidity() && tags.checkValidity() && sect.checkValidity() && txts.checkValidity()) { 
+      if (tit.checkValidity() && url1.checkValidity() && img.checkValidity() && tags.checkValidity() && sect.checkValidity()) { 
       v.classList.remove('disabled');
-        $("textarea[name='toPost']").val(tags.value + '\n\n' + "<img alt='Trending Topic " + tit.value + "' title='Trending Topic " + tit.value + "' src='" + img.value + "'/>" + '\n\n' + "<h2>" + tit.value + "</h2>" + '\n' + sect.value + " " + "<a href='" + url1.value +"' title='"+ tit.value +"' target='_blank'>"+ tit.value +"</a>" + '\n' + txts.value);
+        $("textarea[name='toPost']").val(tags.value + '\n' + conta.value + '\n\n' + "<img alt='Trending Topic " + tit.value + "' title='Trending Topic " + tit.value + "' src='" + img.value + "'/>" + '\n\n' + "<h2>" + tit.value + "</h2>" + '\n' + sect.value + " " + "<a href='" + url1.value +"' title='"+ tit.value +"' target='_blank'>"+ tit.value +"</a>" + '\n' + txts.value);
       //cuando sea todo válido, pase los datos al textarea
       } else { v.classList.add('disabled') }
       //
@@ -244,9 +259,29 @@ function getVotante() {
     $('#to-post').removeClass('d-none');
 }
 
+function contarcaracteres(){
+//Numero de caracteres permitidos
+    var total=160;
+
+     setTimeout(function(){
+     var valor=document.getElementById('contador');
+     var respuesta=document.getElementById('res');
+     var cantidad=valor.value.length;
+     document.getElementById('res').innerHTML = cantidad + ' caracteres, te quedan ' + (total - cantidad) ;
+     if(cantidad>total){
+         respuesta.style.color = "red";
+     }
+     else {
+         respuesta.style.color = "gray";
+     }
+     },10);
+
+ }
+
 function reset() {
     document.getElementById("form").reset();
     document.getElementById("toPost").value = "";
+    contarcaracteres()
 }
 
     </script>
