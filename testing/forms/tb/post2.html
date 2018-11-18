@@ -94,7 +94,8 @@
                 <textarea class="form-control" id="texto" rows="3"></textarea>
             </div>
         </div>                
-            <a class="btn btn-primary btn-block col-md-12 mb-3 active disabled" id="post" onclick="getVotante()">POST</a>
+            <a class="btn btn-primary col-md-6 mb-3 active disabled" id="post" onclick="getVotante()">POST</a>
+            <div class="alert alert-light float-right" role="alert"><a class="alert-link" onclick="reset()">Reset</a></div>
         </form>
         </div>
     
@@ -232,9 +233,9 @@ function validar() {
 
     // finalmente habilito el botón si todo es válido
       if (tit.checkValidity() && url1.checkValidity() && img.checkValidity() && tags.checkValidity() && sect.checkValidity() && txts.checkValidity()) { 
-      v.classList.remove('disabled');
-        $("textarea[name='toPost']").val(tags.value + '\n\n' + "<img alt='Trending Topic " + tit.value + "' title='Trending Topic " + tit.value + "' src='" + img.value + "'/>" + '\n\n' + tit.value + '\n' + sect.value + " " + "<a href='" + url1.value +"' title='"+ tit.value +"' target='_blank'>"+ tit.value +"</a>" + '\n' + txts.value);
-      //cuando sea todo válido, pase los datos al textarea
+        v.classList.remove('disabled');
+        $("textarea[name='toPost']").val(tags.value + '\n\n' + "<img alt='Trending Topic " + tit.value + "' title='Trending Topic " + tit.value + "' src='" + img.value + "'/>" + '\n\n' + "<h2>" + tit.value + "</h2>" + '\n' + sect.value + " " + "<a href='" + url1.value +"' title='"+ tit.value +"' target='_blank'>"+ tit.value +"</a>" + '\n' + txts.value);
+        //cuando sea todo válido, pase los datos al textarea
       } else { v.classList.add('disabled') }
       //
 }    
@@ -251,6 +252,11 @@ function getVotante() {
     // var sect = document.getElementById('section');
     // var txts = document.getElementById('texto');
     $('#to-post').removeClass('d-none');
+}
+
+function reset() {
+    document.getElementById("form").reset();
+    document.getElementById("toPost").value = "";
 }
 
     </script>
