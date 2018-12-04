@@ -39,7 +39,7 @@
 
 <main role="main" class="bd-content container">
     <!--hero ini-->
-    <h1>Formulario To Post!</h1>
+    <h1>QA Page Snippet Generator v1</h1>
     <!--hero fin-->
     <!-- form -->
     <div class="card">
@@ -49,11 +49,12 @@
             <form action="#" method="POST" id="form">
         <div class="form-row">
             <div class="form-group col-md-12 mb-6">
-                <label for="tituloPost">Título:</label>
-                <input type="text" name="tituloPost" placeholder="Título post" class="form-control" id="titulo" required>
+                <label for="tituloPost">Pregunta:</label>
+                <input type="text" name="tituloPost" placeholder="Título de la pregunta" class="form-control" id="titulo" required>
             </div>
         </div>
-        <div class="form-row">
+        <!--//
+		<div class="form-row">
             <div class="form-group col-md-6 mb-3">
                 <label for="urlPost">URL Topic:</label>
                 <input type="url" name="urlPost" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="url" required>
@@ -63,30 +64,36 @@
                 <input type="url" name="urlImg" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="urlImg" required>
             </div>
         </div>
+		//-->
         <div class="form-row">
             <div class="form-group col-md-6 mb-3">
-                <label for="tagsPost">Tags:</label>
-                <input type="text" name="tagsPost" placeholder="Etiquetas" class="form-control" id="tags" required>
+                <label for="fechaPreg">Fecha Pregunta:</label>
+                <input type="datetime-local" name="fechaPreg" placeholder="Fecha Preg" class="form-control" id="fechaPreg" required>
             </div>
             <div class="form-group col-md-6 mb-3">
-                <label for="section">Trending Topic:</label>
-                <select name="section" class="form-control" id="section" required>
-                <option value="" selected></option>                    
-                <option value="Feedly Trending Topic:">Feedly</option>
-                <option value="Twitter Trending Topic:">Twitter</option>
-                <option value="Facebook Trending Topic:">Facebook</option>
-                </select>
+                <label for="section">Autor Pregunta:</label>
+                <input type="text" name="autorPreg" placeholder="Autor" class="form-control" id="autorPreg" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12 mb-6">
-                <label for="textPost">Textos:</label>
+                <label for="textPost">Pregunta:</label>
                 <textarea class="form-control" id="texto" rows="3"></textarea>
             </div>
         </div>
         <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="fechaResp">Fecha Respuesta:</label>
+                <input type="datetime-local" name="fechaResp" placeholder="Fecha Resp" class="form-control" id="fechaResp" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="section">Autor Respuesta:</label>
+                <input type="text" name="autorResp" placeholder="Autor" class="form-control" id="autorResp" required>
+            </div>
+        </div>
+        <div class="form-row">
             <div class="form-group col-md-12 mb-6">
-                <label for="contador">Descripción Máx 160 caracteres:</label>
+                <label for="contador">Respuesta:</label>
                 <textarea class="form-control" id="contador" name="contador" rows="3" onpaste="contarcaracteres();" onkeyup="contarcaracteres();"></textarea>
                 <div id="res" class="font-weight-light text-monospace text-secondary">0 caracter/es</div>
             </div>
@@ -116,7 +123,7 @@
     <!--footer-->
     <footer class="container">
     <p class="float-right"><a href="#">Ir arriba</a></p>
-    <p>© 2018 Form: To Post! · <span data-toggle="modal" data-target="#ayuda">¿Necesitas ayuda?</span> · <span data-toggle="modal" data-target="#exampleModalLong">Términos y Condiciones</span></p>
+    <p>© 2018 Form: QA Page Snippet! · <span data-toggle="modal" data-target="#ayuda">¿Necesitas ayuda?</span> · <span data-toggle="modal" data-target="#exampleModalLong">Términos y Condiciones</span></p>
 </footer>
 
 <!-- Modal #ayuda -->
