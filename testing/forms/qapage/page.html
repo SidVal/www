@@ -49,8 +49,8 @@
             <form action="#" method="POST" id="form">
         <div class="form-row">
             <div class="form-group col-md-12 mb-6">
-                <label for="tituloPost">Pregunta:</label>
-                <input type="text" name="tituloPost" placeholder="Título de la pregunta" class="form-control" id="titulo" required>
+                <label for="name">Pregunta:</label>
+                <input type="text" name="name" placeholder="Título de la pregunta" class="form-control" id="name" required>
             </div>
         </div>
 		<div class="form-row">
@@ -60,7 +60,7 @@
             </div>
             <div class="form-group col-md-6 mb-3">
                 <label for="upvoteCount">Cantidad de Votos:</label>
-                <input type="number" name="autorResp" placeholder="3,4,5..." class="form-control" id="upvoteCount" min="3" required>
+                <input type="number" name="upvoteCount" placeholder="3,4,5..." class="form-control" id="upvoteCount" min="3" required>
             </div>
         </div>
         <!--//
@@ -77,37 +77,48 @@
 		//-->
         <div class="form-row">
             <div class="form-group col-md-6 mb-3">
-                <label for="fechaPreg">Fecha Pregunta:</label>
-                <input type="datetime-local" name="fechaPreg" placeholder="Fecha Preg" class="form-control" id="fechaPreg" required>
+                <label for="dateCreated">Fecha Pregunta:</label>
+                <input type="datetime-local" name="dateCreated" placeholder="Fecha Preg" class="form-control" id="dateCreated" required>
             </div>
             <div class="form-group col-md-6 mb-3">
-                <label for="section">Autor Pregunta:</label>
-                <input type="text" name="autorPreg" placeholder="Autor" class="form-control" id="autorPreg" required>
+                <label for="author-name">Autor Pregunta:</label>
+                <input type="text" name="author-name" placeholder="Autor" class="form-control" id="author-name" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12 mb-6">
-                <label for="textPost">Cuerpo de la pregunta:</label>
-                <textarea class="form-control" id="texto" rows="3"></textarea>
+                <label for="text">Cuerpo de la pregunta:</label>
+                <textarea class="form-control" id="text" rows="3"></textarea>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6 mb-3">
-                <label for="fechaResp">Fecha Respuesta:</label>
-                <input type="datetime-local" name="fechaResp" placeholder="Fecha Resp" class="form-control" id="fechaResp" required>
+                <label for="acceptedAnswer-dateCreated">Fecha Respuesta:</label>
+                <input type="datetime-local" name="acceptedAnswer-dateCreated" placeholder="Fecha Resp" class="form-control" id="acceptedAnswer-dateCreated" required>
             </div>
             <div class="form-group col-md-6 mb-3">
-                <label for="section">Autor Respuesta:</label>
-                <input type="text" name="autorResp" placeholder="Autor" class="form-control" id="autorResp" required>
+                <label for="acceptedAnswer-name">Autor Respuesta:</label>
+                <input type="text" name="acceptedAnswer-name" placeholder="Autor" class="form-control" id="acceptedAnswer-name" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12 mb-6">
-                <label for="contador">Respuesta:</label>
-                <textarea class="form-control" id="contador" name="contador" rows="3" onpaste="contarcaracteres();" onkeyup="contarcaracteres();"></textarea>
+                <label for="acceptedAnswer-text">Respuesta:</label>
+                <!--Corregir JS para acceptedAnswer-text como id -->
+				<textarea class="form-control" id="contador" name="contador" rows="3" onpaste="contarcaracteres();" onkeyup="contarcaracteres();"></textarea>
                 <div id="res" class="font-weight-light text-monospace text-secondary">0 caracter/es</div>
             </div>
-        </div>                
+        </div>
+		<div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="acceptedAnswer-upvoteCount">Cantidad de Votos a la respuesta:</label>
+                <input type="number" name="acceptedAnswer-upvoteCount" placeholder="1,2,3..." class="form-control" id="acceptedAnswer-upvoteCount" min="1" max="100" required>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label for="acceptedAnswer-url">URL de solución:</label>
+                <input type="url" name="url" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="acceptedAnswer-url" required>
+            </div>
+        </div>		
 
             <a class="btn btn-primary col-md-6 mb-3 active disabled" id="post" onclick="getVotante()">POST</a>
             <div class="alert alert-light float-right" role="alert"><a class="alert-link" onclick="reset()">Reset</a></div>
