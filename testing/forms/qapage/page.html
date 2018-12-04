@@ -59,22 +59,11 @@
                 <input type="number" name="answerCount" placeholder="1,2,3..." class="form-control" id="answerCount" min="1" max="100" required>
             </div>
             <div class="form-group col-md-6 mb-3">
-                <label for="upvoteCount">Cantidad de Votos:</label>
+                <label for="upvoteCount">Votos a la preg:</label>
                 <input type="number" name="upvoteCount" placeholder="3,4,5..." class="form-control" id="upvoteCount" min="3" required>
             </div>
         </div>
-        <!--//
-		<div class="form-row">
-            <div class="form-group col-md-6 mb-3">
-                <label for="urlPost">URL Topic:</label>
-                <input type="url" name="urlPost" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="url" required>
-            </div>
-            <div class="form-group col-md-6 mb-3">
-                <label for="urlImg">URL Imagen:</label>
-                <input type="url" name="urlImg" placeholder="https://example.com" pattern="https://.*" size="20" class="form-control" id="urlImg" required>
-            </div>
-        </div>
-		//-->
+
         <div class="form-row">
             <div class="form-group col-md-6 mb-3">
                 <label for="dateCreated">Fecha Pregunta:</label>
@@ -105,13 +94,13 @@
             <div class="form-group col-md-12 mb-6">
                 <label for="acceptedAnswer-text">Respuesta:</label>
                 <!--Corregir JS para acceptedAnswer-text como id -->
-				<textarea class="form-control" id="contador" name="contador" rows="3" onpaste="contarcaracteres();" onkeyup="contarcaracteres();"></textarea>
-                <div id="res" class="font-weight-light text-monospace text-secondary">0 caracter/es</div>
+				<textarea class="form-control" id="acceptedAnswer-text" name="acceptedAnswer-text" rows="3" onpaste="contarcaracteres1();" onkeyup="contarcaracteres();"></textarea>
+                <div id="res1" class="font-weight-light text-monospace text-secondary">0 caracter/es</div>
             </div>
         </div>
 		<div class="form-row">
             <div class="form-group col-md-6 mb-3">
-                <label for="acceptedAnswer-upvoteCount">Cantidad de Votos a la respuesta:</label>
+                <label for="acceptedAnswer-upvoteCount">Votos a la respuesta:</label>
                 <input type="number" name="acceptedAnswer-upvoteCount" placeholder="1,2,3..." class="form-control" id="acceptedAnswer-upvoteCount" min="1" max="100" required>
             </div>
             <div class="form-group col-md-6 mb-3">
@@ -209,18 +198,37 @@ $("#buscar").keyup(function () {
 
 <script type='text/javascript'>
 //Funciones JS
-    document.getElementById("titulo").onchange = function() {validar()};
-    document.getElementById("url").onchange = function() {validar()};
-    document.getElementById("urlImg").onchange = function() {validar()};
-    document.getElementById("texto").onchange = function() {validar()};
-    document.getElementById("contador").onchange = function() {validar()};
-    document.getElementById("tags").onchange = function() {validar()};
-    document.getElementById("section").onchange = function() {validar()};
+/* lista de ids del form
+
+name = titulo
+answerCount = cantidad de respuestas
+upvoteCount = cantidad de votos
+dateCreated = fecha pregunta
+author-name = nombre del que pregunta
+text = mensaje de la pregunta
+acceptedAnswer-dateCreated = fecha de la solución
+acceptedAnswer-name = autor de la solución
+acceptedAnswer-text = respuesta solución
+acceptedAnswer-upvoteCount = votos de la solución
+acceptedAnswer-url = url de la solución
+
+*/
+    document.getElementById("name").onchange = function() {validar()};
+    document.getElementById("answerCount").onchange = function() {validar()};
+    document.getElementById("upvoteCount").onchange = function() {validar()};
+    document.getElementById("dateCreated").onchange = function() {validar()};
+    document.getElementById("author-name").onchange = function() {validar()};
+    document.getElementById("text").onchange = function() {validar()};
+    document.getElementById("acceptedAnswer-dateCreated").onchange = function() {validar()};
+	document.getElementById("acceptedAnswer-name").onchange = function() {validar()};
+	document.getElementById("acceptedAnswer-text").onchange = function() {validar()};
+	document.getElementById("acceptedAnswer-upvoteCount").onchange = function() {validar()};
+	document.getElementById("acceptedAnswer-url").onchange = function() {validar()};
     
     
     
 function validar() {
-      var tit = document.getElementById('titulo');
+      var tit = document.getElementById('name');
       var url1 = document.getElementById('url');
       var img = document.getElementById('urlImg');
       var tags = document.getElementById('tags');
@@ -279,15 +287,29 @@ function validar() {
 
 
 function getVotante() {
-    // var tit = document.getElementById('titulo');
-    // var url1 = document.getElementById('url');
-    // var tags = document.getElementById('tags');
-    // var sect = document.getElementById('section');
-    // var txts = document.getElementById('texto');
     $('#to-post').removeClass('d-none');
 }
 
-function contarcaracteres(){
+function contarcaracteres1(){
+//Numero de caracteres permitidos
+    var total=160;
+
+     setTimeout(function(){
+     var valor=document.getElementById('acceptedAnswer-text');
+     var respuesta=document.getElementById('res1');
+     var cantidad=valor.value.length;
+     document.getElementById('res1').innerHTML = cantidad + ' caracteres, te quedan ' + (total - cantidad) ;
+     if(cantidad>total){
+         respuesta.style.color = "red";
+     }
+     else {
+         respuesta.style.color = "gray";
+     }
+     },10);
+
+ }
+
+ function contarcaracteres2(){
 //Numero de caracteres permitidos
     var total=160;
 
@@ -305,7 +327,7 @@ function contarcaracteres(){
      },10);
 
  }
-
+ 
 function reset() {
     document.getElementById("form").reset();
     document.getElementById("toPost").value = "";
