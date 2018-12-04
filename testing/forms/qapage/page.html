@@ -77,7 +77,8 @@
         <div class="form-row">
             <div class="form-group col-md-12 mb-6">
                 <label for="text">Cuerpo de la pregunta:</label>
-                <textarea class="form-control" id="text" rows="3"></textarea>
+                <textarea class="form-control" id="text" name="text" rows="3" onpaste="contarcaracteres2();" onkeyup="contarcaracteres2();"></textarea>
+				<div id="res2" class="font-weight-light text-monospace text-secondary">0 caracter/es</div>
             </div>
         </div>
         <div class="form-row">
@@ -93,8 +94,7 @@
         <div class="form-row">
             <div class="form-group col-md-12 mb-6">
                 <label for="acceptedAnswer-text">Respuesta:</label>
-                <!--Corregir JS para acceptedAnswer-text como id -->
-				<textarea class="form-control" id="acceptedAnswer-text" name="acceptedAnswer-text" rows="3" onpaste="contarcaracteres1();" onkeyup="contarcaracteres();"></textarea>
+                <textarea class="form-control" id="acceptedAnswer-text" name="acceptedAnswer-text" rows="3" onpaste="contarcaracteres1();" onkeyup="contarcaracteres1();"></textarea>
                 <div id="res1" class="font-weight-light text-monospace text-secondary">0 caracter/es</div>
             </div>
         </div>
@@ -292,7 +292,7 @@ function getVotante() {
 
 function contarcaracteres1(){
 //Numero de caracteres permitidos
-    var total=160;
+    var total=300;
 
      setTimeout(function(){
      var valor=document.getElementById('acceptedAnswer-text');
@@ -311,7 +311,7 @@ function contarcaracteres1(){
 
  function contarcaracteres2(){
 //Numero de caracteres permitidos
-    var total=160;
+    var total=300;
 
      setTimeout(function(){
      var valor=document.getElementById('contador');
