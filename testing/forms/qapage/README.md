@@ -3,6 +3,7 @@
 >A QAPage is a WebPage focussed on a specific Question and its Answer(s), e.g. in a question answering site or documenting Frequently Asked Questions (FAQs).
 
 - [Ver idea](https://github.com/SidVal/SidV/issues/35)
+- [Page.html](https://sidval.github.io/www/testing/forms/qapage/page.html)
 
 ## Info
 
