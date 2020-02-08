@@ -31,47 +31,6 @@
 <a class='comment-link' expr:href='data:post.createLinkUrl' expr:id='data:widget.instanceId + &quot;_backlinks-create-link&quot;' target='_blank'><data:post.createLinkLabel/></a>
 </p>
 </b:includable>
-<b:includable id='breadcrumb' var='posts'>
-<b:if cond='data:blog.homepageUrl.https != data:blog.url.https'>
-<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-<div class='breadcrumbs'><span class='breadhome'><a expr:href='data:blog.homepageUrl.https' rel='tag'>Home</a> <i class='fa fa-angle-right'/></span><span class='breadlabel'><data:blog.pageName/></span></div>
-<b:else/>
-<b:if cond='data:blog.pageType == &quot;item&quot;'>
-<!-- breadcrumb for the post page -->
-<b:loop values='data:posts' var='post'>
-<b:if cond='data:post.labels'>
-<div class='breadcrumbs' xmlns:v='https://schema.org/BreadcrumbList'>
-<span class='breadhome' typeof='v:Breadcrumb'><a expr:href='data:blog.homepageUrl.https' property='v:title' rel='v:url'>Home</a> <i class='fa fa-angle-right'/></span>
-<b:loop values='data:post.labels' var='label'>
-<span class='breadlabel' typeof='v:Breadcrumb'><a expr:href='data:label.url.https + &quot;?&amp;amp;max-results=7&quot;' property='v:title' rel='v:url'><data:label.name/></a> <i class='fa fa-angle-right'/></span>
-</b:loop>
-<span class='breadlabel'><data:post.title/></span>
-</div>
-<b:else/>
-<div class='breadcrumbs'><span class='breadhome'><a expr:href='data:blog.homepageUrl.https' rel='tag'>Home</a> <i class='fa fa-angle-right'/></span><span class='breadlabel'>Sin etiqueta</span> <span class='breadlabel'><data:post.title/></span></div>
-</b:if>
-</b:loop>
-<b:else/>
-<b:if cond='data:blog.pageType == &quot;archive&quot;'>
-<!-- breadcrumb for the label archive page and search pages.. -->
-<div class='breadcrumbs'>
-<span class='breadhome'><a expr:href='data:blog.homepageUrl.https'>Home</a> <i class='fa fa-angle-right'/></span><span>Archivos para <data:blog.pageName/></span>
-</div>
-<b:else/>
-<b:if cond='data:blog.pageType == &quot;index&quot;'>
-<div class='breadcrumbs'>
-<b:if cond='data:blog.pageName == &quot;&quot;'>
-<span class='breadhome'><a expr:href='data:blog.homepageUrl.https'>Home</a> <i class='fa fa-angle-right'/></span><span class='breadlabel'>Todos </span>
-<b:else/>
-<span class='breadhome'> <a expr:href='data:blog.homepageUrl.https'>Home</a> <i class='fa fa-angle-right'/></span><span class='breadlabel'><data:blog.pageName/></span>
-</b:if>
-</div>
-</b:if>
-</b:if>
-</b:if>
-</b:if>
-</b:if>
-</b:includable>
 <b:includable id='comment-form' var='post'>
 <div class='comment-form'>
 <b:if cond='data:mobile'>
@@ -103,7 +62,7 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 </div>
 <b:else/>
 <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:top.deleteCommentMsg'>
-<img src='https://img1.blogblog.com/img/icon_delete13.gif'/>
+<img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
 </a>
 </b:if>
 </span>
@@ -132,23 +91,34 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 <b:if cond='data:post.allowComments'>
 <b:if cond='data:post.numComments != 0'>
 <h3>
-<b:if cond='data:post.numComments == 1'>1 comentario hasta el momento
+<b:if cond='data:post.numComments == 1'>
+1 
+<data:commentLabel/>
 <b:else/>
-<data:post.numComments/> <data:commentLabelPlural/>
+<data:post.numComments/>
+<data:commentLabelPlural/>
 </b:if>
 </h3>
 </b:if>
 <b:if cond='data:post.commentPagingRequired'>
 <span class='paging-control-container'>
-<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+<data:post.oldestLinkText/>
+</a>
 &#160;
-<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+<data:post.olderLinkText/>
+</a>
 &#160;
 <data:post.commentRangeText/>
 &#160;
-<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+<data:post.newerLinkText/>
+</a>
 &#160;
-<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+<data:post.newestLinkText/>
+</a>
 </span>
 </b:if>
 <div class='clear'/>
@@ -157,7 +127,7 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 <div class='data:comment.adminClass' expr:id='data:comment.anchorName'>
 <b:if cond='data:post.adminClass == data:comment.adminClass'>
 &lt;div class=&#39;comment_inner comment_admin&#39;&gt;
-<b:else/> 
+<b:else/>
 &lt;div class=&#39;comment_inner&#39;&gt;
 </b:if>
 <div class='comment_header'>
@@ -165,7 +135,7 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 <div class='comment_avatar'>
 <img alt='avatar' expr:src='data:comment.authorAvatarSrc' expr:title='data:comment.author'/>
 </div>
-<a class='comment_reply' expr:href='&quot;#r_&quot;+data:comment.anchorName' expr:id='&quot;r&quot;+data:comment.anchorName' onclick='javascript:Display_Reply_Form(this)' title='Balas'>Rta</a>
+<a class='comment_reply' expr:href='&quot;#r_&quot;+data:comment.anchorName' expr:id='&quot;r&quot;+data:comment.anchorName' onclick='javascript:Display_Reply_Form(this)' title='Balas'>Balas</a>
 </div>
 <div class='clear'/>
 </div>
@@ -180,13 +150,13 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 <data:comment.author/>
 </b:if>
 <b:if cond='data:comment.author == data:post.author'>
-<span class='comment_author_flag'><i class='fa fa-check-circle' title='Verified Author'/></span>
+<span class='comment_author_flag'/>
 </b:if>
 <span class='comment_service'>
 <a class='comment-delete' expr:href='&quot;https://www.blogger.com/delete-comment.g?blogID=&quot; + data:blog.blogId + &quot;&amp;amp;postID=&quot; + data:comment.id' expr:title='data:top.deleteCommentMsg'>
-<img alt='delete' src='https://2.bp.blogspot.com/-d-5BS0YCkho/UOKe2UIw0rI/AAAAAAAAC4w/md_iYNVHaHk/s1600/delete4.png' title='Eliminar comentario'/>	
-</a>                	
-<span class='comment_date'>	
+<img alt='delete' src='https://2.bp.blogspot.com/-d-5BS0YCkho/UOKe2UIw0rI/AAAAAAAAC4w/md_iYNVHaHk/s1600/delete4.png' title='Hapus Komentar'/>
+</a>                
+<span class='comment_date'>
 <a expr:href='data:comment.url' rel='nofollow noopener' title='comment permalink'>
 <data:comment.timestamp/>
 </a>
@@ -194,13 +164,14 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 </span>
 </div>
 <b:if cond='data:comment.isDeleted'>
-<span class='deleted-comment'><data:comment.body/></span>
+<span class='deleted-comment'>
+<data:comment.body/>
+</span>
 <b:else/>
 <p>
 <data:comment.body/>
 </p>
 <div class='clear'/>
-<!-- <b:include data='comment' name='commentDeleteIcon'/> -->
 </b:if>
 </div>
 <div class='clear'/>
@@ -214,15 +185,23 @@ BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
 <div class='clear'/>
 <b:if cond='data:post.commentPagingRequired'>
 <span class='paging-control-container'>
-<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+<data:post.oldestLinkText/>
+</a>
 &#160;
-<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+<data:post.olderLinkText/>
+</a>
 &#160;
 <data:post.commentRangeText/>
 &#160;
-<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+<data:post.newerLinkText/>
+</a>
 &#160;
-<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+<data:post.newestLinkText/>
+</a>
 </span>
 </b:if>
 <div class='clear'/>
@@ -251,9 +230,8 @@ document.write("<scr" + "ipt type=\"text/javascript\" src=\"https://ajax.googlea
 }
 //]]>
 </script>
-<script async='async' src='//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js' type='text/javascript'/> <!-- expr:src='data:post.commentSrc' -->
+<script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
 <script type='text/javascript'>
-
 <b:if cond='data:post.numComments != 0'>
 var Items = <data:post.commentJso/>;
 var Msgs = <data:post.commentMsgs/>;
@@ -265,7 +243,7 @@ var Config = {&#39;maxThreadDepth&#39;:&#39;0&#39;};
 </b:if>
 //<![CDATA[
 //Global setting
-Config.maxThreadDepth = 3;//Kedalaman tingkat threaded comment
+Config.maxThreadDepth = 6;//Kedalaman tingkat threaded comment
 Display_Emo = true;//Tampilkan emoticon? ketik "false" untuk menyembunyikan
 Replace_Youtube_Link = false;//Embed video YouTube, ketik "false" untuk mendisable
 Replace_Image_Link = false;//Auto replace link image,  ketik "false" untuk mendisable.
@@ -273,32 +251,33 @@ Replace_Force_Tag = false;//Auto replace virtual tag contoh: [pre] menjadi <pre>
 Replace_Image_Ext = ['JPG', 'GIF', 'PNG', 'BMP'];//(support: jpg, gif, png, bmp),hanya berfungsi apabila Replace_Image_Link=true
 //Pengaturan Emoticon
 Emo_List = [
-':)'  	,'https://twemoji.maxcdn.com/36x36/1f600.png',
-':('  	,'https://twemoji.maxcdn.com/36x36/1f615.png',
+':)'      ,'https://twemoji.maxcdn.com/36x36/1f600.png',
+':('      ,'https://twemoji.maxcdn.com/36x36/1f615.png',
 'hihi'  ,'https://twemoji.maxcdn.com/36x36/1f601.png',
-':-)'  	,'https://twemoji.maxcdn.com/36x36/1f60f.png',
-':D'  	,'https://twemoji.maxcdn.com/36x36/1f603.png',
-'=D'  	,'https://twemoji.maxcdn.com/36x36/1f62c.png',
-':-d'  	,'https://twemoji.maxcdn.com/36x36/1f604.png',
-';('  	,'https://twemoji.maxcdn.com/36x36/1f61e.png',
-';-('  	,'https://twemoji.maxcdn.com/36x36/1f62d.png',
+':-)'      ,'https://twemoji.maxcdn.com/36x36/1f60f.png',
+':D'      ,'https://twemoji.maxcdn.com/36x36/1f603.png',
+'=D'      ,'https://twemoji.maxcdn.com/36x36/1f62c.png',
+':-d'      ,'https://twemoji.maxcdn.com/36x36/1f604.png',
+';('      ,'https://twemoji.maxcdn.com/36x36/1f61e.png',
+';-('      ,'https://twemoji.maxcdn.com/36x36/1f62d.png',
 '@-)'   ,'https://twemoji.maxcdn.com/36x36/1f616.png',
-':o'	,'https://twemoji.maxcdn.com/36x36/1f62e.png',     
+':P'      ,'https://twemoji.maxcdn.com/36x36/1f61c.png',
+':o'    ,'https://twemoji.maxcdn.com/36x36/1f62e.png',     
 ':&gt;)','https://twemoji.maxcdn.com/36x36/1f606.png',     
-'(o)'	,'https://twemoji.maxcdn.com/36x36/1f609.png',     
-':p'	,'https://twemoji.maxcdn.com/36x36/1f614.png',     
-':-?'	,'https://twemoji.maxcdn.com/36x36/2753.png', 
-'(p)'	,'https://twemoji.maxcdn.com/36x36/1f619.png', 
-':-s'	,'https://twemoji.maxcdn.com/36x36/1f625.png',
-'8-)'	,'https://twemoji.maxcdn.com/36x36/1f60e.png',
-':-t'	,'https://twemoji.maxcdn.com/36x36/1f624.png',
-':-b'	,'https://twemoji.maxcdn.com/36x36/1f634.png',
-'b-('	,'https://twemoji.maxcdn.com/36x36/1f635.png',
-'(y)'	,'https://twemoji.maxcdn.com/36x36/1f44d.png',
-'x-)'	,'https://twemoji.maxcdn.com/36x36/1f60d.png',
-'(k)'	,'https://twemoji.maxcdn.com/36x36/1f496.png',   
+'(o)'    ,'https://twemoji.maxcdn.com/36x36/1f609.png',     
+':p'    ,'https://twemoji.maxcdn.com/36x36/1f614.png',     
+'(p)'    ,'https://twemoji.maxcdn.com/36x36/1f619.png', 
+':-s'    ,'https://twemoji.maxcdn.com/36x36/1f625.png',
+'(m)'    ,'https://twemoji.maxcdn.com/36x36/1f620.png',
+'8-)'    ,'https://twemoji.maxcdn.com/36x36/1f60e.png',
+':-t'    ,'https://twemoji.maxcdn.com/36x36/1f624.png',
+':-b'    ,'https://twemoji.maxcdn.com/36x36/1f634.png',
+'b-('    ,'https://twemoji.maxcdn.com/36x36/1f635.png',
+':-#'    ,'https://twemoji.maxcdn.com/36x36/1f637.png',
+'=p~'    ,'https://twemoji.maxcdn.com/36x36/1f35c.png',
+'x-)'    ,'https://twemoji.maxcdn.com/36x36/1f60d.png',
+'(k)'    ,'https://twemoji.maxcdn.com/36x36/1f496.png',
 ];
-//Config Force tag list, define all in lower case
 Force_Tag = [
 '[pre]','<pre>',
 '[/pre]','</pre>',
