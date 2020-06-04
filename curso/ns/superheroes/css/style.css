@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+h1{
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+}
+
+h2{
+    font-family: 'Bangers', cursive;
+}
+
+.margin{
+    margin: 40px;
+}

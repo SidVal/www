@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://js.org/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-96.png" sizes="96x96">
+    
+    <title>Cuarta Clase JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ns/assets/css/dreamweaver.css">
+</head>
+<body>
+<div class="container">
+    <h1>Presionar tecla <kbd>F12</kbd> en Chrome</h1>
+    <h2>Ir a Consola <span class="badge badge-secondary">(donde ocurre la magia)</span></h2>
+
+    <br />
+    <h3>Clases</h3>
+
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS1.html">Clase 1</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS2.html">Clase 2</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS3.html">Clase 3</a>
+        <a class="flex-sm-fill text-sm-center nav-link active" href="../ns/claseJS4.html">Clase 4</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS5.html">Clase 5</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS6.html">Clase 6</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS7.html">Clase 7</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS8.html">Clase 8</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS9.html">Clase 9</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS10.html">Clase 10</a>
+        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Más info</a>
+      </nav>
+
+      <hr />
+<h2>Tarea</h2>
+<p>
+<div class="card">
+    <div class="card-body">
+      Primero los enunciados de la tarea, más abajo el código para probar en la consola. 
+    </div>
+  </div>
+<br />
+</p>
+
+
+<h4>1. Decir “Hola”</h4>
+<p>Crear una función que loguee un saludo en la consola.<br />
+Ahora refactorea tu función para que tome como argumento un nombre y salude a la persona que le pases como argumento cuando lo ejecutes. Probá ejecutar tu función con varios nombres para estar seguro que funciona.
+</p>
+
+<h4>2. ¿Qué devuelve cada función?</h4>
+<p>
+Pensar sin probarlo en la consola:
+<pre><code data-language="js">
+    // función 1
+    let test = function(x,y){
+        return y-x
+    }
+    test(20,80);
+
+    //función 2
+    let test = function(x,y){
+        return x*2;
+        console.log(x);
+        return x/2;
+    }
+    test(80);
+</code></pre>
+</p>
+
+<h4>3. Matemática simple</h4>
+<p>
+    <ul>
+        <li>Crea una función que se llame <span class="badge badge-primary">tripler</span> que tome un número como input (osea, como parámetro) y retorne el triple de ese valor.</li>
+        <li>Crea una función <span class="badge badge-primary">multiply</span> que tome dos números como parámetros y devuelva el producto de los dos.</li>
+        <li>Crea una función <span class="badge badge-primary">divide</span> que tome dos números como parámetros y devuelva el resultado de dividir el primero por el segundo.</li>
+        <li>Crea una función <span class="badge badge-primary">reminder</span> que tome dos números como parámetros y devuelva el resultado del módulo del primero sobre el segundo</li>
+        <li>Usando solamente las funciones que escribieron arriba, y sin otros operadores, calculen el valor de triplicar 5, luego multiplicar eso por 12, dividir por 12 y encontrar el resto de dividir eso en 3.</li>
+    </ul>
+</p>
+
+<h4>4. esPar()</h4>
+<p>
+Crea una función esPar que tome un número como argumento y devuelva true si es par o false si no lo es.<br /> Acá tienes unos ejemplos para probar si tu código funciona<br />
+<pre><code data-language="js">esPar(4) // true
+esPar(15) // false
+</code></pre>
+</p>
+
+<h4>5. Calculadora (Parte 2)</h4>
+<p>
+Crear una calculadora básica que genere la suma, resta, división y multiplicación utilizando funciones. 
+<br />Tener en cuenta que sucede cuando se quiere dividir por el número cero.
+</p>
+
+<hr />
+<h2>Código de Tarea</h2>
+
+<pre><code data-language="js">// Tarea: Ejercicios Clase 4
+    // 1. Decir “Hola”
+    // Crear una función que loguee un saludo en la consola
+    // Ahora refactorea tu función para que tome como argumento un nombre y salude a la persona que le pases como argumento cuando lo ejecutes. Probá ejecutar tu función con varios nombres para estar seguro que funciona.
+    
+    let nombre = prompt("¿Cómo te llamas?");
+    function saludar() {
+        console.log("Hola " + nombre);
+    }
+    saludar();
+    
+    // 2. ¿Qué devuelve cada función?
+    // Pensar sin probarlo en la consola:
+    
+    // función 1
+    let test = function (x, y) {
+        return y - x
+    }
+    test(20, 80);
+    // Ejecutar test(20, 80); 
+    // Devuelve el valor: 60
+    
+    
+    //función 2
+    let test = function (x, y) {
+        return x * 2;
+        console.log(x);
+        return x / 2;
+    }
+    test(40);
+    // Ejecutar test(40); 
+    // Devuelve el valor: 80
+    
+    
+    
+    // 3. Matemática simple
+    // Crea una función que se llame tripler que tome un número como input (osea, como parámetro) y retorne el triple de ese valor.
+    // Crea una función multiply que tome dos números como parámetros y devuelva el producto de los dos.
+    // Crea una función divide que tome dos números como parámetros y devuelva el resultado de dividir el primero por el segundo.
+    // Crea una función reminder que tome dos números como parámetros y devuelva el resultado del módulo del primero sobre el segundo
+    // Usando solamente las funciones que escribieron arriba, y sin otros operadores, calculen el valor de triplicar 5, luego multiplicar eso por 12, dividir por 12 y encontrar el resto de dividir eso en 3.
+    
+    function tripler(num1) {
+        return num1 * 3;
+    }
+    //tripler(3);
+    
+    function multiply(num1,num2) {
+        return num1 * num2;
+    }
+    
+    function divide(num1,num2) {
+        if (num2 == 0) {
+            alert("No puedes dividir por cero!")
+        } else {
+            return num1 / num2;
+        }
+    }
+    
+    function reminder(num1, num2) {
+        return num1 % num2;
+    }
+    
+    // Usando solamente las funciones que escribieron arriba, y sin otros operadores, calculen el valor de triplicar 5, luego multiplicar eso por 12, dividir por 12 y encontrar el resto de dividir eso en 3.
+    let valor = reminder(divide(multiply(tripler(5),12),12),3);
+    console.log(valor);
+    
+    //triplicar 5
+    //multiplicar 12
+    //dividir por 12
+    //resto de dividir en 3
+    
+    // 4. esPar()
+    // Crea una función esPar que tome un número como argumento y devuelva true si es par o false si no lo es. Acá tienes unos ejemplos para probar si tu código funciona
+    //
+    // esPar(4) //true
+    // esPar(15) //false
+    
+    function esPar(num1) {
+        if (num1 % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    // 5. Calculadora (Parte 2)
+    // Crear una calculadora básica que genere la suma, resta, división y multiplicación utilizando funciones. 
+    // Tener en cuenta que sucede cuando se quiere dividir por el número cero.
+    
+    
+    function calculadora(num1, num2) {
+        let oper = prompt("¿Qué operación quiere realizar? \n Puedes elegir una letra:\n A = SUMA \n B = RESTA \n C = MULTIPLICACIÓN \n D = DIVISIÓN").toLowerCase();
+    
+        switch (oper) {
+            case "a":
+                let suma = num1 + num2;
+                alert("El resultado de su SUMA es: " + suma);
+                break;
+            case "b":
+                let resta = num1 - num2;
+                alert("El resultado de su RESTA es: " + resta);
+                break;
+            case "c":
+                let multi = num1 * num2;
+                alert("El resultado de su MULTIPLICACION es: " + multi);
+                break;
+            case "d":
+                let divi = num1 / num2;
+                if (num2 == 0) {
+                    alert("Por favor, no puedes dividir por cero.");
+                    num2 = Number(prompt("Elige otro número distinto a cero"));
+                    if (num2 == 0) {
+                        alert("QUE PARTE NO ENTENDISTE! No puedes dividir por cero.");
+                        alert("Chau =)");
+                        calc();
+                    } else {
+                        divi = num1 / num2;
+                        alert("El resultado de su DIVISION es: " + divi);
+                    }
+                } else {
+                    alert("El resultado de su DIVISION es: " + divi);
+                }
+                break;
+            default:
+                alert("Por favor, prestar atención, no seleccionaste correctamente una letra de operación, por ejemplo, si quiere sumar, presione: A \n\n Operaciones:\n A = SUMA \n B = RESTA \n C = MULTIPLICACIÓN \n D = DIVISIÓN");
+                alert("Empezas de cero ahora, de nuevo elegí números y operación!");
+                calc();
+                break;
+        }
+    }
+    
+    function calc() {
+        let num1,num2;
+        num1 = Number(prompt("¿Cuál era tu número 1?"));
+        num2 = Number(prompt("¿Cuál era tu número 2?"));
+    
+        let oper = prompt("¿Qué operación quiere realizar? \n Puedes elegir una letra:\n A = SUMA \n B = RESTA \n C = MULTIPLICACIÓN \n D = DIVISIÓN").toLowerCase();
+    
+        switch (oper) {
+            case "a":
+                let suma = num1 + num2;
+                alert("El resultado de su SUMA es: " + suma);
+                break;
+            case "b":
+                let resta = num1 - num2;
+                alert("El resultado de su RESTA es: " + resta);
+                break;
+            case "c":
+                let multi = num1 * num2;
+                alert("El resultado de su MULTIPLICACION es: " + multi);
+                break;
+            case "d":
+                let divi = num1 / num2;
+                if (num2 == 0) {
+                    alert("Por favor, no puedes dividir por cero.");
+                    num2 = Number(prompt("Elige otro número distinto a cero"));
+                    if (num2 == 0) {
+                        alert("Por favor, no puedes dividir por cero.");
+                        alert("chau");
+                        break
+                    } else {
+                        divi = num1 / num2;
+                        alert("El resultado de su DIVISION es: " + divi);
+                    }
+                } else {
+                    alert("El resultado de su DIVISION es: " + divi);
+                }
+                break;
+            default:
+                alert("Por favor, prestar atención, no seleccionaste correctamente una letra de operación, por ejemplo, si quiere sumar, presione: A \n\n Operaciones:\n A = SUMA \n B = RESTA \n C = MULTIPLICACIÓN \n D = DIVISIÓN");
+                alert("Empezas de cero ahora, de nuevo elegí números y operación!");
+                calc();
+                break;
+        }
+    }
+  
+</code></pre>
+</div>
+<!-- Script Zone -->
+<!-- <script src="../ns/assets/js/4ta-clase.js"></script> -->
+<!-- rainbow -->
+<script src="../ns/assets/js/rainbow.js"></script>
+<!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

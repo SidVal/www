@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://js.org/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-96.png" sizes="96x96">
+    
+    <title>Segunda Clase JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ns/assets/css/dreamweaver.css">
+</head>
+<body>
+<div class="container">
+    <h1>Presionar tecla <kbd>F12</kbd> en Chrome</h1>
+    <h2>Ir a Consola <span class="badge badge-secondary">(donde ocurre la magia)</span></h2>
+
+    <br />
+    <h3>Clases</h3>
+
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS1.html">Clase 1</a>
+        <a class="flex-sm-fill text-sm-center nav-link active" href="../ns/claseJS2.html">Clase 2</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS3.html">Clase 3</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS4.html">Clase 4</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS5.html">Clase 5</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS6.html">Clase 6</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS7.html">Clase 7</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS8.html">Clase 8</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS9.html">Clase 9</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS10.html">Clase 10</a>
+        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Más info</a>
+      </nav>
+
+<hr />
+<h2>Tarea</h2>
+<p>
+<div class="card">
+    <div class="card-body">
+      Primero los enunciados de la tarea, más abajo el código para probar en la consola. 
+    </div>
+  </div>
+<br />
+</p>
+<h4>1. Comparando</h4>
+<p>Usá la consola para escribir una expresión que compare dos strings y produzca un valor <b class="badge badge-success">TRUE</b>.
+<br />Escribí una expresión comparando dos strings que devuelva <b class="badge badge-danger">FALSE</b>.
+<br />Escribí una expresión que involucre un string y un número y retorne <b class="badge badge-danger">FALSE</b>.
+<br />Escribí una expresión que involucre un string y un número y retorne <b class="badge badge-success">TRUE</b></p>
+
+<h4>2. Tres números</h4>
+<p>Se le pedirá al usuario ingresar tres números y se le mostrará en pantalla cuál es el mayor de ellos.</p>
+
+<h4>3. Hola</h4>
+<p>Mostrarle al usuario por pantalla un “Hola” y su nombre cuando se le pregunte cómo se llama.</p>
+
+<h4>4. Ejercicio: Club</h4>
+<p>Crea las variables <span class="badge badge-primary">name</span>, <span class="badge badge-primary">age</span>, <span class="badge badge-primary">gender</span>, <span class="badge badge-primary">isMember</span>, <span class="badge badge-primary">thirsty</span> y <span class="badge badge-primary">drinkName</span>. Utilizando <em>prompts</em> irás preguntando a medida que lo necesites para darle valor a las variables.<br /><br />
+    Escribir en código lo siguiente:<br />
+    <ul><li>Si no son un miembro o si son menores de 21 años, dirígete a ellos como señor o señora, según corresponda y en tono de disculpa niégales el acceso al club.</li>
+
+    <li>Si no, saludalos como el señor o la señora (en su caso por género) y su nombre, y dales la bienvenida. Si tienen sed, pregúntale la bebida que les gustaría tomar.</li>
+
+<li>Si su bebida favorita es cualquier cosa menos "Café Descafeinado", dice "sí" <span class="badge badge-primary">name</span> "un" <span class="badge badge-primary">drinkName</span> "viniendo!". <br />Si piden un descafeinado, echalos del bar.</li>
+    </ul>
+</p>
+
+<h4>5. ¿True or False?</h4>
+<p>
+    ¿Qué obtenemos en las siguientes expresiones? ¿<span class="badge badge-success">True</span> o <span class="badge badge-danger">False</span>?
+    Justificar la respuesta.<br /> (<i class="mt-10">Investigar que es el <span class="btn btn-sm btn-outline-info">%</span></i>)
+
+    <pre><code data-language="js">
+// 1era expresion
+
+    var x = 20;
+    var y = "a";
+
+    y === "b" || x >= 20
+
+// 2da expresión
+
+    var x = 5;
+    var y = 8;
+
+    !(x == "5" || x === y) && !(y != 8 && x <= y)
+
+// 3er expresión
+
+    x = 8;
+    (x % 3 != 0 && x % 5 != 0)
+</code></pre>
+</p>
+
+<h2>Código de Tarea</h2>
+<pre><code data-language="js">// Ejercicios Clase 2
+
+    // punto 1
+    // Usá la consola para escribir una expresión que compare dos strings y produzca un valor TRUE.
+  
+    var a = "valorA", b = "valorB";
+    b = a;
+    a === b;
+  
+    // Escribí una expresión comparando dos strings que devuelva FALSE.
+    var a = "valorA", b = "valorB";
+    a === b;
+  
+    // Escribí una expresión que involucre un string y un número y retorne FALSE.
+    var a = "valorA", b = 5;
+    a == b;
+  
+    // Escribí una expresión que involucre un string y un número y retorne TRUE
+    var a = "valorA", b = 5;
+    a = b;
+    a == b;
+   
+// Punto 2
+// Se le pedirá al usuario ingresar tres números y se le mostrará en pantalla cuál es el mayor de ellos.
+
+    var a, b, c;
+    a = parseInt(prompt("Ingresa el primer número al azar, será A:"));
+    b = parseInt(prompt("Ingresa un segundo número al azar, será B:"));
+    c = parseInt(prompt("Ingresa un tercer número al azar, será C:"));
+    if (a > b) {
+        if (a > c) {
+            alert("El mayor es A " + a);
+        }
+    }
+    if (a > c) {
+        alert("El mayor es B " + b);
+    } else {
+        alert("El mayor es C " + c);
+    }
+
+// Punto 3
+// Mostrarle al usuario por pantalla un “Hola” y su nombre cuando se le pregunte cómo se llama.
+
+    var nombre = prompt("¿Cómo te llamas?");
+    alert("Hola " + nombre);
+
+// Punto 4
+//name, age, gender, isMember, thirsty y drinkName.
+
+  var name, age, gender, isMember, thirsty, drinkName;
+  name = prompt("¿Cuál es tu nombre?");
+  age = parseInt(prompt("¿Qué edad tienes?"));
+  gender = prompt("¿Cuál es tu genero (masculino o femenino)?").toLowerCase;
+  isMember = prompt("¿Eres miembro? (Si o No)").toLowerCase;
+//  thirsty = true;
+//  drinkName = prompt("¿Qué deseas tomar?");
+
+  if (gender == "femenino") {
+      gender = "Señora"
+  } else { gender = "Señor" }
+
+  if ((isMember == "no") || (age < 21)) {
+      alert(gender + ", por favor, no podrán acceder a nuestro selecto club. Que tengan buenas noches.")
+  } else  {
+    thirsty = prompt("Excelente " + gender + " " + name + ". " + "¿Se encuentra sediento esta noche?").toLowerCase
+    if (thirsty == "si") {drinkName = prompt("¿Qué deseas tomar?").toLowerCase;}
+    if (drinkName != "descafeinado") {alert("Sí ") + name + " un " + drinkName + " viniendo!"} else {alert("Por favor, retirense, no servimos eso")}
+  }
+//   Si no son un miembro o si son menores de 21 años, dirígete a ellos como señor o señora, según corresponda y en tono de disculpa niégales el acceso al club.
+// Si no, saludalos como el señor o la señora (en su caso por género) y su nombre, y dales la bienvenida. Si tienen sed, pregúntale la bebida que les gustaría tomar.
+// Si su bebida favorita es cualquier cosa menos "Café Descafeinado", dice "sí" name "un" drinkName "viniendo!".
+// Si piden un descafeinado, echalos del bar.
+
+// Punto 5
+// 1era expresion
+
+    var x = 20;
+    var y = "a";
+
+    y === "b" || x >= 20
+
+    // devolvería TRUE porque la condición es OR (o) y "x" es igual a 20.
+
+// 2da expresión
+
+    var x = 5;
+    var y = 8;
+
+    !(x == "5" || x === y) && !(y != 8 && x <= y)
+
+    // devolvería FALSE porque está negando las condiciones y una es verdadera.
+
+// 3er expresión
+
+    x = 8;
+    (x % 3 != 0 && x % 5 != 0)
+
+    // devolvería TRUE ... el % es el resto de una división.
+
+</code></pre>
+</div>
+<!-- Script Zone -->
+<!-- <script src="../ns/assets/js/2da-clase.js"></script> -->
+<!-- rainbow -->
+<script src="../ns/assets/js/rainbow.js"></script>
+<!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

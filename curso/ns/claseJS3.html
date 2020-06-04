@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://js.org/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-96.png" sizes="96x96">
+    
+    <title>Tercera Clase JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ns/assets/css/dreamweaver.css">
+</head>
+<body>
+<div class="container">
+    <h1>Presionar tecla <kbd>F12</kbd> en Chrome</h1>
+    <h2>Ir a Consola <span class="badge badge-secondary">(donde ocurre la magia)</span></h2>
+
+    <br />
+    <h3>Clases</h3>
+
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS1.html">Clase 1</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS2.html">Clase 2</a>
+        <a class="flex-sm-fill text-sm-center nav-link active" href="../ns/claseJS3.html">Clase 3</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS4.html">Clase 4</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS5.html">Clase 5</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS6.html">Clase 6</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS7.html">Clase 7</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS8.html">Clase 8</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS9.html">Clase 9</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS10.html">Clase 10</a>
+        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Más info</a>
+      </nav>
+
+      <hr />
+<h2>Tarea</h2>
+<p>
+<div class="card">
+    <div class="card-body">
+      Primero los enunciados de la tarea, más abajo el código para probar en la consola. 
+    </div>
+  </div>
+<br />
+</p>
+
+
+<h4>1. Calculadora (Parte 1)</h4>
+<p>
+Se le pedirá al usuario 2 números para generar la suma, la resta, la división y la multiplicación entre ellos (Preguntar al usuario que operación quiere realizar). 
+</p>
+<h4>2. Par / Impar</h4>
+<p>
+Se le pedirá al usuario un número y se le mostrará en pantalla si es divisible por 2 o no, dando como resultado un número entero.
+</p>
+<h4>3. Tabla de Multiplicar hasta el 10</h4>
+<p>
+Se le pedirá al usuario un número y una vez que lo tengamos se deberá mostrar en pantalla las tablas de dicho número hasta el 10:<br/>
+Por ejemplo, si el usuario escribe 5 se deberá generar lo siguiente:<br />
+<ul>
+  <li>5 x 1 = 5</li>
+  <li>5 x 2 = 10</li>
+</ul>
+</p>
+
+
+<h2>Código de Tarea</h2>
+
+<pre><code data-language="js">// Ejercicios Clase 3
+  // 1. Calculadora (Parte 1)
+  // Se le pedirá al usuario 2 números para generar la suma, la resta, la división y la multiplicación entre ellos (Preguntar al usuario que operación quiere realizar).
+  
+  function operaciones() { //USÉ función para poder llamar al inicio del switch cuando valido lo que presiona el usuario
+  
+      let num1 = parseInt(prompt("Número 1:"));
+      let num2 = parseInt(prompt("Número 2:"));
+      let oper = prompt("¿Qué operación quiere realizar? \n Puedes elegir una letra:\n A = SUMA \n B = RESTA \n C = MULTIPLICACIÓN \n D = DIVISIÓN").toLowerCase();
+  
+      switch (oper) {
+          case "a":
+              let suma = num1 + num2;
+              alert("El resultado de su SUMA es: " + suma);
+              break;
+          case "b":
+              let resta = num1 - num2;
+              alert("El resultado de su RESTA es: " + resta);
+              break;
+          case "c":
+              let multi = num1 * num2;
+              alert("El resultado de su MULTIPLICACION es: " + multi);
+              break;
+          case "d":
+              let divi = num1 / num2;
+              if (num2 == 0) {
+                  alert("Por favor, no puedes dividir por cero. Vuelves al inicio, pon otro número.");
+                  operaciones();
+              } else {
+                  alert("El resultado de su DIVISION es: " + divi);
+              }
+              break;
+          default:
+              alert("Por favor, prestar atención, no seleccionaste correctamente una letra de operación, por ejemplo, si quiere sumar, presione: A \n\n Operaciones:\n A = SUMA \n B = RESTA \n C = MULTIPLICACIÓN \n D = DIVISIÓN");
+              alert("Empezas de cero ahora, de nuevo elegí números y operación!");
+              operaciones();
+              break;
+      }
+  }
+
+// 2. Par / Impar
+// Se le pedirá al usuario un número y se le mostrará en pantalla si es divisible por 2 o no, dando como resultado un número entero.
+
+let num1 = parseInt(prompt("¿Qué número eliges?"));
+if (num1 % 2 == 0) {
+    alert("Tu número " + num1 + " es divisible por 2! ¡Excelente!");
+} else {
+    alert("Tu selección es un número impar, no da como resultado un número entero")
+}
+
+// 3. Tabla de Multiplicar hasta el 10
+// Se le pedirá al usuario un número y una vez que lo tengamos se deberá mostrar en pantalla las tablas de dicho número hasta el 10
+
+let num1 = parseInt(prompt("¿Qué número eliges?"));
+
+for (let i=1;i<11;i++) {
+    document.write("<li>" + num1 + " x " + i + " = " + (num1*i) + "</li>");
+}
+ 
+
+</code></pre>
+</div>
+<!-- Script Zone -->
+<!-- <script src="../ns/assets/js/3er-clase.js"></script> -->
+<!-- rainbow -->
+<script src="../ns/assets/js/rainbow.js"></script>
+<!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://js.org/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-96.png" sizes="96x96">
+    
+    <title>Séptima Clase JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ns/assets/css/dreamweaver.css">
+    <link rel="stylesheet" href="../ns/assets/css/style7.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Presionar tecla <kbd>F12</kbd> en Chrome</h1>
+    <h2>Ir a Consola <span class="badge badge-secondary">(donde ocurre la magia)</span></h2>
+
+    <br />
+    <h3>Clases</h3>
+
+    <nav class="nav nav-pills flex-column flex-sm-row">
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS1.html">Clase 1</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS2.html">Clase 2</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS3.html">Clase 3</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS4.html">Clase 4</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS5.html">Clase 5</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS6.html">Clase 6</a>
+      <a class="flex-sm-fill text-sm-center nav-link active" href="../ns/claseJS7.html">Clase 7</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS8.html">Clase 8</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS9.html">Clase 9</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS10.html">Clase 10</a>
+        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Más info</a>
+      </nav>
+
+      <h2>Eventos</h2>      
+
+      <button class="btn">Qué hora es</button>
+      <p id="hora"></p>
+
+      <hr />
+<h2>Tarea</h2>
+<!-- <p>
+<div class="card">
+    <div class="card-body">
+      Los enunciados están como comentarios dentro del código. 
+    </div>
+  </div>
+<br />
+</p> -->
+<h3>Nivel Junior</h3>
+<p><ol>
+  <li>Crea un boton en HTML y coloca como texto <span class="badge badge-primary">Activar</span>. Luego en tu archivo CSS dale un background-color: red;</li>
+  <li>Agrega al botón los siguientes eventos en JS: <span class="badge badge-primary">click</span>, <span class="badge badge-primary">mouseenter</span>, <span class="badge badge-primary">mouseleave</span>. (Recuerda obtener el elemento para luego manipularlo con cada uno de los eventos que tienes que crear).</li>
+  <li>En las funciones vinculadas al evento programa lo siguiente.
+    <ul>
+      <li>Evento click: Programa que cuando se haga click, el texto del botón, se cambie por el string “Desactivado”.</li>
+      <li>Evento mouseenter: Cuando entre el cursor al botón, este cambie de color a verde.</li>
+      <li>Evento mouseleave: Cuando se salga el cursor del botón, que vuelva al color que predeterminamos en CSS. </li>
+    </ul>
+  </li>
+</ol>
+</p>
+
+<button id="btn1">Activar</button>
+
+<br /><br />
+<h3>Mostrando los datos introducidos en un formulario al usuario</h3>
+
+<p>
+<ol>
+  <li>Crea  3 campos(input) en HTML, <span class="badge badge-primary">Usuario</span>,<span class="badge badge-primary">Nombre</span>, <span class="badge badge-primary">email</span>. (No olvides darle un id a cada uno de los campos creados)</li>
+  <li>En JS, obtén cada uno de los elementos input que creaste, mediante el método querySelector().</li>
+  <li>Manipula los elementos para obtener su valor con la propiedad JS value y muestra esos datos al Usuario con un alert que le diga:<br /><br />
+    “Estos fueron los datos ingresados<br />
+    Usuario: Pepito123<br />
+    Nombre: Pepito lavalle<br />
+    Mail: pepito12@gmail.com”<br />
+  </li>
+</ol>
+</p>
+
+<p>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Usuario</span>
+    </div>
+    <input type="text" class="form-control" id="usuario">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Nombre</span>
+    </div>
+    <input type="text" class="form-control" id="nombre">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Email</span>
+    </div>
+    <input type="text"class="form-control"  id="mail">
+  </div>
+  <div class="input-group mb-3">
+    <button type="button" class="btn btn-secondary btn-lg" onclick="datos();">Lanzar Alert!</button>
+  </div>
+</p>
+
+
+
+
+
+
+<pre><code data-language="js">// Tarea: Ejercicios Clase 7
+ 
+  //Nivel Junior
+  // HTML: <button id="btn1">Activar</button>
+
+  let btn1 = document.getElementById("btn1");
+
+  btn1.addEventListener("click", desactivar);
+  btn1.addEventListener("mouseenter", verde);
+  btn1.addEventListener("mouseleave", defecto);
+  
+  function desactivar() {
+      btn1.textContent = "Desactivado";
+      //return btn1;
+  };
+  
+  function verde() {
+      btn1.style.backgroundColor = "green";
+  };
+  
+  function defecto() {
+      btn1.textContent = "Activar";
+      btn1.style.backgroundColor = "red";
+  };
+
+  // Mostrar datos introducidos
+
+  let usuario, nombre, mail;
+  usuario = document.getElementById("usuario");
+  nombre = document.getElementById("nombre");
+  mail = document.getElementById("mail");
+
+function datos() {
+    let salto = "\n"
+    alert("Estos fueron los datos ingresados" + salto + "Usuario: " + usuario.value + salto + "Nombre: " + nombre.value + salto + "Mail: " + mail.value);
+    return null;
+}
+
+</code></pre>
+</div>
+<!-- Script Zone -->
+<script src="../ns/assets/js/7ma-clase.js"></script>
+<!-- rainbow -->
+<script src="../ns/assets/js/rainbow.js"></script>
+<!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

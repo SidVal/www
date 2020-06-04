@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Stockeate v2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      <!-- menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/index.html">STOCKEATE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/index.html">Agregar +<span class="sr-only">(?)</span></a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+      <!-- formulario -->
+<div class="container formulario-container">
+    <h2 class="">Agregar producto</h2>
+    <form id="form">
+      <div class="form-group">
+        <label for="nombreProducto">Nombre del producto</label>
+        <input type="text" class="form-control" id="nombreProducto">
+      </div>
+      <div class="form-group">
+        <label for="cantidad">Cantidad</label>
+        <input type="number" class="form-control" id="cantidad" min="1">
+      </div>
+      <div class="form-group">
+          <label for="precio">Precio</label>
+          <input type="number" class="form-control" id="precio" min="1">
+        </div>
+     
+      <button class="btn btn-success disabled" id="btn-guardar">Guardar</button>
+    </form>
+</div>
+
+<div class="container formulario-container">
+    <br>
+  <a href="#" class="btn btn-success float-right">Cotizar U$D</a>
+  <a href="#" class="btn btn-danger float-right" id="eliminar">Eliminar todo</a>
+  <br>
+  <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre del producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+        </tbody>
+      </table>
+</div>
+
+<script type='text/javascript'>
+  document.getElementById("nombreProducto").onchange = function() {validar()};
+  document.getElementById("cantidad").onchange = function() {validar()};
+  document.getElementById("precio").onchange = function() {validar()};
+</script>
+
+
+
+    
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- tu propio archivo js -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

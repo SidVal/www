@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://js.org/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://js.org/icon/favicon-96.png" sizes="96x96">
+    <meta name="theme-color" content="#FFE70B">
+
+    <title>Primer Clase JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ns/assets/css/dreamweaver.css">
+</head>
+<body>
+<div class="container">
+    <h1>Presionar tecla <kbd>F12</kbd> en Chrome</h1>
+    <h2>Ir a Consola <span class="badge badge-secondary">(donde ocurre la magia)</span></h2>
+
+    <br />
+    <h3>Clases</h3>
+
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link active" href="../ns/claseJS1.html">Clase 1</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS2.html">Clase 2</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS3.html">Clase 3</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS4.html">Clase 4</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS5.html">Clase 5</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS6.html">Clase 6</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS7.html">Clase 7</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS8.html">Clase 8</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS9.html">Clase 9</a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="../ns/claseJS10.html">Clase 10</a>
+        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Más info</a>
+      </nav>
+
+      <hr />
+      <h2>Tarea</h2>
+      <p>
+      <div class="card">
+          <div class="card-body">
+            Primero los enunciados de la tarea, más abajo el código para probar en la consola. 
+          </div>
+        </div>
+      <br />
+      </p>
+
+      <h4>1. Variables</h4>
+      <p>
+          <ol>
+              <li style="list-style-type:lower-latin;">Declara una variable llamada uno en tu consola y asígnale un
+                  número
+                  cualquiera.</li>
+              <li style="list-style-type:lower-latin;">Declara una variable llamada dos y asígnale como valor lavariable
+                  uno.
+              </li>
+              <li style="list-style-type:lower-latin;">Cambia el valor de la variable uno. ¿Cuál piensas que es ahora el
+                  valor
+                  de la variable dos? (Pensaloantes de fijarte en la consola).</li>
+          </ol>
+      </p>
+
+      <h4>2. Mensaje con Variables</h4>
+      <p>
+          <ol>
+              <li style="list-style-type: lower-latin;">Declara 5 variables: 'nombre', 'edad', 'ciudad', 'ocupacion'
+                  y'hobbie', y asígnales valores que contengan información sobrevos mismo.</li>
+              <li style="list-style-type: lower-latin;">Usa console.log para escribir un párrafo sobre vos, usando las
+                  variables que creaste para insertar la información correspondiente.</li>
+              <li style="list-style-type: lower-latin;">DESAFÍO BONUS: busca si hay alguna manera de crear múltiples
+                  variables en una única línea de código.</li>
+          </ol>
+      </p>
+
+      <h4>3. Calculador de Edad</h4>
+      <p>
+          Se debe preguntar al usuario su edad y calcular en base a su respuesta la cantidad de días que tienen esos
+          años.<br />Muestra la respuesta a través de una alerta.
+      </p>
+
+      <h4>Número más 5</h4>
+      <p>Pedir al usuario un número y sumarle 5.</p>
+
+<pre><code data-language="js">// Ejercicios Clase 1
+
+    // ↓↓↓↓↓↓↓↓↓↓↓ COPIAR DESDE AQUÍ para pegar en la consola de navegación ↓↓↓↓↓↓↓
+    
+    // ### Primer Punto: Variables ###
+    'use strict' // aún no entiendo bien qué pasaría si no declaro esto; probé y no me dió ningún error, pero me imagino que es para cuando se usen funciones en la programación de js.
+    
+    var uno = 3;
+    var dos = uno;
+    uno = 5;
+    // La variable uno quedará con valor 5, mientras que la variable dos, quedaría con valor 3 (pues es el valor original que se asignó a la variable uno)
+    
+    // ### Segundo punto: Mensaje con Variables ###
+    
+    // Punto "a", declaración de variables, una por una. 
+    // var nombre = "Osvaldo";
+    // var edad = 37;
+    // var ciudad = "Córdoba";
+    // var ocupacion = "Comerciante";
+    // var hobbie = "Pescar";
+    
+    // Punto "Bonus", declarar todas las variables en una línea.
+    var nombre = "Osvaldo", edad = 37, ciudad = "Córdoba", ocupacion = "Comerciante", hobbie = "Pescar";
+    
+    // Punto "b" para usar console.log 
+    console.log("Hola ¿cómo están? Mi nombre es " + nombre + ". Tengo " + edad + " años, soy de la ciudad de " + ciudad + ". Trabajo como " + ocupacion + " y cuando tengo tiempo (y se podía salir lejos porque no había COVID-19) me escapo a " + hobbie + ".");
+    // Resultado en la consola:
+    // Hola ¿cómo están? Mi nombre es Osvaldo. Tengo 37 años, soy de la ciudad de Córdoba. Trabajo como Comerciante y cuando tengo tiempo (y se podía salir lejos porque no había COVID-19) me escapo a Pescar.
+    
+    // ### Tercer Punto: Calcular Edad ###
+    // Se debe preguntar al usuario su edad y calcular en base a su respuesta la cantidad de días que tienen esos años. Muestra la respuesta a través de una alerta.
+    const anio = 365; //use la constante porque no cambiaría nunca esta variable, siempre sería 365 días. (ver bug)
+    var edad = parseInt(prompt("¿Cuál es tu edad? Saltará alerta con la cantidad de días que has vivido!"));
+    var dias = (edad * anio);
+    var msg = "Has vivido: " + dias + " días. Espero estés disfrutando! =)"
+    alert(msg);
+    
+    // Bug: evidentemente la persona vivió años biciestos que ocurre cada 4 años, así que habría que meter una corrección al código para que cada 4 años sume 1 día de vida.
+    
+    // ### Cuarto Punto: Pedir número y sumar 5 ###
+    
+    var num = parseInt(prompt("Ingresa un número y sumaré 5, saldrá respuesta vía alerta!"));
+    alert(num + 5);
+</code></pre>
+
+</div>   
+<!-- Script Zone -->
+<!-- <script src="../ns/assets/js/1er-clase.js"></script> -->
+<!-- rainbow -->
+    <script src="../ns/assets/js/rainbow.js"></script>
+<!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
