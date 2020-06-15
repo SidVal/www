@@ -4,10 +4,11 @@
     <title>Stockeate v2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Agregué Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">    
+    <link rel="manifest" href="/site.webmanifest">    <!--El manifiest forma parte del favicon-->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -15,7 +16,7 @@
   <body>
       <!-- menu -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/index.html">STOCKEATE</a>
+        <a class="navbar-brand" href="/index.html">STOCKEATE v2</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,19 +32,19 @@
 
       <!-- formulario -->
 <div class="container formulario-container">
-    <h2 class="">Agregar producto</h2>
+    <h2 class="">Cargar y Guardar Datos</h2>
     <form id="form">
       <div class="form-group">
         <label for="nombreProducto">Nombre del producto</label>
-        <input type="text" class="form-control" id="nombreProducto">
+        <input type="text" class="form-control" id="nombreProducto" required>
       </div>
       <div class="form-group">
         <label for="cantidad">Cantidad</label>
-        <input type="number" class="form-control" id="cantidad" min="1">
+        <input type="number" class="form-control" id="cantidad" min="1" required>
       </div>
       <div class="form-group">
           <label for="precio">Precio</label>
-          <input type="number" class="form-control" id="precio" min="1">
+          <input type="number" class="form-control" id="precio" min="1" required>
         </div>
      
       <button class="btn btn-success disabled" id="btn-guardar">Guardar</button>
@@ -51,10 +52,6 @@
 </div>
 
 <div class="container formulario-container">
-    <br>
-  <a href="#" class="btn btn-success float-right">Cotizar U$D</a>
-  <a href="#" class="btn btn-danger float-right" id="eliminar">Eliminar todo</a>
-  <br>
   <br>
     <table class="table">
         <thead>
@@ -69,13 +66,19 @@
          
         </tbody>
       </table>
-</div>
 
-<script type='text/javascript'>
-  document.getElementById("nombreProducto").onchange = function() {validar()};
-  document.getElementById("cantidad").onchange = function() {validar()};
-  document.getElementById("precio").onchange = function() {validar()};
-</script>
+<br>
+<a href="#" class="btn btn-success float-left" id="btn-mostrar">Mostrar Datos</a>
+
+
+
+<a href="#" class="btn btn-danger float-right disabled" id="eliminar">Eliminar todo</a>
+<br>
+    </div>
+
+
+
+
 
 
 
@@ -84,7 +87,22 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <!-- tu propio archivo js -->
+    <!-- Archivo js -->
     <script src="js/script.js"></script>
+
+    <script type='text/javascript'>
+      let btnEliminar = document.getElementById("eliminar");
+        document.getElementById("nombreProducto").onchange = function() {validar()};
+        document.getElementById("cantidad").onchange = function() {validar()};
+        document.getElementById("precio").onchange = function() {validar()};
+        document.getElementById("precio").onmouseleave = function() {validar()};
+        if (window.localStorage.length == 1) {
+      btnEliminar.classList.remove('disabled');
+      } else { 
+        btnEliminar.classList.add('disabled');
+        }
+      
+      </script>
+
   </body>
 </html>
