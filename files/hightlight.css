@@ -1,0 +1,12 @@
+/* Using class selector */
+.highlight {
+  background-color: yellow;
+}
+/* Using id selector */
+#highlight {
+  background-color: yellow;
+}
+/* Using ::selection */
+::selection {
+  background-color: yellow;
+}
