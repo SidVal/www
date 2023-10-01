@@ -20,10 +20,11 @@
     <textarea class="form-control" placeholder="Pegar texto aquí" id="text-area" style="height: 100px"></textarea>
     <label for="floatingTextarea2">Contenidos</label>
   </div>
-</div>
-
+  
+  
   <div id="seo-stats">
     <!-- Aquí se mostrarán las estadísticas SEO -->
+  </div>
   </div>
 </div>
     
@@ -31,38 +32,51 @@
     
     <!--Scripts a editar si actualizan Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- Estadisticas ini -->
     <script>
 document.addEventListener("DOMContentLoaded", function() {
   const textArea = document.getElementById("text-area");
   const seoStatsContainer = document.getElementById("seo-stats");
 
+  // Lista de palabras comunes (stop words) que queremos excluir
+  const stopWords = [
+    "a", "al", "ante", "bajo", "cabe", "con", "contra", "de", "del", "desde",
+    "e", "el", "en", "entre", "hacia", "hasta", "para", "por", "según", "sin", "sobre", "tras"
+  ];
+
   // Función para calcular estadísticas SEO
   function calcularEstadisticasSEO() {
     const texto = textArea.value;
 
-    // Contador de palabras
-    const palabras = texto.split(/\s+/).filter(Boolean).length;
+    // Tokenizar el texto en palabras
+    const palabras = texto.split(/\s+/).filter(Boolean);
 
-    // Cantidad de caracteres (con y sin espacios)
+    // Excluir palabras comunes
+    const palabrasFiltradas = palabras.filter(palabra => !stopWords.includes(palabra.toLowerCase()));
+
+    // Contador de palabras
+    const totalPalabras = palabrasFiltradas.length;
+
+    // Cantidad de caracteres (con espacios)
     const caracteresConEspacios = texto.length;
+
+    // Cantidad de caracteres (sin espacios)
     const caracteresSinEspacios = texto.replace(/\s/g, "").length;
 
-    // Densidad de las 10 palabras más repetidas (ejemplo)
-    const palabrasRepetidas = calcularPalabrasRepetidas(texto, 10);
+    // Densidad de palabras clave (ejemplo: las 10 palabras más repetidas)
+    const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10);
 
     // Mostrar las estadísticas
     seoStatsContainer.innerHTML = `
-      <p>Palabras: ${palabras}</p>
+      <p>Palabras clave: ${palabrasClave.join(", ")}</p>
+      <p>Total de palabras: ${totalPalabras}</p>
       <p>Caracteres (con espacios): ${caracteresConEspacios}</p>
       <p>Caracteres (sin espacios): ${caracteresSinEspacios}</p>
-      <p>Palabras más repetidas:</p>
-      <ul>${palabrasRepetidas.map(word => `<li>${word}</li>`).join("")}</ul>
     `;
   }
 
-  // Función para calcular las 10 palabras más repetidas
-  function calcularPalabrasRepetidas(texto, cantidad) {
-    const palabras = texto.split(/\s+/).filter(Boolean);
+  // Función para calcular las palabras clave (las más repetidas)
+  function calcularPalabrasClave(palabras, cantidad) {
     const contadorPalabras = {};
 
     palabras.forEach(palabra => {
@@ -70,7 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     return Object.keys(contadorPalabras)
-      .sort((a, b) => contadorPalabras[b] - contadorPalabras[a])
+      .filter(palabra => contadorPalabras[palabra] > 1) // Filtrar palabras repetidas
+      .sort((a, b) => contadorPalabras[b] - contadorPalabras[a]) // Ordenar por repetición
       .slice(0, cantidad);
   }
 
@@ -78,6 +93,6 @@ document.addEventListener("DOMContentLoaded", function() {
   textArea.addEventListener("input", calcularEstadisticasSEO);
 });
 </script>
-
+<!-- Estadisticas fin -->
   </body>
 </html>
