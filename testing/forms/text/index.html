@@ -77,8 +77,8 @@
                     const caracteresSinEspacios = texto.replace(/\s/g, "").length;
 
                     // Calcular la densidad de palabras clave para cada palabra clave
-                    const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10).toLowerCase();
-                    const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave).toLowerCase();
+                    const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10);
+                    const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave);
 
                     // Mostrar las estadísticas
                     seoStatsContainer.innerHTML = `
