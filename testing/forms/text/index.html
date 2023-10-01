@@ -52,8 +52,8 @@
     function calcularEstadisticasSEO() {
       const texto = textArea.value;
 
-      // Analizar el texto con Compromise.js
-      const doc = nlp(texto);
+      // Analizar el texto con es-compromise
+      const doc = esCompromise(textArea);
 
       // Extraer sustantivos del texto
       const sustantivos = doc.nouns().out('array');
