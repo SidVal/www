@@ -43,10 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
       // Tokenizar el texto en palabras
       const palabras = texto.split(/\s+/).filter(Boolean);
 
-      // Definir "stopWords" y "stopVerbs" como variables globales
-      let stopWords;
-      let stopVerbs;
-
       // Lista de verbos comunes (stop verbs) que queremos excluir
       const stopVerbs = [
       "pueden", "bailan"
