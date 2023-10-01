@@ -32,9 +32,12 @@
   
   <!-- Estadisticas ini -->
   <script>
+document.addEventListener("DOMContentLoaded", function() {
+      
     // Función para calcular estadísticas SEO
     function calcularEstadisticasSEO() {
-      const textArea = document.getElementById("text-area"); // Corregido aquí
+      const textArea = document.getElementById("text-area");
+      const seoStatsContainer = document.getElementById("seo-stats");
       const texto = textArea.value;
 
       // Tokenizar el texto en palabras
@@ -44,18 +47,23 @@
       let stopWords;
       let stopVerbs;
 
+      // Lista de verbos comunes (stop verbs) que queremos excluir
+      const stopVerbs = [
+      "pueden", "bailan"
+      ];
+
       // Cargar el JSON de stop words desde la URL
       fetch('https://raw.githubusercontent.com/SidVal/stopwords-es/master/stopwords-es.json')
         .then(response => response.json())
         .then(data => {
-          stopWords = data;
+          let stopWords = data;
 
           // También puedes cargar "stopVerbs" aquí si lo deseas
 
           // Continuar con el procesamiento después de cargar los datos
           continuarProcesamiento();
         })
-        .catch(error => console.error('Error al cargar el JSON:', error));
+       // .catch(error => console.error('Error al cargar el JSON:', error));
 
       // Función para continuar con el procesamiento después de cargar los datos
       function continuarProcesamiento() {
@@ -76,7 +84,6 @@
         const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave);
 
         // Mostrar las estadísticas
-        const seoStatsContainer = document.getElementById("seo-stats");
         seoStatsContainer.innerHTML = `
           <p>Palabras clave (${palabrasClave.length}): ${palabrasClave.join(", ")}</p>
           ${palabrasClave.map((palabra, index) => `<p>Densidad de "${palabra}": ${densidadPalabrasClave[index].toFixed(2)}%</p>`).join("")}
@@ -90,11 +97,7 @@
     // Escuchar cambios en el textarea y recalcular estadísticas
   const textArea = document.getElementById("text-area");
   textArea.addEventListener("input", calcularEstadisticasSEO);
-
-  // Escuchar el evento DOMContentLoaded para ejecutar la función después de cargar la página
-  document.addEventListener("DOMContentLoaded", function() {
-    calcularEstadisticasSEO();
-  });
+});
 </script>
   <!-- Fin de estadisticas -->
 </body>
