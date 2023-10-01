@@ -18,7 +18,7 @@
 <div class="container-fluid">
   <div class="form-floating">
     <textarea class="form-control" placeholder="Pegar texto aquí" id="text-area"></textarea>
-    <label for="floatingTextarea2">Contenidos</label>
+    <label for="text-area">Contenidos</label>
   </div>
   
   <div class="container-md mt-5">  
@@ -34,91 +34,59 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     
     <!-- Estadisticas ini -->
-    <script src="https://unpkg.com/es-compromise"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const textArea = document.getElementById("text-area");
-    const seoStatsContainer = document.getElementById("seo-stats");
-
-    // Lista de palabras comunes (stop words) que queremos excluir
-    const stopWords = [
-      "a", "al", "ante", "bajo", "cabe", "con", "contra", "de", "del", "desde",
-      "e", "el", "en", "entre", "hacia", "hasta", "para", "por", "según", "sin", "sobre", "tras",
-      "durante", "mediante", "excepto", "exceptuando", "hasta", "incluso", "más", "menos", "salvo", "versus",
-      "las", "los", "la", "lo", "que", "se", "y", "más", "o", "es", "una", 
-    ];
-
     // Función para calcular estadísticas SEO
-    function calcularEstadisticasSEO() {
-      const texto = textArea.value;
+function calcularEstadisticasSEO() {
+  const texto = textArea.value;
 
-      // Analizar el texto con es-compromise
-      const doc = esCompromise(textArea);
+  // Tokenizar el texto en palabras
+  const palabras = texto.split(/\s+/).filter(Boolean);
 
-      // Extraer sustantivos del texto
-      const sustantivos = doc.nouns().out('array');
+  // Definir "stopWords" y "stopVerbs" como variables globales
+  let stopWords;
+  let stopVerbs;
 
-      // Tokenizar el texto en palabras
-      const palabras = texto.split(/\s+/).filter(Boolean);
+  // Cargar el JSON de stop words desde la URL
+  fetch('https://raw.githubusercontent.com/SidVal/stopwords-es/master/stopwords-es.json')
+    .then(response => response.json())
+    .then(data => {
+      stopWords = data;
+      
+      // También puedes cargar "stopVerbs" aquí si lo deseas
 
-      // Excluir palabras comunes y verbos
-      const palabrasFiltradas = palabras.filter(palabra => !stopWords.includes(palabra.toLowerCase()));
+      // Continuar con el procesamiento después de cargar los datos
+      continuarProcesamiento();
+    })
+    .catch(error => console.error('Error al cargar el JSON:', error));
 
-      // Contador de palabras
-      const totalPalabras = palabrasFiltradas.length;
+  // Función para continuar con el procesamiento después de cargar los datos
+  function continuarProcesamiento() {
+    // Excluir palabras comunes y verbos
+    const palabrasFiltradas = palabras.filter(palabra => !stopWords.includes(palabra.toLowerCase()) && !stopVerbs.includes(palabra.toLowerCase()));
 
-      // Cantidad de caracteres (con espacios)
-      const caracteresConEspacios = texto.length;
+    // Contador de palabras
+    const totalPalabras = palabrasFiltradas.length;
 
-      // Cantidad de caracteres (sin espacios)
-      const caracteresSinEspacios = texto.replace(/\s/g, "").length;
+    // Cantidad de caracteres (con espacios)
+    const caracteresConEspacios = texto.length;
 
-      // Calcular la densidad de palabras clave para cada palabra clave
-      const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10);
-      const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave);
+    // Cantidad de caracteres (sin espacios)
+    const caracteresSinEspacios = texto.replace(/\s/g, "").length;
 
-      // Mostrar las estadísticas
-      seoStatsContainer.innerHTML = `
-        <p>Palabras clave (${palabrasClave.length}): ${palabrasClave.join(", ")}</p>
-        ${palabrasClave.map((palabra, index) => `<p>Densidad de "${palabra}": ${densidadPalabrasClave[index].toFixed(2)}%</p>`).join("")}
-        <p>Total de palabras: ${totalPalabras}</p>
-        <p>Caracteres (con espacios): ${caracteresConEspacios}</p>
-        <p>Caracteres (sin espacios): ${caracteresSinEspacios}</p>
-        <p>Sustantivos (${sustantivos.length}): ${sustantivos.join(", ")}</p>
-      `;
-    }
+    // Calcular la densidad de palabras clave para cada palabra clave
+    const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10);
+    const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave);
 
-    // Función para calcular las palabras clave (las más repetidas)
-    function calcularPalabrasClave(palabras, cantidad) {
-      const contadorPalabras = {};
+    // Mostrar las estadísticas
+    seoStatsContainer.innerHTML = `
+      <p>Palabras clave (${palabrasClave.length}): ${palabrasClave.join(", ")}</p>
+      ${palabrasClave.map((palabra, index) => `<p>Densidad de "${palabra}": ${densidadPalabrasClave[index].toFixed(2)}%</p>`).join("")}
+      <p>Total de palabras: ${totalPalabras}</p>
+      <p>Caracteres (con espacios): ${caracteresConEspacios}</p>
+      <p>Caracteres (sin espacios): ${caracteresSinEspacios}</p>
+    `;
+  }
+}
 
-      palabras.forEach(palabra => {
-        contadorPalabras[palabra] = (contadorPalabras[palabra] || 0) + 1;
-      });
-
-      return Object.keys(contadorPalabras)
-        .filter(palabra => contadorPalabras[palabra] > 1) // Filtrar palabras repetidas
-        .sort((a, b) => contadorPalabras[b] - contadorPalabras[a]) // Ordenar por repetición
-        .slice(0, cantidad);
-    }
-
-    // Función para calcular la densidad de palabras clave para cada palabra clave
-    function calcularDensidadPalabrasClave(palabras, palabrasClave) {
-      const densidades = [];
-
-      palabrasClave.forEach(palabra => {
-        const cantidadPalabra = palabras.filter(p => p === palabra).length;
-        const densidad = (cantidadPalabra / palabras.length) * 100;
-        densidades.push(densidad);
-      });
-
-      return densidades;
-    }
-
-    // Escuchar cambios en el textarea y recalcular estadísticas
-    textArea.addEventListener("input", calcularEstadisticasSEO);
-  });
-</script>
 
     <!-- Fin de estadisticas -->
   </body>
