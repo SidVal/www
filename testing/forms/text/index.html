@@ -77,14 +77,14 @@
                     const caracteresSinEspacios = texto.replace(/\s/g, "").length;
 
                     // Calcular la densidad de palabras clave para cada palabra clave
-                    const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10);
-                    const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave);
+                    const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10).toLowerCase();
+                    const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave).toLowerCase();
 
                     // Mostrar las estadísticas
                     seoStatsContainer.innerHTML = `
+                    <p>Total de palabras: ${totalPalabras}</p>
                     <p>Palabras clave (${palabrasClave.length}): ${palabrasClave.join(", ")}</p>
                     ${palabrasClave.map((palabra, index) => `<p>Densidad de "${palabra}": ${densidadPalabrasClave[index].toFixed(2)}%</p>`).join("")}
-                    <p>Total de palabras: ${totalPalabras}</p>
                     <p>Caracteres (con espacios): ${caracteresConEspacios}</p>
                     <p>Caracteres (sin espacios): ${caracteresSinEspacios}</p>
                     `;
