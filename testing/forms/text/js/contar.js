@@ -1,26 +1,29 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // Función para calcular estadísticas SEO
-    function calcularEstadisticasSEO() {
-        const textArea = document.getElementById("text-area");
-        const seoStatsContainer = document.getElementById("seo-stats");
-        const texto = textArea.value;
+function calcularEstadisticasSEO() {
+    const textArea = document.getElementById("text-area");
+    const seoStatsContainer = document.getElementById("seo-stats");
+    const texto = textArea.value;
 
-        // Tokenizar el texto en palabras
-        const palabras = texto.split(/\s+/).filter(Boolean);
+    // Tokenizar el texto en palabras
+    const palabras = texto.split(/\s+/).filter(Boolean);
 
-        // Lista de verbos comunes (stop verbs) que queremos excluir
-        const stopVerbs = [
-            "pueden", "bailan"
-        ];
+    // Lista de verbos comunes (stop verbs) que queremos excluir
+    const stopVerbs = ["pueden", "bailan"];
 
-        let stopWords; // Definir stopWords fuera de la función then
+    let stopWords;
 
-        // Cargar el JSON de stop words desde la URL
-        fetch('https://raw.githubusercontent.com/SidVal/stopwords-es/master/stopwords-es.json')
-            .then(response => response.json())
-            .then(data => {
-                stopWords = data; // Asignar los datos a la variable stopWords
+    fetch('https://raw.githubusercontent.com/SidVal/stopwords-es/master/stopwords-es.json')
+        .then(response => response.json())
+        .then(data => {
+            stopWords = new Set(data.map(word => word.toLowerCase()));
+
+            // Filtrar palabras comunes y verbos en un solo bucle
+            const palabrasFiltradas = palabras.filter(palabra => {
+                const palabraLower = palabra.toLowerCase();
+                return !stopWords.has(palabraLower) && !stopVerbs.includes(palabraLower);
+            });
 
                 // Continuar con el procesamiento después de cargar los datos
                 continuarProcesamiento();
