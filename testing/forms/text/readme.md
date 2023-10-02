@@ -1,4 +1,4 @@
-# Text
+# Idea original
 
 Form para copiar código desde cualquier web y nada más. Así de simple
 
@@ -9,3 +9,7 @@ Form para copiar código desde cualquier web y nada más. Así de simple
 ### Otros análisis
 
 - https://legible.es/
+
+## Migración
+
+- 02/10/2023; pasa a [TextStats](https://github.com/SidVal/TextStats)
