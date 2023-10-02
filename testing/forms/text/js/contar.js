@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Tokenizar el texto en palabras
         const delimitador = ",.!?;:(){}[]<>'\""; // delimitador para excluir de las palabras
-        const palabras = texto.split(delimitador).filter(palabra => palabra);
+        const palabras = texto.split(delimitador).filter(palabra => palabra !== "");
     
         // Eliminar los espacios en blanco al principio y al final de cada palabra
         palabras = palabras.map(palabra => palabra.trim());
