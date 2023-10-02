@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Mostrar las estadísticas
             seoStatsContainer.innerHTML = `
                     <p>Total de palabras: ${totalPalabras}</p>
-                    <p>Palabras clave (${palabrasClave.length}): ${palabrasClave.join(", ")}</p>
+                    <p>(${palabrasClave.length}) Palabras repetidas: ${palabrasClave.join(", ")}</p>
                     ${palabrasClave.map((palabra, index) => `<p>Densidad de "${palabra}": ${densidadPalabrasClave[index].toFixed(2)}%</p>`).join("")}
                     <p>Caracteres (con espacios): ${caracteresConEspacios}</p>
                     <p>Caracteres (sin espacios): ${caracteresSinEspacios}</p>
