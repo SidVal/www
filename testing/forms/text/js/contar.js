@@ -1,63 +1,54 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     // Función para calcular estadísticas SEO
-function calcularEstadisticasSEO() {
-    const textArea = document.getElementById("text-area");
-    const seoStatsContainer = document.getElementById("seo-stats");
-    const texto = textArea.value;
+    function calcularEstadisticasSEO() {
+        const textArea = document.getElementById("text-area");
+        const seoStatsContainer = document.getElementById("seo-stats");
+        const texto = textArea.value;
 
-    // Tokenizar el texto en palabras
-    const palabras = texto.split(/\s+/).filter(Boolean);
+        // Tokenizar el texto en palabras
+        const palabras = texto.split(/\s+/).filter(Boolean);
 
-    // Lista de verbos comunes (stop verbs) que queremos excluir
-    const stopVerbs = ["pueden", "bailan"];
+        // Lista de verbos comunes (stop verbs) que queremos excluir
+        const stopVerbs = ["pueden", "bailan"];
 
-    let stopWords;
+        let stopWords;
 
-    fetch('https://raw.githubusercontent.com/SidVal/stopwords-es/master/stopwords-es.json')
-        .then(response => response.json())
-        .then(data => {
-            stopWords = new Set(data.map(word => word.toLowerCase()));
+        fetch('https://raw.githubusercontent.com/SidVal/stopwords-es/master/stopwords-es.json')
+            .then(response => response.json())
+            .then(data => {
+                stopWords = new Set(data.map(word => word.toLowerCase()));
 
-            // Filtrar palabras comunes y verbos en un solo bucle
-            const palabrasFiltradas = palabras.filter(palabra => {
-                const palabraLower = palabra.toLowerCase();
-                return !stopWords.has(palabraLower) && !stopVerbs.includes(palabraLower);
-            });
+                // Filtrar palabras comunes y verbos en un solo bucle
+                const palabrasFiltradas = palabras.filter(palabra => {
+                    const palabraLower = palabra.toLowerCase();
+                    return !stopWords.has(palabraLower) && !stopVerbs.includes(palabraLower);
+                });
 
-                // Continuar con el procesamiento después de cargar los datos
-                continuarProcesamiento();
-            })
-            .catch(error => console.error('Error al cargar el JSON:', error));
+                // Resto del código para calcular y mostrar estadísticas
+                // Contador de palabras
+                const totalPalabras = palabrasFiltradas.length;
 
-        // Función para continuar con el procesamiento después de cargar los datos
-        function continuarProcesamiento() {
-            // Excluir palabras comunes y verbos
-            const palabrasFiltradas = palabras.filter(palabra => !stopWords.includes(palabra.toLowerCase()) && !stopVerbs.includes(palabra.toLowerCase()));
+                // Cantidad de caracteres (con espacios)
+                const caracteresConEspacios = texto.length;
 
-            // Resto del código para calcular y mostrar estadísticas
-            // Contador de palabras
-            const totalPalabras = palabrasFiltradas.length;
+                // Cantidad de caracteres (sin espacios)
+                const caracteresSinEspacios = texto.replace(/\s/g, "").length;
 
-            // Cantidad de caracteres (con espacios)
-            const caracteresConEspacios = texto.length;
+                // Calcular la densidad de palabras clave para cada palabra clave
+                const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10);
+                const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave);
 
-            // Cantidad de caracteres (sin espacios)
-            const caracteresSinEspacios = texto.replace(/\s/g, "").length;
-
-            // Calcular la densidad de palabras clave para cada palabra clave
-            const palabrasClave = calcularPalabrasClave(palabrasFiltradas, 10);
-            const densidadPalabrasClave = calcularDensidadPalabrasClave(palabrasFiltradas, palabrasClave);
-
-            // Mostrar las estadísticas
-            seoStatsContainer.innerHTML = `
+                // Mostrar las estadísticas
+                seoStatsContainer.innerHTML = `
                     <p>Total de palabras: ${totalPalabras}</p>
                     <p>(${palabrasClave.length}) Palabras repetidas: ${palabrasClave.join(", ")}</p>
                     ${palabrasClave.map((palabra, index) => `<p>Densidad de "${palabra}": ${densidadPalabrasClave[index].toFixed(2)}%</p>`).join("")}
                     <p>Caracteres (con espacios): ${caracteresConEspacios}</p>
                     <p>Caracteres (sin espacios): ${caracteresSinEspacios}</p>
-                    `;
-        }
+                `;
+            })
+            .catch(error => console.error('Error al cargar el JSON:', error));
     }
 
     // Escuchar cambios en el textarea y recalcular estadísticas
