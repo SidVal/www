@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const seoStatsContainer = document.getElementById("seo-stats");
         const texto = textArea.value;
 
-        // Tokenizar el texto en palabras utilizando una expresión regular
-        const palabras = texto.match(/\b\w+\b/g) || [];
+        // Tokenizar el texto en palabras utilizando XRegExp con caracteres Unicode
+        const palabras = XRegExp.match(texto, XRegExp('\\p{L}+', 'gu')) || [];
+
 
         // Lista de verbos comunes (stop verbs) que queremos excluir
         const stopVerbs = ["pueden", "bailan"];
