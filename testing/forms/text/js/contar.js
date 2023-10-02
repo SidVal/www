@@ -6,14 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const seoStatsContainer = document.getElementById("seo-stats");
         const texto = textArea.value;
 
-        
-        
-
-
         // Tokenizar el texto en palabras
-        const delimitador = ",.!?;:(){}[]<>'\""; // delimitador para excluir de las palabras
-        const palabras = texto.split(delimitador).filter(palabra => palabra !== "");
-    
+        const palabras = texto.split(/\s+/).filter(Boolean);
+
         // Lista de verbos comunes (stop verbs) que queremos excluir
         const stopVerbs = [
             "pueden", "bailan"
