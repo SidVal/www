@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="vcard2.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // With helper methods
+            var fooBar = vCard.create(vCard.Version.FOUR)
+            fooBar.addFormattedname("Mr Foo Bar")
+            fooBar.addEmail("foor@bar.com", vCard.Type.HOME)
+            fooBar.addAddress("street", "code", "city", "country", vCard.Type.HOME)
+
+            var link = vCard.export(fooBar, "Foo Bar", false) // use parameter true to force download
+            document.body.appendChild(link)
+        </script>
+        <br/>
+        <script type="text/javascript">
+            // Without helper methods
+            var johnDoe = vCard.create(vCard.Version.FOUR)
+            johnDoe.add(vCard.Entry.NAME, "DOE;John;;")
+            johnDoe.add(vCard.Entry.FORMATTEDNAME, "John Doe")
+            johnDoe.add(vCard.Entry.NICKNAME, "jd")
+            johnDoe.add(vCard.Entry.TITLE, "Missing man")
+            johnDoe.add(vCard.Entry.PHONE, "555-555-555", vCard.Type.CELL)
+            johnDoe.add(vCard.Entry.EMAIL, "john.doe@work.com", vCard.Type.WORK)
+            johnDoe.add(vCard.Entry.EMAIL, "john.doe@home.com", vCard.Type.HOME)
+            johnDoe.add(vCard.Entry.ORGANIZATION, "JohnDoe Corp.")
+            johnDoe.add(vCard.Entry.ADDRESS, ";;street;city;state;zip code;country", vCard.Type.HOME)
+            johnDoe.add(vCard.Entry.URL, "http://john.doe")
+
+            var link = vCard.export(johnDoe, "John Doe", false) // use parameter true to force download
+            document.body.appendChild(link)
+        </script>
+        <br/>
+        <script type="text/javascript">
+            // From JSON
+            var johnSmith = {
+                "version": "4.0",
+                "n": "SMITH;John;;",
+                "fn": "John Smith",
+                "nickname":"js",
+                "title": "Missing man too",
+                "tel": [
+                    {"value": "555-555-555", "type": "cell"}
+                ],
+                "email": [
+                    { "value": "john.smith@work.com", "type": "work" },
+                    { "value": "john.smith@home.com", "type": "home" }
+                ]
+            }
+
+            var link = vCard.export(johnSmith, "John Smith", false) // use parameter true to force download
+            document.body.appendChild(link)
+        </script>
+    </body>
+</html>
