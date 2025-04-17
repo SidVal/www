@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de Mensajes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      font-weight: 600;
+      margin-top: 1rem;
+      display: block;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    textarea {
+      height: 150px;
+      resize: none;
+      margin-top: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .copiado {
+      text-align: center;
+      color: green;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generador de Mensajes</h1>
+  <label for="nombre">Nombre</label>
+  <input type="text" id="nombre" placeholder="Ej: Alejandro" />
+
+  <label for="servicio">Servicio</label>
+  <input type="text" id="servicio" placeholder="Ej: Consultoría Estratégica" />
+
+  <label for="tipo">Tipo de mensaje</label>
+  <select id="tipo">
+    <option value="propuesta">Propuesta inicial</option>
+    <option value="seguimiento">Seguimiento</option>
+    <option value="cierre">Cierre</option>
+  </select>
+
+  <label for="mensaje">Mensaje generado</label>
+  <textarea id="mensaje" readonly></textarea>
+
+  <button onclick="copiarMensaje()">Copiar mensaje</button>
+  <div id="copiado" class="copiado" style="display:none;">Mensaje copiado al portapapeles</div>
+
+  <script src="templates.js"></script>
+  <script>
+    const nombre = document.getElementById('nombre');
+    const servicio = document.getElementById('servicio');
+    const tipo = document.getElementById('tipo');
+    const mensaje = document.getElementById('mensaje');
+    const copiado = document.getElementById('copiado');
+
+    function actualizarMensaje() {
+      const plantilla = templates[tipo.value] || '';
+      const texto = plantilla
+        .replace(/{{nombre}}/g, nombre.value || 'Cliente')
+        .replace(/{{servicio}}/g, servicio.value || 'tu servicio');
+      mensaje.value = texto;
+    }
+
+    function copiarMensaje() {
+      mensaje.select();
+      document.execCommand('copy');
+      copiado.style.display = 'block';
+      setTimeout(() => copiado.style.display = 'none', 2000);
+    }
+
+    nombre.addEventListener('input', actualizarMensaje);
+    servicio.addEventListener('input', actualizarMensaje);
+    tipo.addEventListener('change', actualizarMensaje);
+  </script>
+</body>
+</html>
