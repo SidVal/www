@@ -36,3 +36,5 @@ Este generador está hecho en HTML + JavaScript, y es totalmente adaptable. Lo p
 ---
 
 ¡A seguir resolviendo cosas con creatividad!
+
+> Ref: [#79](https://github.com/SidVal/SidV/issues/79)
