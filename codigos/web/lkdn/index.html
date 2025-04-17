@@ -22,7 +22,7 @@
       margin-top: 1rem;
       display: block;
     }
-    input, select, textarea {
+    input, select, textarea, datalist {
       width: 100%;
       padding: 0.5rem;
       margin-top: 0.25rem;
@@ -60,7 +60,17 @@
   <input type="text" id="nombre" placeholder="Ej: Alejandro" />
 
   <label for="servicio">Servicio</label>
-  <input type="text" id="servicio" placeholder="Ej: Consultoría Estratégica" />
+  <input list="lista-servicios" id="servicio" placeholder="Ej: Consultoría Estratégica" />
+  <datalist id="lista-servicios">
+    <option value="Consultoría financiera">
+    <option value="Asesoría fiscal">
+    <option value="Asesoría financiera">
+    <option value="Planificación financiera">
+    <option value="Gestión de proyectos">
+    <option value="Consultoría de gestión">
+    <option value="Desarrollo web">
+    <option value="Consultoría de TI">
+  </datalist>
 
   <label for="tipo">Tipo de mensaje</label>
   <select id="tipo">
