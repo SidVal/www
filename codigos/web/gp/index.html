@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimeShots</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { background-color: #fff; padding: 2rem; font-family: sans-serif; }
+    .task-row { margin-bottom: 0.5rem; }
+    .btn-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🕒 TimeShots Panel</h2>
+    <input id="taskInput" class="form-control mb-3" placeholder="Enter task ID and press Enter" />
+    <div id="taskList"></div>
+  </div>
+
+  <script>
+    const taskList = document.getElementById("taskList");
+    const taskInput = document.getElementById("taskInput");
+    const tasks = {}; // almacena tareas activas en memoria
+
+    taskInput.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && taskInput.value.trim()) {
+        const id = taskInput.value.trim();
+        if (tasks[id]) return; // no repetir tareas
+
+        const row = document.createElement("div");
+        row.className = "d-flex align-items-center task-row";
+        row.innerHTML = `
+          <div class="flex-grow-1 me-3"><strong>${id}</strong></div>
+          <button class="btn btn-success btn-icon me-2" title="Start"><span>&#9658;</span></button>
+          <button class="btn btn-warning btn-icon me-2" title="Pause"><span>&#10073;&#10073;</span></button>
+          <button class="btn btn-danger btn-icon" title="End"><span>&#9632;</span></button>
+        `;
+
+        const [playBtn, pauseBtn, endBtn] = row.querySelectorAll("button");
+        let startTime = null;
+        let elapsed = 0;
+        let timer = null;
+
+        playBtn.onclick = () => {
+          if (!startTime) startTime = Date.now();
+          timer = setInterval(() => {}, 1000); // futuro contador visual
+        };
+
+        pauseBtn.onclick = () => {
+          if (startTime) {
+            elapsed += Date.now() - startTime;
+            startTime = null;
+            clearInterval(timer);
+          }
+        };
+
+        endBtn.onclick = () => {
+          if (startTime) {
+            elapsed += Date.now() - startTime;
+            clearInterval(timer);
+          }
+          const minutes = Math.round(elapsed / 60000);
+          alert(`Tarea "${id}" finalizada. Tiempo total: ${minutes} minutos.`);
+          row.remove();
+          delete tasks[id];
+        };
+
+        taskList.appendChild(row);
+        tasks[id] = { row, startTime, elapsed };
+        taskInput.value = "";
+      }
+    });
+  </script>
+</body>
+</html>
