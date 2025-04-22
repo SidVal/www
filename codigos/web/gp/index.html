@@ -6,15 +6,24 @@
   <title>TimeShots</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    body { background-color: #fff; padding: 2rem; font-family: sans-serif; }
+    body { background-color: #fff; padding-top: 5rem; font-family: sans-serif; }
     .task-row { margin-bottom: 0.5rem; }
     .btn-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; }
     .status-indicator { margin-left: 0.5rem; font-size: 1.2rem; }
+    .navbar { background-color: #f8f9fa; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .badge-action { cursor: pointer; font-size: 1rem; }
   </style>
 </head>
 <body>
+  <nav class="navbar fixed-top px-3">
+    <span class="navbar-brand">🕹️ TimeShots Panel</span>
+    <div>
+      <span class="badge bg-primary badge-action me-2" id="endDay">Cierre del día</span>
+      <span class="badge bg-danger badge-action" id="clearMemory">Liberar memoria</span>
+    </div>
+  </nav>
+
   <div class="container">
-    <h2>🕒 TimeShots Panel</h2>
     <input id="taskInput" class="form-control mb-3" placeholder="Enter task ID and press Enter" />
     <div id="taskList"></div>
   </div>
@@ -47,7 +56,7 @@
 
         playBtn.onclick = () => {
           if (!startTime) startTime = Date.now();
-          timer = setInterval(() => {}, 1000); // futuro contador visual
+          timer = setInterval(() => {}, 1000);
           statusSpan.textContent = "🕒";
         };
 
@@ -77,9 +86,26 @@
         };
 
         taskList.appendChild(row);
-        tasks[id] = { row, startTime, elapsed };
+        tasks[id] = { row, startTime, elapsed, statusSpan };
         taskInput.value = "";
       }
+    });
+
+    document.getElementById("endDay").addEventListener("click", () => {
+      for (const id in tasks) {
+        const task = tasks[id];
+        if (task.startTime) {
+          task.elapsed += Date.now() - task.startTime;
+          task.startTime = null;
+        }
+        clearInterval(task.timer);
+        const minutes = Math.round(task.elapsed / 60000);
+        task.statusSpan.textContent = `✔️ - Tarea "${id}" finalizada. Tiempo total: ${minutes} minutos.`;
+      }
+    });
+
+    document.getElementById("clearMemory").addEventListener("click", () => {
+      location.reload();
     });
   </script>
 </body>
