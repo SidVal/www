@@ -9,6 +9,7 @@
     body { background-color: #fff; padding: 2rem; font-family: sans-serif; }
     .task-row { margin-bottom: 0.5rem; }
     .btn-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; }
+    .status-indicator { margin-left: 0.5rem; font-size: 1.2rem; }
   </style>
 </head>
 <body>
@@ -31,13 +32,15 @@
         const row = document.createElement("div");
         row.className = "d-flex align-items-center task-row";
         row.innerHTML = `
-          <div class="flex-grow-1 me-3"><strong>${id}</strong></div>
+          <div class="flex-grow-1 me-3"><strong>${id}</strong><span class="status-indicator" id="status-${id}"></span></div>
           <button class="btn btn-success btn-icon me-2" title="Start"><span>&#9658;</span></button>
           <button class="btn btn-warning btn-icon me-2" title="Pause"><span>&#10073;&#10073;</span></button>
-          <button class="btn btn-danger btn-icon" title="End"><span>&#9632;</span></button>
+          <button class="btn btn-danger btn-icon me-2" title="End"><span>&#9632;</span></button>
+          <button class="btn btn-outline-secondary btn-icon" title="Remove"><span>&#10006;</span></button>
         `;
 
-        const [playBtn, pauseBtn, endBtn] = row.querySelectorAll("button");
+        const [playBtn, pauseBtn, endBtn, removeBtn] = row.querySelectorAll("button");
+        const statusSpan = row.querySelector(`#status-${id}`);
         let startTime = null;
         let elapsed = 0;
         let timer = null;
@@ -45,6 +48,7 @@
         playBtn.onclick = () => {
           if (!startTime) startTime = Date.now();
           timer = setInterval(() => {}, 1000); // futuro contador visual
+          statusSpan.textContent = "🕒";
         };
 
         pauseBtn.onclick = () => {
@@ -52,6 +56,7 @@
             elapsed += Date.now() - startTime;
             startTime = null;
             clearInterval(timer);
+            statusSpan.textContent = "⏸";
           }
         };
 
@@ -59,9 +64,14 @@
           if (startTime) {
             elapsed += Date.now() - startTime;
             clearInterval(timer);
+            startTime = null;
           }
           const minutes = Math.round(elapsed / 60000);
           alert(`Tarea "${id}" finalizada. Tiempo total: ${minutes} minutos.`);
+          statusSpan.textContent = "✔️";
+        };
+
+        removeBtn.onclick = () => {
           row.remove();
           delete tasks[id];
         };
