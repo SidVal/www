@@ -68,7 +68,7 @@
           }
           const minutes = Math.round(elapsed / 60000);
           alert(`Tarea "${id}" finalizada. Tiempo total: ${minutes} minutos.`);
-          statusSpan.textContent = "✔️";
+          statusSpan.textContent = `✔️ - Tarea "${id}" finalizada. Tiempo total: ${minutes} minutos.`;
         };
 
         removeBtn.onclick = () => {
