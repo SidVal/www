@@ -68,6 +68,12 @@ function renderTareaRow(tarea) {
   const row = document.createElement("div");
   row.className = "d-flex align-items-center task-row";
   row.innerHTML = `
+    <input type="checkbox" class="form-check-input me-2 complete-check" title="Marcar como completada" ${fin ? "checked" : ""} ${fin ? "disabled" : ""}/>
+      <div class="flex-grow-1 me-3 tarea-txt"><strong>${id}</strong>
+        <span class="status-indicator" id="status-${id}">
+          ${fin ? `✔️ Finalizada (${minTranscurridos(inicio, fin)} min)` : ""}
+        </span>
+      </div>
     <div class="flex-grow-1 me-3"><strong>${id}</strong>
       <span class="status-indicator" id="status-${id}">
         ${fin ? `✔️ Finalizada (${minTranscurridos(inicio, fin)} min)` : ""}
@@ -78,6 +84,30 @@ function renderTareaRow(tarea) {
     <button class="btn btn-danger btn-icon me-2" title="End"><span>&#9632;</span></button>
     <button class="btn btn-outline-secondary btn-icon" title="Remove"><span>&#10006;</span></button>
   `;
+
+  const completeCheck = row.querySelector('.complete-check');
+  const tareaTxt = row.querySelector('.tarea-txt');
+
+  // Al iniciar, si está finalizada: tachar
+  if (fin) tareaTxt.style.textDecoration = "line-through";
+
+  // Evento para marcar como completada
+  completeCheck.addEventListener('change', function() {
+    if (this.checked && !tarea.fin) {
+      // Marcar fin y guardar
+      const now = Date.now();
+      tarea.fin = now;
+      updateTareaInLS(tarea);
+      statusSpan.textContent = `✔️ Finalizada (${minTranscurridos(tarea.inicio, now)} min)`;
+      tareaTxt.style.textDecoration = "line-through";
+      // Deshabilitar controles de tiempo
+      playBtn.disabled = true;
+      pauseBtn.disabled = true;
+      endBtn.disabled = true;
+      completeCheck.disabled = true;
+    }
+  });
+
 
   const [playBtn, pauseBtn, endBtn, removeBtn] = row.querySelectorAll("button");
   const statusSpan = row.querySelector(`#status-${id}`);
