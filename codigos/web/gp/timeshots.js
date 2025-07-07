@@ -121,6 +121,21 @@ function renderTareaRow(tarea) {
 
   taskList.appendChild(row);
   tasks[id] = { row, startTime, endTime, statusSpan };
+
+  // ...dentro de renderTareaRow...
+
+  removeBtn.onclick = () => {
+  // Nuevo: chequeo del checkbox antes de borrar
+    const canDelete = document.getElementById("enableDelete")?.checked;
+    if (!canDelete) {
+      alert("Debes habilitar el borrado en el header para eliminar tareas.");
+      return;
+    }
+    row.remove();
+    removeTareaFromLS(id);
+    delete tasks[id];
+};
+
 }
 
 // Helper para minutos transcurridos
