@@ -54,10 +54,11 @@ const tasks = {}; // Para control temporal (no es el storage principal)
 // Renderiza todas las tareas de LocalStorage
 function renderAllTareas() {
   taskList.innerHTML = "";
-  tasks = {};
+  Object.keys(tasks).forEach(k => delete tasks[k]); // Limpia tareas en memoria temporal
   const tareas = getTareasFromLS();
   tareas.forEach(renderTareaRow);
 }
+
 
 // Crea la fila de tarea y la agrega al DOM y memoria temporal
 function renderTareaRow(tarea) {
