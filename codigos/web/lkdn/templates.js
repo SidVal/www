@@ -1,6 +1,6 @@
 const templates = {
   propuesta: 
-`¡Hola, {{nombre}}!
+`¡Hola {{nombre}}!
 
 Muchísimas gracias por ponerte en contacto conmigo a través de LinkedIn. Me entusiasma mucho que te interese el servicio de {{servicio}}.
 
