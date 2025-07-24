@@ -1,9 +1,11 @@
 const templates = {
-  propuesta: `Hola {{nombre}}, te agradezco por haber solicitado este servicio de {{servicio}}.
+  propuesta: 
+`¡Hola, {{nombre}}!
 
-Vi que no me estas siguiendo, por favor dale clic aquí y comenzá a seguirme: https://www.linkedin.com/in/waldolopez — pronto haré más aportes, lanzamientos o publicaciones interesantes y me gustaría contar con tus opiniones al respecto.
+Muchísimas gracias por ponerte en contacto conmigo a través de LinkedIn. Me entusiasma mucho que te interese el servicio de {{servicio}}.
 
-En cuanto a los servicios solicitados, necesito que me respondas a este mensaje para entender mejor qué es lo que haces, qué te gustaría cambiar y/o mejorar en cuanto a tu escenario actual. De esta forma podemos coordinar una reunión (gratuita) de 15–30 minutos vía Google Meets.
+Para poder entender mejor cómo puedo ayudarte y qué es exactamente lo que buscas, ¿podrías contarme un poco más sobre lo que haces y qué te gustaría mejorar o cambiar en tu situación actual? Con esa información, podremos coordinar una breve reunión gratuita de 15 a 30 minutos vía Google Meets. Así, exploramos juntos cómo mis servicios pueden impulsarte.
 
-Quedo atento a tu respuesta.`
-};
+Por cierto, si aún no me sigues, ¡te invito a hacerlo! Siempre comparto contenido relevante, novedades y lanzamientos que podrían ser de tu interés, y me encantaría contar con tu perspectiva: https://www.linkedin.com/in/waldolopez 
+
+¡Espero tu mensaje para que podamos empezar a trabajar en esto!`};
