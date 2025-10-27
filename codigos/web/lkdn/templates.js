@@ -1,11 +1,11 @@
 const templates = {
   propuesta: 
-`¡Hola {{nombre}}!
+`Hola {{nombre}, ¿cómo estás? Me interesa ayudarte en tu proyecto, pero no tengo mayor información para analizar qué es lo que necesitas puntualmente sobre {{servicio}}. Trabajo por resultados, así que nada de lo que me comentes a continuación tiene costo, te ofrezco análisis sin costo alguno y recién te pasaría la propuesta con costos para entregas puntuales una vez que tengo el escenario completo.
 
-Muchísimas gracias por ponerte en contacto conmigo a través de LinkedIn. Me entusiasma mucho que te interese el servicio de {{servicio}}.
+En el caso que necesites una reunión de 15/30 min, se puede coordinar para que me conozcas personalmente. 
 
-Para poder entender mejor cómo puedo ayudarte y qué es exactamente lo que buscas, ¿podrías contarme un poco más sobre lo que haces y qué te gustaría mejorar o cambiar en tu situación actual? Con esa información, podremos coordinar una breve reunión gratuita de 15 a 30 minutos vía Google Meets. Así, exploramos juntos cómo mis servicios pueden impulsarte.
+Automáticamente la plataforma te envía un privado, así que puedes responder a través de ese medio, así no tienes que complicarte con la parte de servicios y propuestas.
 
-Por cierto, si aún no me sigues, ¡te invito a hacerlo! Siempre comparto contenido relevante, novedades y lanzamientos que podrían ser de tu interés, y me encantaría contar con tu perspectiva: https://www.linkedin.com/in/waldolopez 
-
-¡Espero tu mensaje para que podamos empezar a trabajar en esto!`};
+Quedo atento a tu respuesta.
+Saludos,
+Osvaldo`};
