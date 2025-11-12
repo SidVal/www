@@ -75,13 +75,17 @@ function renderTareaRow(tarea) {
       </span>
     </div>
     <button class="btn btn-success btn-icon me-2" title="Start"><span>&#9658;</span></button>
-    <button class="btn btn-warning btn-icon disabled me-2" title="Pause"><span>&#10073;&#10073;</span></button>
-    <button class="btn btn-danger btn-icon disabled me-2" title="End"><span>&#9632;</span></button>
+    <button class="btn btn-warning btn-icon me-2" title="Pause"><span>&#10073;&#10073;</span></button>
+    <button class="btn btn-danger btn-icon me-2" title="End"><span>&#9632;</span></button>
     <button class="btn btn-outline-secondary btn-icon" title="Remove"><span>&#10006;</span></button>
   `;
 
   const completeCheck = row.querySelector('.complete-check');
   const tareaTxt = row.querySelector('.tarea-txt');
+
+  // desabilito botones excepto el start
+  pauseBtn.disabled = true;
+  endBtn.disabled = true;
 
   // Al iniciar, si está finalizada: tachar
   if (fin) tareaTxt.style.textDecoration = "line-through";
