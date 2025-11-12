@@ -87,21 +87,28 @@ function renderTareaRow(tarea) {
   if (fin) tareaTxt.style.textDecoration = "line-through";
 
   // Evento para marcar como completada
-  completeCheck.addEventListener('change', function() {
-    if (this.checked && !tarea.fin) {
-      // Marcar fin y guardar
-      const now = Date.now();
-      tarea.fin = now;
-      updateTareaInLS(tarea);
-      statusSpan.textContent = `✔️ Finalizada (${minTranscurridos(tarea.inicio, now)} min)`;
-      tareaTxt.style.textDecoration = "line-through";
-      // Deshabilitar controles de tiempo
-      playBtn.disabled = true;
-      pauseBtn.disabled = true;
-      endBtn.disabled = true;
-      completeCheck.disabled = true;
+completeCheck.addEventListener('change', function() {
+  if (this.checked && !tarea.fin) {
+    if (!tarea.inicio) {
+      alert("No podés marcarla como completada si nunca se inició.");
+      this.checked = false;
+      return;
     }
-  });
+
+    // Marcar fin y guardar
+    const now = Date.now();
+    tarea.fin = now;
+    updateTareaInLS(tarea);
+    statusSpan.textContent = `✔️ Finalizada (${minTranscurridos(tarea.inicio, now)} min)`;
+    tareaTxt.style.textDecoration = "line-through";
+
+    // Deshabilitar controles de tiempo
+    playBtn.disabled = true;
+    pauseBtn.disabled = true;
+    endBtn.disabled = true;
+    completeCheck.disabled = true;
+  }
+});
 
 
   const [playBtn, pauseBtn, endBtn, removeBtn] = row.querySelectorAll("button");
@@ -183,8 +190,19 @@ pauseBtn.onclick = () => {
 
 // Helper para minutos transcurridos
 function minTranscurridos(inicio, fin) {
-  return Math.round((fin - inicio) / 60000);
-}
+  // Si falta alguno de los dos, devolvemos 0 o texto vacío
+  if (!inicio || !fin || isNaN(inicio) || isNaN(fin)) {
+    return 0;
+  }
+
+  const diff = fin - inicio;
+
+  // Si el tiempo es negativo o absurdo, evitamos mostrarlo
+  if (diff < 0) return 0;
+
+  return Math.round(diff / 60000);
+};
+
 
 // Añadir tarea nueva desde el input
 taskInput.addEventListener("keydown", function(e) {
