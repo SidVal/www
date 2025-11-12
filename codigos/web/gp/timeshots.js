@@ -83,10 +83,6 @@ function renderTareaRow(tarea) {
   const completeCheck = row.querySelector('.complete-check');
   const tareaTxt = row.querySelector('.tarea-txt');
 
-  // desabilito botones excepto el start
-  pauseBtn.disabled = true;
-  endBtn.disabled = true;
-
   // Al iniciar, si está finalizada: tachar
   if (fin) tareaTxt.style.textDecoration = "line-through";
 
@@ -110,6 +106,19 @@ function renderTareaRow(tarea) {
 
   const [playBtn, pauseBtn, endBtn, removeBtn] = row.querySelectorAll("button");
   const statusSpan = row.querySelector(`#status-${id}`);
+
+// desabilito botones excepto el start
+  pauseBtn.disabled = true;
+  endBtn.disabled = true;
+
+// los botones de tareas finalizadas sigan desactivados
+    if (fin) {
+    playBtn.disabled = true;
+    pauseBtn.disabled = true;
+    endBtn.disabled = true;
+    completeCheck.disabled = true;
+  }
+
 
   let timer = null;
   let startTime = inicio ? inicio : null;
