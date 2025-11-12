@@ -1,7 +1,6 @@
 // timeshots.js
-// Módulo inicial para TimeShots
-// 07/07/2025
-// (Por ahora es copia del inline, luego modularizamos más)
+// Módulo inicial para TimeShots ini: 07/07/2025
+// 
 
 // --- Helpers para LocalStorage ---
 const LS_KEY = "timeshots_tareas";
@@ -69,12 +68,8 @@ function renderTareaRow(tarea) {
   row.className = "d-flex align-items-center task-row";
   row.innerHTML = `
     <input type="checkbox" class="form-check-input me-2 complete-check" title="Marcar como completada" ${fin ? "checked" : ""} ${fin ? "disabled" : ""}/>
-      <div class="flex-grow-1 me-3 tarea-txt"><strong>${id}</strong>
-        <span class="status-indicator" id="status-${id}">
-          ${fin ? `✔️ Finalizada (${minTranscurridos(inicio, fin)} min)` : ""}
-        </span>
-      </div>
-    <div class="flex-grow-1 me-3"><strong>${id}</strong>
+    <div class="flex-grow-1 me-3 tarea-txt">
+      <strong>${id}</strong>
       <span class="status-indicator" id="status-${id}">
         ${fin ? `✔️ Finalizada (${minTranscurridos(inicio, fin)} min)` : ""}
       </span>
@@ -116,20 +111,25 @@ function renderTareaRow(tarea) {
   let startTime = inicio ? inicio : null;
   let endTime = fin ? fin : null;
 
-  playBtn.onclick = () => {
-    if (endTime) return;
-    if (!startTime) {
-      startTime = Date.now();
-      tarea.inicio = startTime;
-      updateTareaInLS(tarea);
-    }
-    statusSpan.textContent = "🕒";
-  };
+playBtn.onclick = () => {
+  if (endTime) return;
+  if (!startTime) {
+    startTime = Date.now();
+    tarea.inicio = startTime;
+    updateTareaInLS(tarea);
+  }
+  statusSpan.textContent = "🕒 En curso";
+  playBtn.disabled = true;
+  pauseBtn.disabled = false;
+  endBtn.disabled = false;
+};
 
-  pauseBtn.onclick = () => {
-    statusSpan.textContent = "⏸";
-    // No hacemos nada más por ahora, pero podrías pausar un cronómetro real
-  };
+pauseBtn.onclick = () => {
+  statusSpan.textContent = "⏸ Pausada";
+  playBtn.disabled = false;
+  pauseBtn.disabled = true;
+};
+
 
   endBtn.onclick = () => {
     if (!endTime) {
