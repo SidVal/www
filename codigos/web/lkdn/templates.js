@@ -1,13 +1,11 @@
 const templates = {
   propuesta: 
-`Hola {{nombre}}, ¿Cómo estás? Me interesa ayudarte en tu proyecto y te explico que nada de lo que me comentes a continuación tiene costo, te ofrezco análisis sin costo hasta que tengamos un escenario completo y resultados alcanzables. 
+`Hola {{nombre}}, 
 
-Para analizar qué es lo que necesitas puntualmente sobre {{servicio}} es necesario que me respondas con el mayor detalle posible sobre dónde estamos parados actualmente y a dónde quieres ir. 
+Quiero proponerte algo diferente. No se trata únicamente de un servicio, sino de un enfoque único que aborda tus necesidades y objetivos de una manera personalizada y estratégica. Mi prioridad es escucharte atentamente, entender dónde estás ahora y hacia dónde quieres llevar tu proyecto.
 
-En el caso que necesites una reunión de 15/30 min, se puede coordinar para que me conozcas personalmente. 
+Estoy aquí para ofrecerte una solución con valor agregado, diseñada específicamente para superar tus expectativas. ¿Qué te interesa lograr? Cuéntame sobre tus ideas, objetivos o inquietudes. Puedes responder directamente a este mensaje, sin compromisos. Estoy aquí para escucharte.
 
-Automáticamente la plataforma te envía un privado, así que puedes responder a través de ese medio, así no tienes que complicarte con la parte de servicios y propuestas.
-
-Quedo atento a tu respuesta.
+Quedo atento a tus comentarios.
 Saludos,
 Osvaldo`};
