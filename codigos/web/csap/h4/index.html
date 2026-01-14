@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Regenerador de Cierre de Artículos</title>
+</head>
+<body>
+
+<h2>Regenerador de cierre editorial</h2>
+
+<p>
+  1) Usá <strong>$TEMA</strong> como placeholder.<br>
+  2) Editá enlaces recomendados a mano.<br>
+  3) Copiá y pegá en el CMS reemplazando el cierre viejo.
+</p>
+
+<button onclick="regenerar()">Regenerar CTA</button>
+
+<br><br>
+
+<textarea id="output" rows="28" cols="120"></textarea>
+
+<script>
+const ctasPsicologicos = [
+  {
+    title: 'Tu punto de vista puede marcar la diferencia',
+    body: `
+      Si llegaste hasta acá, seguramente tenés una opinión formada sobre <strong>$TEMA</strong>.<br />
+      ¿Coincidís con el análisis del artículo?
+      <strong>Compartilo en los comentarios</strong> y sumá valor a la comunidad.
+    `
+  },
+  {
+    title: 'Ahora queremos leerte a vos',
+    body: `
+      La experiencia real sobre <strong>$TEMA</strong> se construye entre todos.<br />
+      Si tenés algo para sumar, aclarar o debatir,
+      <strong>dejá tu comentario</strong> y participá de la conversación.
+    `
+  },
+  {
+    title: 'Este artículo sigue creciendo',
+    body: `
+      ¿Estás de acuerdo con lo planteado sobre <strong>$TEMA</strong> o lo ves distinto?<br />
+      <strong>Sumá tu mirada en los comentarios</strong> y ayudá a enriquecer el contenido.
+    `
+  }
+];
+
+function regenerar() {
+  const cta = ctasPsicologicos[Math.floor(Math.random() * ctasPsicologicos.length)];
+
+  const html = `
+<footer class="article-footer">
+
+  <div class="cta-container-expert">
+    <strong class="cta-expert-title">
+      ¿Necesitás profundizar en $TEMA?
+    </strong>
+    <p class="cta-body">
+      Revisamos este contenido constantemente para que sea preciso.
+      Si algo no te quedó claro sobre <strong>$TEMA</strong>, podés dejarnos tu consulta abajo.
+      Nuestro equipo responde en menos de 24 horas.
+    </p>
+  </div>
+
+  <div class="cta-container">
+    <span class="cta-title">${cta.title}</span>
+    <p class="cta-body">
+      ${cta.body.trim()}
+    </p>
+  </div>
+
+  <div class="recirculacion-section">
+    <span class="cta-read-more-title">Continuá tu formación técnica</span>
+
+    <div class="recirculacion-container">
+      <a href="#/art1" class="recirculacion-card">
+        <strong>PONER ENLACE 1</strong>
+        <span>Breve descripción de 100 caracteres para aportar valor...</span>
+      </a>
+      <a href="#/art2" class="recirculacion-card">
+        <strong>PONER ENLACE 2</strong>
+        <span>Contexto adicional que invita al clic técnico...</span>
+      </a>
+    </div>
+  </div>
+
+</footer>
+`.trim();
+
+  document.getElementById('output').value = html;
+}
+
+// Generar uno inicial al cargar
+regenerar();
+</script>
+
+</body>
+</html>
