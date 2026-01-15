@@ -25,7 +25,7 @@ const ctasPsicologicos = [
   {
     title: 'Tu punto de vista puede marcar la diferencia',
     body: `
-      Si llegaste hasta acá, seguramente tenés una opinión formada sobre <strong>$TEMA</strong>.<br />
+      Si llegaste hasta acá, seguramente tenés una opinión formada sobre <strong>TEMA</strong>.<br />
       ¿Coincidís con el análisis del artículo?
       <strong>Compartilo en los comentarios</strong> y sumá valor a la comunidad.
     `
@@ -33,7 +33,7 @@ const ctasPsicologicos = [
   {
     title: 'Ahora queremos leerte a vos',
     body: `
-      La experiencia real sobre <strong>$TEMA</strong> se construye entre todos.<br />
+      La experiencia real sobre <strong>TEMA</strong> se construye entre todos.<br />
       Si tenés algo para sumar, aclarar o debatir,
       <strong>dejá tu comentario</strong> y participá de la conversación.
     `
@@ -41,7 +41,7 @@ const ctasPsicologicos = [
   {
     title: 'Este artículo sigue creciendo',
     body: `
-      ¿Estás de acuerdo con lo planteado sobre <strong>$TEMA</strong> o lo ves distinto?<br />
+      ¿Estás de acuerdo con lo planteado sobre <strong>TEMA</strong> o lo ves distinto?<br />
       <strong>Sumá tu mirada en los comentarios</strong> y ayudá a enriquecer el contenido.
     `
   }
@@ -66,7 +66,7 @@ function regenerar() {
     </strong>
     <p class="cta-body">
       Revisamos este contenido constantemente para que sea preciso.
-      Si algo no te quedó claro sobre <strong>$TEMA</strong>, podés dejarnos tu consulta abajo.
+      Si algo no te quedó claro sobre <strong>TEMA</strong>, podés dejarnos tu consulta abajo.
       Nuestro equipo responde en menos de 24 horas.
     </p>
   </div>
@@ -81,18 +81,23 @@ function regenerar() {
   <div class="recirculacion-section">
     <span class="cta-read-more-title">Continuá tu formación técnica</span>
     <div class="recirculacion-container">
-      <a href="#" class="recirculacion-card" title="">
-        <strong>PONER ENLACE 1</strong>
-        <span>Breve descripción de 100 caracteres para aportar valor...</span>
+      <a href="enlace1" class="recirculacion-card" title="PONER_TITULO_1">
+        <strong>PONER_TITULO_1</strong>
+        <span>Breve_descripción</span>
       </a>
-      <a href="#" class="recirculacion-card" title="">
-        <strong>PONER ENLACE 2</strong>
-        <span>Contexto adicional que invita al clic técnico...</span>
+      <a href="enlace2" class="recirculacion-card" title="PONER_TITULO_2">
+        <strong>PONER_TITULO_2</strong>
+        <span>Breve_descripción</span>
       </a>
-      <!--// si no hay enlace 2, dejar este para el foro y cambiar un poco la descripción 
+      <!--// OPCION 1: el foro, editar titulo y descripción 
       <a href="https://foros.consultoria-sap.com" class="recirculacion-card" title="Foro Mundo SAP" target="_blank" rel="noopener">
         <strong>FORO MUNDO SAP</strong>
         <span>Sabemos lo que se siente estar "solo" con el sistema SAP... no estás solo, tenemos comunidad, la más grande del mundo ;)</span>
+      </a>
+      // OPCION 2: algún curso con rel="noopener noreferrer"
+      <a href="https://trk.udemy.com/radOy5" class="recirculacion-card" title="Cursos Udemy" target="_blank" rel="noopener">
+        <strong>Cursos Udemy con hasta el 50% off</strong>
+        <span>Hay cursos y formación de todo tipo, desde formación gratuita, 1 dólar, 10 dólares y para todos los gustos y niveles de experiencia</span>
       </a>
       //-->
     </div>
