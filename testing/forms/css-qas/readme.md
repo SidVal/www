@@ -1,5 +1,7 @@
 # Idea
 
+> Log: https://github.com/SidVal/SidV/issues/71
+
 Quiero tener una página donde pongo, la pregunta y quién pregunta.
 Y por otro lado, distintas respuestas (y quienes responden).
 Es para migrar contenidos desde el Foro.
