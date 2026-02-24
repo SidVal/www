@@ -1,0 +1,11 @@
+{
+  "name": "tailwind-pages-test",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "build": "npm run build:css && cp ./src/index.html ./dist/index.html"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
