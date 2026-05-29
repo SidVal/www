@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración de Schema.org para Profesionales</title>
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 p-6">
+
+  <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8 border border-slate-100">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-slate-900">Configuración de Identidad (Schema.org)</h1>
+      <p class="text-sm text-slate-500 mt-1">Campos requeridos por Google y optimizados para Agentes de IA.</p>
+    </div>
+
+    <form class="space-y-5">
+      
+      <!-- Nombre Completo -->
+      <div>
+        <label for="name" class="block text-sm font-semibold text-slate-700 mb-1">Nombre Completo (name)</label>
+        <input type="text" id="name" name="name" required placeholder="Ej. Juan Pérez" 
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <!-- Título Profesional -->
+      <div>
+        <label for="jobTitle" class="block text-sm font-semibold text-slate-700 mb-1">Título Profesional o Rol (jobTitle)</label>
+        <input type="text" id="jobTitle" name="jobTitle" required placeholder="Ej. Consultor SEO y Desarrollador Fullstack" 
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <!-- URL de la Foto -->
+      <div>
+        <label for="image" class="block text-sm font-semibold text-slate-700 mb-1">URL de la Foto de Perfil (image)</label>
+        <input type="url" id="image" name="image" required placeholder="https://tusitio.com" 
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <!-- URL del Sitio Web -->
+      <div>
+        <label for="url" class="block text-sm font-semibold text-slate-700 mb-1">URL Oficial de la Landing (url)</label>
+        <input type="url" id="url" name="url" required placeholder="https://tusitio.com" 
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <!-- Descripción Corta -->
+      <div>
+        <label for="description" class="block text-sm font-semibold text-slate-700 mb-1">Extracto Profesional / Biografía (description)</label>
+        <textarea id="description" name="description" rows="3" required placeholder="Breve resumen de tus servicios y experiencia..." 
+                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"></textarea>
+      </div>
+
+      <!-- Redes Sociales / Perfiles de Autoridad -->
+      <div>
+        <label for="sameAs" class="block text-sm font-semibold text-slate-700 mb-1">Redes Sociales Oficiales (sameAs)</label>
+        <input type="text" id="sameAs" name="sameAs" placeholder="Ej. https://linkedin.com, https://github.com" 
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        <p class="text-xs text-slate-400 mt-1">Separa las direcciones URL utilizando comas.</p>
+      </div>
+
+      <!-- Áreas de Experiencia para IA agentes -->
+      <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+        <label for="knowsAbout" class="block text-sm font-semibold text-blue-900 mb-1">Especialidades Técnicas (knowsAbout)</label>
+        <input type="text" id="knowsAbout" name="knowsAbout" placeholder="Ej. Desarrollo Web, Node.js, UI/UX, Estrategia Digital" 
+               class="w-full px-4 py-2 border border-blue-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        <p class="text-xs text-blue-600/80 mt-1">Crucial para agentes de IA: define exactamente los temas por los que te pueden indexar.</p>
+      </div>
+
+      <!-- Botón de Envío -->
+      <div class="pt-2">
+        <button type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 text-sm cursor-pointer shadow-sm">
+          Generar y Guardar Schema
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>
