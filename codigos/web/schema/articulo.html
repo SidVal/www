@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración de Schema.org para Profesionales</title>
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 p-6">
+
+    <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8 border border-slate-100 mt-10">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-slate-900">Configuración de Artículo (Schema.org)</h1>
+      <p class="text-sm text-slate-500 mt-1">Estructura indexable para publicaciones de blog, guías o notas de opinión.</p>
+    </div>
+
+    <!-- Formulario de Artículo -->
+    <form id="articleForm" class="space-y-5">
+      
+      <!-- Título del Artículo -->
+      <div>
+        <label for="artHeadline" class="block text-sm font-semibold text-slate-700 mb-1">Título del Artículo (headline)</label>
+        <input type="text" id="artHeadline" name="artHeadline" required placeholder="Ej. Cómo optimizar tu web para IA en 2026" 
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <!-- URL de la Imagen de Portada -->
+      <div>
+        <label for="artImage" class="block text-sm font-semibold text-slate-700 mb-1">URL de Imagen de Portada (image)</label>
+        <input type="url" id="artImage" name="artImage" required placeholder="https://tusitio.com" 
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <!-- Fechas de Publicación y Modificación -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="artDatePub" class="block text-sm font-semibold text-slate-700 mb-1">Fecha de Publicación</label>
+          <input type="date" id="artDatePub" name="artDatePub" required 
+                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        </div>
+        <div>
+          <label for="artDateMod" class="block text-sm font-semibold text-slate-700 mb-1">Última Modificación (Opcional)</label>
+          <input type="date" id="artDateMod" name="artDateMod" 
+                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+        </div>
+      </div>
+
+      <!-- Resumen / Descripción -->
+      <div>
+        <label for="artDescription" class="block text-sm font-semibold text-slate-700 mb-1">Resumen Corto (description)</label>
+        <textarea id="artDescription" name="artDescription" rows="3" required placeholder="Un extracto de 2 o 3 líneas que resuma el artículo para buscadores y lectores..." 
+                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"></textarea>
+      </div>
+
+      <!-- Vinculación del Autor -->
+      <div class="bg-amber-50 p-4 rounded-lg border border-amber-100">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="artAuthorName" class="block text-sm font-semibold text-amber-900 mb-1">Nombre del Autor</label>
+            <input type="text" id="artAuthorName" name="artAuthorName" required placeholder="Ej. Juan Pérez" 
+                   class="w-full px-4 py-2 border border-amber-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm">
+          </div>
+          <div>
+            <label for="artAuthorUrl" class="block text-sm font-semibold text-amber-900 mb-1">URL de su Perfil Principal</label>
+            <input type="url" id="artAuthorUrl" name="artAuthorUrl" required placeholder="https://tusitio.com" 
+                   class="w-full px-4 py-2 border border-amber-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm">
+          </div>
+        </div>
+        <p class="text-xs text-amber-700/80 mt-2">Al usar la misma URL de tu perfil, Google y las IA enlazan este artículo directamente con tu identidad de especialista.</p>
+      </div>
+
+      <!-- Botón de Envío -->
+      <div class="pt-2">
+        <button type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 text-sm cursor-pointer shadow-sm">
+          Generar Schema del Artículo
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+
+    <!-- Modal Popup (Oculto por defecto con 'hidden') -->
+  <div id="schemaModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 border border-slate-100 flex flex-col max-h-[85vh]">
+      
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-bold text-slate-950">Código Schema.org Generado</h2>
+        <button id="closeModal" class="text-slate-400 hover:text-slate-600 text-2xl font-semibold p-1 cursor-pointer">&times;</button>
+      </div>
+
+      <p class="text-xs text-slate-500 mb-3">Pegá este bloque de código dentro del formato <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600">&lt;head&gt;</code> de tu landing page principal.</p>
+
+      <!-- Textarea de salida -->
+      <textarea id="schemaOutput" readonly class="w-full flex-1 font-mono text-xs p-4 bg-slate-900 text-emerald-400 rounded-lg border border-slate-800 resize-none focus:outline-none min-h-[250px]"></textarea>
+
+      <!-- Acciones del Modal -->
+      <div class="mt-4 flex gap-3 justify-end">
+        <button id="copySchema" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-colors duration-200 text-sm cursor-pointer shadow-sm">
+          Copiar Código
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Vinculación del script -->
+  <script src="main-art.js"></script>
+</body>
+
+
+</body>
+</html>
