@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Centralizador de Generadores Schema.org</title>
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://jsdelivr.net"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 flex flex-col md:flex-row min-h-screen font-sans">
+
+  <!-- Menú de Navegación Lateral -->
+  <aside class="w-full md:w-64 bg-slate-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 shrink-0">
+    <div>
+      <div class="mb-8">
+        <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+          <span>⚡</span> Schema Panel
+        </h1>
+        <p class="text-xs text-slate-500 mt-1">Generadores estructurados modulares</p>
+      </div>
+
+      <!-- Selector para Móviles -->
+      <div class="block md:hidden mb-4">
+        <label for="mobileNav" class="block text-xs font-semibold text-slate-400 mb-1">Seleccionar Generador:</label>
+        <select id="mobileNav" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="pro.html" selected>Identidad Profesional (Person)</option>
+          <option value="articulo.html">Artículos, Guías y Reseñas</option>
+          <option value="portafolio.html">Casos de Éxito / Portfolio</option>
+          <option value="servicio.html">Servicios Comerciales y Ofertas</option>
+          <option value="negocio.html">Negocio y Sede Física</option>
+          <option value="website.html">Sitio Web y Buscador Interno</option>
+          <option value="breadcrumbs.html">Migajas de Pan (Breadcrumbs)</option>
+          <option value="faq.html">Preguntas Frecuentes (FAQPage)</option>
+        </select>
+      </div>
+
+      <!-- Menú de Links para Escritorio -->
+      <nav class="hidden md:flex flex-col space-y-1" id="desktopNav">
+        <button data-src="pro.html" class="nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors bg-blue-600 text-white shadow-sm cursor-pointer">
+          👤 Identidad Profesional
+        </button>
+        <button data-src="articulo.html" class="nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-slate-400 hover:bg-slate-900 hover:text-slate-200 cursor-pointer">
+          📝 Artículos y Reseñas
+        </button>
+        <button data-src="portafolio.html" class="nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-slate-400 hover:bg-slate-900 hover:text-slate-200 cursor-pointer">
+          💼 Casos de Éxito / Portfolio
+        </button>
+        <button data-src="servicio.html" class="nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-slate-400 hover:bg-slate-900 hover:text-slate-200 cursor-pointer">
+          💰 Servicios y Ofertas
+        </button>
+        <button data-src="negocio.html" class="nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-slate-400 hover:bg-slate-900 hover:text-slate-200 cursor-pointer">
+          📍 Negocio y Sede Física
+        </button>
+        <button data-src="website.html" class="nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-slate-400 hover:bg-slate-900 hover:text-slate-200 cursor-pointer">
+          🌐 Sitio Web y Buscador
+        </button>
+        <button data-src="breadcrumbs.html" class="nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-slate-400 hover:bg-slate-900 hover:text-slate-200 cursor-pointer">
+          🍞 Migajas de Pan
+        </button>
+        <button data-src="faq.html" class="nav-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-slate-400 hover:bg-slate-900 hover:text-slate-200 cursor-pointer">
+          ❓ Preguntas Frecuentes
+        </button>
+      </nav>
+    </div>
+
+    <!-- Pie de menú lateral -->
+    <div class="hidden md:block pt-6 border-t border-slate-900">
+      <span class="text-[11px] text-slate-600 font-mono block">Ecosistema Completo</span>
+      <span class="text-[11px] text-slate-600 font-mono block">Validador Schema.org</span>
+    </div>
+  </aside>
+
+  <!-- Área de Contenido Principal (Carga Dinámica) -->
+  <main class="flex-1 flex flex-col bg-slate-950 p-2 sm:p-4 md:p-6 min-h-[500px]">
+    <div class="w-full flex-1 bg-white rounded-xl shadow-inner overflow-hidden border border-slate-800 flex flex-col">
+      <!-- El iframe inicia cargando pro.html de forma predeterminada -->
+      <iframe id="contentFrame" src="pro.html" class="w-full flex-1 border-none min-h-[75vh] md:min-h-0 bg-slate-50"></iframe>
+    </div>
+  </main>
+
+  <!-- Script de Control de Navegación -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const iframe = document.getElementById('contentFrame');
+      const mobileNav = document.getElementById('mobileNav');
+      const desktopButtons = document.querySelectorAll('.nav-btn');
+
+      // Función unificada para actualizar el archivo dentro del iframe
+      const loadPage = (pageSrc) => {
+        iframe.src = pageSrc;
+      };
+
+      // Manejador para el selector desplegable de móviles
+      mobileNav.addEventListener('change', (e) => {
+        loadPage(e.target.value);
+      });
+
+      // Manejador para los botones laterales de escritorio
+      desktopButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Limpiar estados activos previos
+          desktopButtons.forEach(btn => {
+            btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+            btn.classList.add('text-slate-400', 'hover:bg-slate-900', 'hover:text-slate-200');
+          });
+
+          // Asignar estado activo al botón seleccionado
+          button.classList.remove('text-slate-400', 'hover:bg-slate-900', 'hover:text-slate-200');
+          button.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+
+          // Cargar la página vinculada en el atributo data-src
+          const pageSrc = button.getAttribute('data-src');
+          loadPage(pageSrc);
+          
+          // Sincronizar también el selector móvil por si cambia el tamaño de pantalla
+          mobileNav.value = pageSrc;
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
