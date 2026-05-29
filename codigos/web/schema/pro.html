@@ -77,7 +77,37 @@
       </div>
 
     </form>
+
   </div>
+
+    <!-- Modal Popup (Oculto por defecto con 'hidden') -->
+  <div id="schemaModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 border border-slate-100 flex flex-col max-h-[85vh]">
+      
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-bold text-slate-950">Código Schema.org Generado</h2>
+        <button id="closeModal" class="text-slate-400 hover:text-slate-600 text-2xl font-semibold p-1 cursor-pointer">&times;</button>
+      </div>
+
+      <p class="text-xs text-slate-500 mb-3">Pegá este bloque de código dentro del formato <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600">&lt;head&gt;</code> de tu landing page principal.</p>
+
+      <!-- Textarea de salida -->
+      <textarea id="schemaOutput" readonly class="w-full flex-1 font-mono text-xs p-4 bg-slate-900 text-emerald-400 rounded-lg border border-slate-800 resize-none focus:outline-none min-h-[250px]"></textarea>
+
+      <!-- Acciones del Modal -->
+      <div class="mt-4 flex gap-3 justify-end">
+        <button id="copySchema" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-colors duration-200 text-sm cursor-pointer shadow-sm">
+          Copiar Código
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Vinculación del script -->
+  <script src="main.js"></script>
+</body>
+
 
 </body>
 </html>
