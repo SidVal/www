@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configuración de Schema.org para Profesionales</title>
+  <title>Generador de Schema para Artículos y Blogs</title>
   <!-- Tailwind CSS v4 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://jsdelivr.net"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 p-6">
 
-    <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8 border border-slate-100 mt-10">
+  <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8 border border-slate-100">
     <div class="mb-6">
       <h1 class="text-2xl font-bold text-slate-900">Configuración de Artículo (Schema.org)</h1>
-      <p class="text-sm text-slate-500 mt-1">Estructura indexable para publicaciones de blog, guías o notas de opinión.</p>
+      <p class="text-sm text-slate-500 mt-1">Campos críticos para validación de Google y motores de respuestas de IA.</p>
     </div>
 
     <!-- Formulario de Artículo -->
@@ -67,7 +67,7 @@
                    class="w-full px-4 py-2 border border-amber-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm">
           </div>
         </div>
-        <p class="text-xs text-amber-700/80 mt-2">Al usar la misma URL de tu perfil, Google y las IA enlazan este artículo directamente con tu identidad de especialista.</p>
+        <p class="text-xs text-amber-700/80 mt-2">Al usar la misma URL de tu perfil, Google y las IA enlazan este artículo directamente con tu identidad de especialista de forma inequívoca.</p>
       </div>
 
       <!-- Botón de Envío -->
@@ -81,8 +81,7 @@
     </form>
   </div>
 
-
-    <!-- Modal Popup (Oculto por defecto con 'hidden') -->
+  <!-- Modal Popup (Oculto por defecto con 'hidden') -->
   <div id="schemaModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs items-center justify-center p-4 z-50">
     <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 border border-slate-100 flex flex-col max-h-[85vh]">
       
@@ -91,7 +90,7 @@
         <button id="closeModal" class="text-slate-400 hover:text-slate-600 text-2xl font-semibold p-1 cursor-pointer">&times;</button>
       </div>
 
-      <p class="text-xs text-slate-500 mb-3">Pegá este bloque de código dentro del formato <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600">&lt;head&gt;</code> de tu landing page principal.</p>
+      <p class="text-xs text-slate-500 mb-3">Pegá este bloque de código dentro de la etiqueta <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600">&lt;head&gt;</code> de la página web de tu artículo.</p>
 
       <!-- Textarea de salida -->
       <textarea id="schemaOutput" readonly class="w-full flex-1 font-mono text-xs p-4 bg-slate-900 text-emerald-400 rounded-lg border border-slate-800 resize-none focus:outline-none min-h-[250px]"></textarea>
@@ -106,10 +105,7 @@
     </div>
   </div>
 
-  <!-- Vinculación del script -->
-  <script src="main-art.js"></script>
-</body>
-
-
+  <!-- Vinculación del script independiente -->
+  <script src="art-main.js"></script>
 </body>
 </html>
