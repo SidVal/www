@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const reviewRatingInput = document.getElementById('reviewRating');
   const reviewItemTypeSelect = document.getElementById('reviewItemType');
 
-  contentTypeSelect.addEventListener('change', () => {
+  function syncReviewFields() {
     const isReview = contentTypeSelect.value === 'Review';
 
     reviewFields.classList.toggle('hidden', !isReview);
@@ -25,7 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (reviewItemTypeSelect) {
       reviewItemTypeSelect.toggleAttribute('required', isReview);
     }
-  });
+  }
+
+  contentTypeSelect.addEventListener('change', syncReviewFields);
+  syncReviewFields();
+
+  // sigue tu form.addEventListener...
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -166,6 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function validateInputs(data) {
     const warnings = [];
+    const itemReviewed = getValue('reviewItem');
+
+    if (!itemReviewed) {
+      warnings.push('Falta el nombre del elemento reseñado.');
+    }
 
     if (!isValidUrl(data.pageUrl)) {
       warnings.push('La URL canónica del contenido falta o no parece válida.');
