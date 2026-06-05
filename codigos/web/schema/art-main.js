@@ -1,3 +1,5 @@
+// codigos/web/schema/art-main.js
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('articleForm');
   const contentTypeSelect = document.getElementById('contentType');
