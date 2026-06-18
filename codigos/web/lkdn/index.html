@@ -74,12 +74,15 @@
     <option value="Consultoría de TI">
   </datalist>
 
-  <label for="tipo">Tipo de mensaje</label>
-  <select id="tipo">
-    <option value="propuesta">Propuesta inicial</option>
-    <option value="seguimiento">Seguimiento</option>
-    <option value="cierre">Cierre</option>
-  </select>
+<label for="tipo">Tipo de mensaje</label>
+<select id="tipo">
+  <option value="propuesta">Propuesta inicial genérica</option>
+  <option value="solicitud_clara">Solicitud clara</option>
+  <option value="solicitud_rara">Solicitud rara o difusa</option>
+  <option value="posible_spam">Posible spam o autopromoción</option>
+  <option value="seguimiento">Seguimiento</option>
+  <option value="cierre">Cierre</option>
+</select>
 
   <label for="mensaje">Mensaje generado</label>
   <textarea id="mensaje" readonly></textarea>
@@ -88,31 +91,56 @@
   <div id="copiado" class="copiado" style="display:none;">Mensaje copiado al portapapeles</div>
 
   <script src="templates.js"></script>
-  <script>
-    const nombre = document.getElementById('nombre');
-    const servicio = document.getElementById('servicio');
-    const tipo = document.getElementById('tipo');
-    const mensaje = document.getElementById('mensaje');
-    const copiado = document.getElementById('copiado');
+<script>
+  const nombre = document.getElementById('nombre');
+  const servicio = document.getElementById('servicio');
+  const tipo = document.getElementById('tipo');
+  const mensaje = document.getElementById('mensaje');
+  const copiado = document.getElementById('copiado');
 
-    function actualizarMensaje() {
-      const plantilla = templates[tipo.value] || '';
-      const texto = plantilla
-        .replace(/{{nombre}}/g, nombre.value || 'Cliente')
-        .replace(/{{servicio}}/g, servicio.value || 'tu servicio');
-      mensaje.value = texto;
-    }
+  function slugify(text) {
+    return text
+      .toString()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
 
-    function copiarMensaje() {
+  function actualizarMensaje() {
+    const plantilla = templates[tipo.value] || '';
+
+    const nombreValor = nombre.value.trim() || 'Cliente';
+    const servicioValor = servicio.value.trim() || 'tu proyecto';
+    const servicioUrl = slugify(servicioValor) || 'no-estoy-seguro';
+
+    const texto = plantilla
+      .replace(/{{nombre}}/g, nombreValor)
+      .replace(/{{servicio}}/g, servicioValor)
+      .replace(/{{servicio_url}}/g, servicioUrl);
+
+    mensaje.value = texto;
+  }
+
+  async function copiarMensaje() {
+    try {
+      await navigator.clipboard.writeText(mensaje.value);
+    } catch (error) {
       mensaje.select();
       document.execCommand('copy');
-      copiado.style.display = 'block';
-      setTimeout(() => copiado.style.display = 'none', 2000);
     }
 
-    nombre.addEventListener('input', actualizarMensaje);
-    servicio.addEventListener('input', actualizarMensaje);
-    tipo.addEventListener('change', actualizarMensaje);
-  </script>
+    copiado.style.display = 'block';
+    setTimeout(() => copiado.style.display = 'none', 2000);
+  }
+
+  nombre.addEventListener('input', actualizarMensaje);
+  servicio.addEventListener('input', actualizarMensaje);
+  tipo.addEventListener('change', actualizarMensaje);
+
+  actualizarMensaje();
+</script>
 </body>
 </html>
