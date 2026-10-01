@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Schema para Cursos</title>
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 p-6">
+
+  <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8 border border-slate-100">
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-slate-900">Configuración de Curso (Schema.org)</h1>
+      <p class="text-sm text-slate-500 mt-1">
+        Genera datos estructurados para cursos, capacitaciones, talleres, mentorías o formaciones online.
+      </p>
+    </div>
+
+    <form id="courseForm" class="space-y-5">
+
+      <div>
+        <label for="courseName" class="block text-sm font-semibold text-slate-700 mb-1">Nombre del Curso (name)</label>
+        <input type="text" id="courseName" required placeholder="Ej. Curso de SEO Técnico para WordPress"
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <div>
+        <label for="courseDescription" class="block text-sm font-semibold text-slate-700 mb-1">Descripción del Curso (description)</label>
+        <textarea id="courseDescription" rows="3" required placeholder="Explica qué aprenderá el alumno, para quién es y qué problema resuelve..."
+                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"></textarea>
+      </div>
+
+      <div>
+        <label for="courseUrl" class="block text-sm font-semibold text-slate-700 mb-1">URL Oficial del Curso (url)</label>
+        <input type="url" id="courseUrl" required placeholder="https://tusitio.com/curso-seo"
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <div>
+        <label for="courseImage" class="block text-sm font-semibold text-slate-700 mb-1">URL de Imagen del Curso (image)</label>
+        <input type="url" id="courseImage" placeholder="https://tusitio.com/img/curso.jpg"
+               class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm">
+      </div>
+
+      <div class="bg-slate-100 p-4 rounded-lg border border-slate-200 space-y-4">
+        <h3 class="text-sm font-bold text-slate-900">Proveedor e Instructor</h3>
+
+        <div>
+          <label for="courseProvider" class="block text-sm font-semibold text-slate-700 mb-1">Nombre del Proveedor (provider)</label>
+          <input type="text" id="courseProvider" required placeholder="Ej. Waldo López / Nombre de la Academia"
+                 class="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm">
+        </div>
+
+        <div>
+          <label for="providerType" class="block text-sm font-semibold text-slate-700 mb-1">Tipo de Proveedor</label>
+          <select id="providerType"
+                  class="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm cursor-pointer">
+            <option value="Person">Persona</option>
+            <option value="Organization">Organización</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="courseInstructor" class="block text-sm font-semibold text-slate-700 mb-1">Instructor Principal (opcional)</label>
+          <input type="text" id="courseInstructor" placeholder="Ej. Juan Pérez"
+                 class="w-full px-4 py-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm">
+        </div>
+      </div>
+
+      <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 space-y-4">
+        <h3 class="text-sm font-bold text-blue-900">Instancia del Curso (CourseInstance)</h3>
+
+        <div>
+          <label for="courseMode" class="block text-xs font-semibold text-blue-800 mb-1">Modalidad del Curso (courseMode)</label>
+          <select id="courseMode"
+                  class="w-full px-3 py-1.5 border border-blue-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm cursor-pointer">
+            <option value="online">Online</option>
+            <option value="onsite">Presencial</option>
+            <option value="blended">Mixto</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="startDate" class="block text-xs font-semibold text-blue-800 mb-1">Fecha de Inicio (startDate)</label>
+            <input type="date" id="startDate"
+                   class="w-full px-3 py-1.5 border border-blue-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+          </div>
+
+          <div>
+            <label for="endDate" class="block text-xs font-semibold text-blue-800 mb-1">Fecha de Finalización (endDate)</label>
+            <input type="date" id="endDate"
+                   class="w-full px-3 py-1.5 border border-blue-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label for="courseWorkload" class="block text-xs font-semibold text-blue-800 mb-1">Duración / Carga Horaria (timeRequired)</label>
+          <input type="text" id="courseWorkload" placeholder="Ej. PT12H para 12 horas, P4W para 4 semanas"
+                 class="w-full px-3 py-1.5 border border-blue-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+          <p class="text-[11px] text-blue-700 mt-1">
+            Formato ISO 8601 recomendado: PT2H, PT12H, P4W, P3M.
+          </p>
+        </div>
+
+        <div>
+          <label for="courseLocation" class="block text-xs font-semibold text-blue-800 mb-1">Lugar o Plataforma (opcional)</label>
+          <input type="text" id="courseLocation" placeholder="Ej. Zoom, Google Meet, Buenos Aires, Plataforma propia"
+                 class="w-full px-3 py-1.5 border border-blue-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+        </div>
+      </div>
+
+      <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100 space-y-4">
+        <h3 class="text-sm font-bold text-emerald-900">Oferta Comercial (Offer)</h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="coursePrice" class="block text-xs font-semibold text-emerald-800 mb-1">Precio (price)</label>
+            <input type="number" id="coursePrice" min="0" placeholder="Ej. 120"
+                   class="w-full px-3 py-1.5 border border-emerald-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+          </div>
+
+          <div>
+            <label for="courseCurrency" class="block text-xs font-semibold text-emerald-800 mb-1">Divisa / Moneda (priceCurrency)</label>
+            <select id="courseCurrency"
+                    class="w-full px-3 py-1.5 border border-emerald-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm cursor-pointer">
+              <option value="USD">USD - Dólares Americanos</option>
+              <option value="EUR">EUR - Euros</option>
+              <option value="ARS">ARS - Pesos Argentinos</option>
+              <option value="MXN">MXN - Pesos Mexicanos</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="offerUrl" class="block text-xs font-semibold text-emerald-800 mb-1">URL de Inscripción / Compra (opcional)</label>
+          <input type="url" id="offerUrl" placeholder="https://tusitio.com/curso-seo#inscripcion"
+                 class="w-full px-3 py-1.5 border border-emerald-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Temario / Módulos del Curso</label>
+
+        <div id="modulesContainer" class="space-y-2">
+          <div class="flex gap-2">
+            <input type="text" required placeholder="Ej. Módulo 1: Fundamentos y diagnóstico inicial"
+                   class="course-module w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+            <button type="button" class="remove-module hidden text-red-500 hover:text-red-700 font-bold px-2 cursor-pointer">&times;</button>
+          </div>
+        </div>
+
+        <button type="button" id="addModuleBtn"
+                class="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors cursor-pointer">
+          + Añadir otro módulo
+        </button>
+      </div>
+
+      <div class="pt-2">
+        <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 text-sm cursor-pointer shadow-sm">
+          Generar Schema del Curso
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <div id="schemaModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-xs items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 border border-slate-100 flex flex-col max-h-[85vh]">
+
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-bold text-slate-950">Código Schema.org Generado</h2>
+        <button id="closeModal" class="text-slate-400 hover:text-slate-600 text-2xl font-semibold p-1 cursor-pointer">&times;</button>
+      </div>
+
+      <p class="text-xs text-slate-500 mb-3">
+        Inserta este bloque dentro del <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600">&lt;head&gt;</code> de la landing page específica del curso.
+      </p>
+
+      <textarea id="schemaOutput" readonly class="w-full flex-1 font-mono text-xs p-4 bg-slate-900 text-emerald-400 rounded-lg border border-slate-800 resize-none focus:outline-none min-h-[250px]"></textarea>
+
+      <div class="mt-4 flex gap-3 justify-end">
+        <button id="copySchema" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-colors duration-200 text-sm cursor-pointer shadow-sm">
+          Copiar Código
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="course-main.js"></script>
+</body>
+</html>

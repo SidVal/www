@@ -1,3 +1,5 @@
+// codigos/web/schema/LocalBusiness.js
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('businessForm');
   const modal = document.getElementById('schemaModal');
