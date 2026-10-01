@@ -1,39 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>TimeShots</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
   <style>
-    body { background-color: #fff; padding-top: 5rem; font-family: sans-serif; }
-    .task-row { margin-bottom: 0.5rem; }
-    .btn-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 0; }
-    .status-indicator { margin-left: 0.5rem; font-size: 1.2rem; }
-    .navbar { background-color: #f8f9fa; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .badge-action { cursor: pointer; font-size: 1rem; }
+    body {
+      background-color: #fff;
+      padding-top: 5rem;
+      font-family: sans-serif;
+    }
+
+    .task-row {
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .status-indicator {
+      margin-left: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .navbar {
+      background-color: #f8f9fa;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .task-completed .task-name {
+      text-decoration: line-through;
+      opacity: 0.65;
+    }
+
+    .task-running {
+      background-color: #f4fff8;
+      border-radius: 6px;
+      padding: 4px;
+    }
   </style>
 </head>
+
 <body>
+
   <nav class="navbar fixed-top px-3">
     <span class="navbar-brand">🕹️ TimeShots Panel</span>
-    <div>
-      <span class="badge bg-info badge-action me-2" id="loadTasks">+CargarTareas</span>
-      <span class="badge bg-primary badge-action me-2" id="endDay">Cierre del día</span>
-      <span class="badge bg-danger badge-action" id="clearMemory">Liberar memoria</span>
-      <label class="ms-3">
+
+    <div class="d-flex align-items-center gap-2">
+
+      <button
+        type="button"
+        class="btn btn-info btn-sm fw-bold"
+        id="loadTasks"
+      >
+        +CargarTareas
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-primary btn-sm fw-bold"
+        id="endDay"
+      >
+        Cierre del día
+      </button>
+
+      <label class="ms-2">
         <input type="checkbox" id="enableDelete" />
-        <span style="font-size:0.95em;user-select:none;">Habilitar borrado</span>
+        <span style="font-size:0.95em; user-select:none;">
+          Habilitar borrado
+        </span>
       </label>
+
     </div>
   </nav>
 
   <div class="container">
-    <input id="taskInput" class="form-control mb-3" placeholder="Enter task ID and press Enter" />
+
+    <input
+      id="taskInput"
+      class="form-control mb-3"
+      placeholder="Ingresar tarea y presionar Enter"
+      autocomplete="off"
+    />
+
+    <div id="dayInfo" class="small text-muted mb-3"></div>
+
     <div id="taskList"></div>
+
+    <div id="daySummary" class="mt-4"></div>
+
   </div>
 
-  <!-- Tu JS externo, después de Bootstrap -->
   <script src="./timeshots.js"></script>
+
 </body>
 </html>
